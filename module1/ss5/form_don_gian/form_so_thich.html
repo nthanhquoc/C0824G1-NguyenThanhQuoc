@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form So thich</title>
+    <style>
+      body{
+        width: 400px;
+        background-color: aqua;
+      }
+      form{
+        background-color: aliceblue;
+      }
+      h1 {
+        background-color: red;
+        color: aliceblue;
+        text-align: center;
+      }
+      label{
+        color:blue;
+      }
+
+    </style>
+</head>
+<body>
+<form method="get">
+  <h1>SỞ THÍCH CỦA BẠN</h1>
+  <table>
+    <tr>
+      <td><label for="fullname">Họ và Tên</label></td>
+      <td><input type="text" name="fullname" id="fullname" style="width:90%"></td>
+    </tr>
+    <tr>
+      <td><label for="mail">Email</label></td>
+      <td><input type="email" name="email" id="mail"></td>
+    </tr>
+    <tr>
+      <td style="vertical-align: text-top"><label>Sở Thích</label></td>
+      <td colspan="3">
+        <table style="color:orangered">
+          <tr>
+            <td><input type="checkbox" name="hobby" value="thethao">Thể Thao</td>
+            <td><input type="checkbox" name="hobby" value="amnhac">Âm nhạc</td>
+            <td><input type="checkbox" name="hobby" value="docsach">Đọc Sách</td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" name="hobby" value="luotweb">Lướt Web</td>
+            <td><input type="checkbox" name="hobby" value="choigame">Chơi Game</td>
+            <td><input type="checkbox" name="hobby" value="dienanh">Điện Ảnh</td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" name="hobby" value="dulich">Du Lịch</td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+     <table>
+       <tr>
+         <td>
+           <input type="submit" value="Gửi Thông Tin">
+         </td>
+         <td><input type="reset" value="Nhập Lại"></td>
+       </tr>
+     </table>
+      </td>
+    </tr>
+  </table>
+
+</form>
+</body>
+</html>
