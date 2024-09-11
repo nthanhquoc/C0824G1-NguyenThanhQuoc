@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chuyển Đổi Tiền Tệ</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th><label for="number">Ammount</label></th>
+            <th><label for="fromcurry"></label>From Currency</th>
+            <th><label for="tocurry">To Currency</label></th>
+            <th></th>
+        </tr>
+        <tr>
+            <td><input type="number" name="number" id="number"></td>
+            <td>
+                <select name="tiente" id="fromcurry">
+                    <option value="vietnam">Viet Nam</option>
+                    <option value="usd">USD</option>
+                </select>
+            </td>
+            <td>
+                <select name="tiente" id="tocurry">
+                    <option value="usd">USD</option>
+                    <option value="vietnam">VietNam</option>
+                </select>
+            </td>
+            <td><button onclick="chuyendoi()">Convert</button></td>
+        </tr>
+    </table>
+    <div id="result"></div>
+    <script src="chuyendoi.js"></script>
+</body>
+</html>
