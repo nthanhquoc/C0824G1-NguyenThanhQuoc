@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+  <tr>
+    <td>
+      <label for="ly">Nhập Điểm Vật Lý</label>
+    </td>
+    <td>
+      <input type="number" name="ly" id="ly" step="0.01">
+    </td>
+  </tr>
+  <tr>
+    <td><label for="hoa">Nhập Điểm Hóa Học</label></td>
+    <td><input type="number" name="hoa" id="hoa" step="0.01"></td>
+  </tr>
+  <tr>
+    <td>
+      <label for="sinh">Nhập Điểm Sinh Học</label>
+    </td>
+    <td><input type="number" name="sinh" id="sinh" step="0.01"></td>
+  </tr>
+  <tr>
+    <td><button onclick="tinhdiem()">Tính Điểm Trung Bình</button></td>
+    <td><button onclick="tinhtong()">Tính Tổng</button></td>
+  </tr>
+</table>
+<div id="hienthi"></div>
+<script src="diem_tb.js"></script>
+</body>
+</html>
