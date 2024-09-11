@@ -5,18 +5,17 @@
     <title>Title</title>
 </head>
 <body>
-<form method="get">
   <label for="toan">Nhap Diem Toan :</label>
-  <input type="number" name="toan" id="toan">
+  <input type="number" name="toan" id="toan" step="0.01">
   <br>
   <label for="van">Nhap Diem Van :</label>
-  <input type="number" name="van" id="van">
+  <input type="number" name="van" id="van" step="0.01">
   <br>
   <label for="anh">Nhap Diem Anh :</label>
-  <input type="number" name="anh" id="anh">
+  <input type="number" name="anh" id="anh" step="0.01">
   <br>
-  <button onclick="tinhdiem()">Tinh Diem</button>
-</form>
+  <button id="btn">Tinh Diem</button>
+  <div id="hienthi"></div>
     <script src="baitap.js"></script>
 </body>
 </html>
