@@ -14,7 +14,7 @@ let caculation;
                         resultCaculator.innerHTML="Caculator: "+caculation+" ";
                         break;
                     case '-':
-                        caculation=parseFirstNumber + parseSecondNumber;
+                        caculation=parseFirstNumber - parseSecondNumber;
                         resultCaculator.innerHTML="Caculator: "+caculation+" ";
                         break;
                     case '*':
@@ -24,6 +24,7 @@ let caculation;
                     case'/':
                         if(parseSecondNumber==0){
                             alert("Lỗi");
+                            break;
                         }
                         else{
                             caculation=parseFirstNumber / parseSecondNumber;
