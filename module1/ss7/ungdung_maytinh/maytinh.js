@@ -1,32 +1,35 @@
 let firstNumber=document.getElementById('number1');
 let secondNumber=document.getElementById('number2');
 let resultCaculator=document.getElementById('result');
+let buttonCaculator=document.getElementsByClassName('btn');
+let caculation;
 
-function addition(){
-    let parseFirstNumber=parseFloat(firstNumber.value);
-    let parseSecondNumber=parseFloat(secondNumber.value);
-    let numberAddition=parseFirstNumber+parseSecondNumber;
-    resultCaculator.innerHTML="Caculator: "+numberAddition+" ";
-}
-
-function subtraction(){
-    let parseFirstNumber=parseFloat(firstNumber.value);
-    let parseSecondNumber=parseFloat(secondNumber.value);
-    let numberAddition=parseFirstNumber-parseSecondNumber;
-    resultCaculator.innerHTML="Caculator: "+numberAddition+" ";
-}
-
-function multip(){
-    let parseFirstNumber=parseFloat(firstNumber.value);
-    let parseSecondNumber=parseFloat(secondNumber.value);
-    let numberAddition=parseFirstNumber*parseSecondNumber;
-    resultCaculator.innerHTML="Caculator: "+numberAddition+" ";
-}
-
-function division(){
-    let parseFirstNumber=parseFloat(firstNumber.value);
-    let parseSecondNumber=parseFloat(secondNumber.value);
-    let numberAddition=parseFirstNumber/parseSecondNumber;
-    resultCaculator.innerHTML="Caculator: "+numberAddition+" ";
-
-}
+    for(let i=0;i<buttonCaculator.length;i++){
+        buttonCaculator[i].addEventListener('click', function(){
+            let parseFirstNumber=parseFloat(firstNumber.value);
+            let parseSecondNumber=parseFloat(secondNumber.value);
+            switch (buttonCaculator[i].value) {
+                    case '+':
+                        caculation=parseFirstNumber + parseSecondNumber;
+                        resultCaculator.innerHTML="Caculator: "+caculation+" ";
+                        break;
+                    case '-':
+                        caculation=parseFirstNumber + parseSecondNumber;
+                        resultCaculator.innerHTML="Caculator: "+caculation+" ";
+                        break;
+                    case '*':
+                        caculation=parseFirstNumber * parseSecondNumber;
+                        resultCaculator.innerHTML="Caculator: "+caculation+" ";
+                        break;
+                    case'/':
+                        if(parseSecondNumber==0){
+                            alert("Lỗi");
+                        }
+                        else{
+                            caculation=parseFirstNumber / parseSecondNumber;
+                            resultCaculator.innerHTML="Caculator: "+caculation+" ";
+                        }
+                        break;
+            }
+        })
+    }

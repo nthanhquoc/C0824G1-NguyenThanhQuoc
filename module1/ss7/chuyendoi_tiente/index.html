@@ -7,13 +7,13 @@
 <body>
     <table>
         <tr>
-            <th><label for="number">Ammount</label></th>
+            <th><label for="amount">Ammount</label></th>
             <th><label for="fromcurry"></label>From Currency</th>
             <th><label for="tocurry">To Currency</label></th>
             <th></th>
         </tr>
         <tr>
-            <td><input type="number" name="number" id="number"></td>
+            <td><input type="number" name="number" id="amount"></td>
             <td>
                 <select name="tiente" id="fromcurry">
                     <option value="vietnam">Viet Nam</option>
@@ -26,7 +26,7 @@
                     <option value="vietnam">VietNam</option>
                 </select>
             </td>
-            <td><button onclick="chuyendoi()">Convert</button></td>
+            <td><button onclick="convertMoney()">Convert</button></td>
         </tr>
     </table>
     <div id="result"></div>
