@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dien Tich Tam Giac Vuong</title>
+</head>
+<body>
+    <table>
+      <tr>
+        <td><input type="number" id="firstNumber" placeholder="Nhap Canh Ke"></td>
+        <td><input type="number" id="secondNumber" placeholder="Nhap Canh Ke"></td>
+        <td><button onclick="squareTriangle()">Tinh Dien Tich</button></td>
+        <td><button onclick="resetDefault()">Reset</button></td>
+      </tr>
+    </table>
+  <div id="displayResult"></div>
+<script>
+  let firstNumber=document.getElementById('firstNumber');
+  let secondNumber=document.getElementById('secondNumber');
+  let displayResult=document.getElementById('displayResult');
+  let area;
+  function squareTriangle(){
+    let valueFirstNumber=parseInt(firstNumber.value);
+    let valueSecondNumber=parseInt(secondNumber.value);
+    area=1/2*valueSecondNumber*valueFirstNumber;
+    displayResult.innerHTML=`Dien Tich Tam Giac Vuong La ${area} `;
+  }
+  function resetDefault(){
+    displayResult.innerHTML='';
+    firstNumber.value='';
+    secondNumber.value='';
+  }
+
+</script>
+</body>
+</html>

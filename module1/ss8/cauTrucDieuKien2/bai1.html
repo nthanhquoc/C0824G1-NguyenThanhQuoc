@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chuyen Doi Tu Do C Sang Do F</title>
+</head>
+<body>
+    <table>
+        <tr><input type="number" id="inputTemperature" placeholder="Nhap Nhiet Do"></tr>
+        <tr><button onclick="conversion()">Chuyen Doi</button></tr>
+        <tr><button onclick="resetDisplay()">Dat lai</button></tr>
+    </table>
+    <div id="displayResult"></div>
+    <script>
+        let inputTemperature=document.getElementById('inputTemperature');
+        let displayResult=document.getElementById('displayResult');
+        let calculatorTemperature;
+        function conversion(){
+            let valueInputTemperature=parseInt(inputTemperature.value);
+            calculatorTemperature=valueInputTemperature * 9/5 +32 ;
+            displayResult.innerHTML=`${valueInputTemperature}<sup>o</sup>C thanh ${calculatorTemperature} <sup>o</sup>F`;
+        }
+        function resetDisplay(){
+            displayResult.innerHTML='';
+            inputTemperature.value='';
+        }
+    </script>
+</body>
+</html>

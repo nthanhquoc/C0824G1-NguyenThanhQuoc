@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tinh Dien Tich Hinh Vuong</title>
+</head>
+<body>
+      <table>
+        <tr>
+          <td><input type="number" id="inputLength" placeholder="Nhap Canh a"></td>
+          <td><button onclick="squareArea()">Tinh Dien Tich</button></td>
+        </tr>
+      </table>
+  <div id="displayResult"></div>
+  <script>
+    let inputLength = document.getElementById('inputLength');
+    let displayResult=document.getElementById('displayResult');
+    let square;
+    function squareArea(){
+      let valueInputLength=parseInt(inputLength.value);
+      square=Math.pow(valueInputLength,2);
+      displayResult.innerHTML=`Dien Tich Hinh Vuong la ${square} `;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dien Tich Hinh Chu Nhat</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <td><input type="number"  id="inputHeight" placeholder="Nhap Chieu Dai"></td>
+            <td><input type="number"  id="inputWidth" placeholder="Nhap Chieu Rong"></td>
+            <td><button onclick="rectangularArea()">Tinh Dien Tich</button></td>
+            <td><button onclick="resetDefault()">Reset</button></td>
+        </tr>
+    </table>
+<div id="displayResult"></div>
+<script>
+    let inputHeight=document.getElementById('inputHeight');
+    let inputWidth=document.getElementById('inputWidth');
+    let displayResult=document.getElementById('displayResult');
+    let area;
+    function rectangularArea(){
+        let valueInputHeight=parseInt(inputHeight.value);
+        let valueInputWidth=parseInt(inputWidth.value);
+        let area=valueInputHeight* valueInputWidth;
+        displayResult.innerHTML=`Dien Tich Hinh Chu Nhat La ${area} `;
+    }
+    function resetDefault(){
+        displayResult.innerHTML='';
+        inputWidth.value='';
+        inputHeight.value='';
+    }
+</script>
+</body>
+</html>

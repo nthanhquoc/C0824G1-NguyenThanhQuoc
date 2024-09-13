@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chuyển từ mét sang feet</title>
+</head>
+<body>
+    <table>
+      <tr>
+        <td><input type="number" id="inputMet" placeholder="Nhap So Met"></td>
+        <td><button onclick="changeMeter()">Chuyen Doi</button></td>
+      </tr>
+    </table>
+    <div id="displayResult"></div>
+    <script>
+        let inputMet=document.getElementById('inputMet');
+        let displayResult=document.getElementById('displayResult');
+        let convertNumber;
+        function changeMeter(){
+          let valueInputMet=parseInt(inputMet.value);
+          convertNumber=valueInputMet/0.3048;
+          displayResult.innerHTML=`<h3>${convertNumber} ft </h3>`;
+        }
+    </script>
+</body>
+</html>
