@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tinh Chi So Can Nang</title>
+</head>
+<body>
+    <table>
+      <tr>
+        <th><label for="numberWeight">Nhap Can Nang : (Kg)</label></th>
+        <td><input type="number" placeholder="Nhap Can Nang" id="numberWeight" step="1"></td>
+      </tr>
+      <tr>
+        <th><label for="numberHeight">Nhap Chieu Cao : (m)</label></th>
+        <td><input type="number" placeholder="Nhap Chieu Cao" id="numberHeight" step="0.01"></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><button onclick="caculatorOfBmi()">Tinh BMI</button></td>
+      </tr>
+    </table>
+    <div id="resultInterpretation"></div>
+    <script src="tinhCanNang.js"></script>
+</body>
+</html>
