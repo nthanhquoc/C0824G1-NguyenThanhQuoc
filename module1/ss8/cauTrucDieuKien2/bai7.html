@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <table>
+    <tr>
+      <td><input type="number" id="firstNumber" placeholder="Nhap Bien a"></td>
+      <td><input type="number" id="secondNumber" placeholder="Nhap Bien b"></td>
+      <td><input type="number" id="thirdNumber" placeholder="Nhap Bien c"></td>
+      <td><button onclick="solveSecondOrderEquation()">Giai Phuong Trinh Bac 2</button></td>
+        <td><button onclick="ResetDefault()">Reset</button></td>
+    </tr>
+  </table>
+<div id="displayResult"></div>
+<script>
+  let firstNumber=document.getElementById('firstNumber');
+  let secondNumber=document.getElementById('secondNumber');
+  let thirdNumber=document.getElementById('thirdNumber');
+  let displayResult=document.getElementById('displayResult');
+  let delta;
+  let x;
+  let x1,x2;
+  function solveSecondOrderEquation(){
+    let valueFirstNumber=parseInt(firstNumber.value);
+    let valueSecondNumber=parseInt(secondNumber.value);
+    let valueThirdNumber=parseInt(thirdNumber.value);
+    if(valueFirstNumber!=0){
+        delta=Math.pow(valueSecondNumber,2)-4*valueFirstNumber*valueThirdNumber;
+        if(delta>0){
+            x1= -((valueSecondNumber) + Math.sqrt(delta)) / (2*valueFirstNumber);
+            x2= -((valueSecondNumber) - Math.sqrt(delta)) / (2*valueFirstNumber);
+            displayResult.innerHTML=`Phuong Trinh Co Hai Nghiem x1 = ${x1} va x2 = ${x2} `;
+        }
+        else if(delta ==0){
+            x=-valueSecondNumber/2*valueFirstNumber;
+            displayResult.innerHTML=`Phuong Trinh Co Nghiem Kep x1 = x2 = ${x}`;
+        }
+        else{
+            displayResult.innerHTML="Phuonng Trinh Vo Nghiem";
+        }
+    }else if(valueSecondNumber!=0){
+        x=-valueThirdNumber/valueSecondNumber;
+        displayResult.innerHTML=`x = -c/b la ${x}`;
+    }
+    else if(valueSecondNumber==0){
+        if(valueThirdNumber!=0){
+            displayResult.innerHTML='Phuong Trinh vo nghiem';
+        }
+        else{
+            displayResult.innerHTML='Phuong Trinh co vo so nghiem';
+        }
+    }
+
+  }
+  function ResetDefault(){
+      displayResult.innerHTML='';
+      firstNumber.value='';
+      secondNumber.value='';
+      thirdNumber.value='';
+  }
+</script>
+</body>
+</html>

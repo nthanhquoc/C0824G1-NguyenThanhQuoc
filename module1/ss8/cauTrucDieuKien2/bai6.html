@@ -5,8 +5,35 @@
   <title>Giai Phuong Trinh Bac Mot</title>
 </head>
 <body>
+    <h3>Phuong Trinh Co Dang ax+b=0</h3>
     <table>
-      
+      <tr>
+        <td><input type="number"  id="firstNumber" placeholder="Nhap Bien Thu Nhat"></td>
+        <td><input type="number"  id="secondNumber" placeholder="Nhap Bien Thu Hai"></td>
+        <td><button onclick="firstOrderEquation()">Giai Phuong Trinh bac 1</button></td>
+      </tr>
     </table>
+  <div id="displayResult"></div>
+  <script>
+    let firstNumber=document.getElementById('firstNumber');
+    let secondNumber=document.getElementById('secondNumber');
+    let displayResult=document.getElementById('displayResult');
+    let x;
+    function firstOrderEquation(){
+      let valueFirstNumber=parseInt(firstNumber.value);
+      let valueSecondNumber=parseInt(secondNumber.value);
+      if(valueFirstNumber==0) {
+        if (valueSecondNumber == 0) {
+          displayResult.innerHTML = 'Phuong Trinh Vo So Nghiem';
+        } else if (valueSecondNumber != 0) {
+          displayResult.innerHTML = 'Phuong Trinh Vo nghiem';
+        }
+      }
+      else if(valueFirstNumber!=0){
+          x=-valueSecondNumber/valueFirstNumber;
+          displayResult.innerHTML=`Phuong Trinh Co Nghiem la ${x}`;
+        }
+    }
+  </script>
 </body>
 </html>
