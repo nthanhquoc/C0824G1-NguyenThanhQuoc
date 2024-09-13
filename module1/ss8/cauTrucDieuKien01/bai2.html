@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai 2</title>
+</head>
+<body>
+  <table>
+    <tr>
+      <td><label for="ageInput">Nhap Tuoi</label></td>
+      <td><input type="Number" id="ageInput"></td>
+    </tr>
+    <tr>
+      <td>
+      </td>
+      <td><button onclick="checkAge()">Kiem Tra</button></td>
+    </tr>
+  </table>
+  <div id="resultDisplay"></div>
+  <script>
+    let ageInput=document.getElementById('ageInput');
+    let resultDisplay=document.getElementById('resultDisplay');
+    function checkAge(){
+      let ageInputValue= parseInt(ageInput.value);
+      if(ageInputValue == 15){
+        resultDisplay.innerHTML="<h3>Du Dieu Kien Vao Hoc Lop 10 </h3>";
+      }
+      else{
+        resultDisplay.innerHTML="<h3> Khong DU Dieu Kien Vao Hoc Lop 10</h3>";
+      }
+    }
+  </script>
+</body>
+
+</html>

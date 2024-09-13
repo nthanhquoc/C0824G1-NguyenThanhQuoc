@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tim 3 So Lon Nhat</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>
+                <label for="firstNumber">Nhap So Dau Tien</label>
+            </td>
+            <td><input type="number" id="firstNumber"></td>
+        </tr>
+        <tr>
+            <td>
+                <label for="secondNumber">Nhap So Thu Hai</label>
+            </td>
+            <td><input type="number"  id="secondNumber"></td>
+        </tr>
+        <tr>
+            <td><label for="thirdNumber">Nhap So Thu Ba</label></td>
+            <td><input type="number" id="thirdNumber"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><button onclick="findMaxOfThreeNumber()">Tim Gia Tri Lon Nhat</button></td>
+        </tr>
+    </table>
+    <div id="displayResult"></div>
+    <script>
+        let firstNumber=document.getElementById('firstNumber');
+        let secondNumber=document.getElementById('secondNumber');
+        let thirdNumber=document.getElementById('thirdNumber');
+        let displayResult=document.getElementById('displayResult');
+        function findMaxOfThreeNumber(){
+            let valueFirstNumber=parseInt(firstNumber.value);
+            let valueSecondNumber=parseInt(secondNumber.value);
+            let valueThirdNumber=parseInt(thirdNumber.value);
+
+            if(valueFirstNumber>=valueSecondNumber && valueFirstNumber>=valueThirdNumber){
+                displayResult.innerHTML= `${valueFirstNumber} lon nhat`;
+            }
+            else if(valueSecondNumber >= valueFirstNumber && valueSecondNumber >=valueThirdNumber){
+                displayResult.innerHTML=`${valueSecondNumber} lon nhat`;
+            }
+            else{
+                displayResult.innerHTML=`${valueThirdNumber} lon nhat`;
+            }
+        }
+    </script>
+</body>
+</html>

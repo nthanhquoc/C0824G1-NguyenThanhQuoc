@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Xep Hang Hoc Luc</title>
+</head>
+<body>
+    <table>
+      <tr>
+        <td><label for="testPoint">Nhap Diem Kiem Tra</label></td>
+        <td><input type="number" id="testPoint"></td>
+      </tr>
+      <tr>
+        <td><label for="midPoint">Nhap Diem Giua Ky</label></td>
+        <td><input type="number"  id="midPoint"></td>
+      </tr>
+      <tr>
+        <td><label for="finalPoint">Nhap Diem Cuoi Ky</label></td>
+        <td><input type="number"  id="finalPoint"></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><button onclick="checkAcademic()">Xep Hang Hoc Luc</button></td>
+      </tr>
+    </table>
+    <div id="displayResult"></div>
+    <script>
+      let testPoint=document.getElementById('testPoint');
+      let midPoint=document.getElementById('midPoint');
+      let finalPoint=document.getElementById('finalPoint');
+      let displayResult=document.getElementById('displayResult');
+      function checkAcademic(){
+        let valueTestPoint=parseFloat(testPoint.value);
+        let valueMidPoint=parseFloat(midPoint.value);
+        let valueFinalPoint=parseFloat(finalPoint.value);
+        let avg=(valueFinalPoint+valueMidPoint+valueTestPoint)/3;
+        if(avg >=9.0){
+          displayResult.innerHTML=`Hoc Luc Xuat Sac voi diem ${avg}`;
+        }
+        else if(avg >=8.0){
+          displayResult.innerHTML=`Hoc Luc Gioi voi diem ${avg}`;
+        }
+        else if(avg >=7.0){
+          displayResult.innerHTML=`Hoc Luc Kha voi diem ${avg}`;
+        }
+        else if(avg >=5.0){
+          displayResult.innerHTML=`Hoc Luc Trung Binh voi diem ${avg}`;
+        }
+        else{
+          displayResult.innerHTML=`Hoc Luc Yeu voi diem ${avg}`;
+        }
+      }
+    </script>
+</body>
+</html>

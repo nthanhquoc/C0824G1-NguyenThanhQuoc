@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai 3</title>
+</head>
+<body>
+    <table>
+      <tr>
+        <td><label for="inputNumber">Nhap So Nguyen</label></td>
+        <td><input type="number" id="inputNumber"></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><button onclick="checkNumber()">Check Number</button></td>
+      </tr>
+    </table>
+    <div id="displayResult"></div>
+    <script>
+        let inputNumber=document.getElementById('inputNumber');
+        let displayResult=document.getElementById('displayResult');
+        function checkNumber(){
+            let valueInputNumber=parseInt(inputNumber.value);
+            if(valueInputNumber >0){
+                displayResult.innerHTML=`${valueInputNumber} lon hon 0`;
+            }
+            else if(valueInputNumber<0){
+                displayResult.innerHTML=`${valueInputNumber} nho hon 0`;
+            }
+            else{
+                displayResult.innerHTML=`${valueInputNumber} = 0`;
+            }
+        }
+    </script>
+</body>
+</html>

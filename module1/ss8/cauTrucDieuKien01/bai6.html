@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tinh Hoa Hong</title>
+</head>
+<body>
+    <table>
+      <tr>
+        <td>
+          <label for="saleDirectory">Nhap Danh So Ban Hang</label>
+        </td>
+        <td>
+          <input type="number" id="saleDirectory">
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><button onclick="calculationCommission()">Tinh Hoa Hong</button></td>
+      </tr>
+    </table>
+  <div id="displayResult"></div>
+  <script>
+    let saleDirectory=document.getElementById('saleDirectory');
+    let displayResult=document.getElementById('displayResult');
+    let percentCommission;
+    let commission;
+    function calculationCommission(){
+      let valueSaleDirectory=parseInt(saleDirectory.value);
+      if(valueSaleDirectory <= 10000000){
+        percentCommission=0.05;
+        commission=valueSaleDirectory*percentCommission;
+        displayResult.innerHTML=`Hoa Hong la ${commission}`;
+      }
+      else if(valueSaleDirectory<=20000000){
+        percentCommission=0.07;
+        commission=valueSaleDirectory*percentCommission;
+        displayResult.innerHTML=`Hoa Hong la ${commission}`;
+      }
+      else if(valueSaleDirectory<=50000000){
+        percentCommission=0.10;
+        commission=valueSaleDirectory*percentCommission;
+        displayResult.innerHTML=`Hoa Hong la ${commission}`;
+      }
+      else{
+        percentCommission=0.15;
+        commission=valueSaleDirectory*percentCommission;
+        displayResult.innerHTML=`Hoa Hong la ${commission}`;
+      }
+    }
+  </script>
+</body>
+</html>

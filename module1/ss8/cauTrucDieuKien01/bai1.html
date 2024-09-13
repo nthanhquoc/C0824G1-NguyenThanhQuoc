@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai 1</title>
+</head>
+<body>
+    <table>
+      <tr>
+        <td><label for="firstNumber">Nhap vao so a</label></td>
+        <td>
+          <input type="number" id="firstNumber">
+        </td>
+      </tr>
+      <tr>
+        <td><label for="secondNumber">Nhap vao so b</label></td>
+        <td><input type="number" id="secondNumber"></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><button onclick="checkNumber()">Kiem Tra</button></td>
+      </tr>
+    </table>
+    <div id="displayResult"></div>
+    <script>
+        let firstNumber=document.getElementById('firstNumber');
+        let secondNumber=document.getElementById('secondNumber');
+        let displayResult=document.getElementById('displayResult');
+        function checkNumber(){
+            let firstNumberValue=parseFloat(firstNumber.value);
+            let secondNumberValue=parseFloat(secondNumber.value);
+            if(firstNumberValue % secondNumberValue || firstNumberValue % secondNumberValue ===0){
+              displayResult.innerHTML=`${firstNumberValue} chia het cho ${secondNumberValue}`;
+            }else{
+              displayResult.innerHTML=`${firstNumberValue} khongchia het cho ${secondNumberValue}`;
+            }
+        }
+    </script>
+</body>
+</html>
