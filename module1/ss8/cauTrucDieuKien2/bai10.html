@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tinh Gia Dien</title>
+</head>
+<body>
+        <table>
+            <tr>
+            <td>
+                <input type="number" id="inputKwh" placeholder="Nhap So Kwh Tiêu thụ: ">
+            </td>
+            </tr>
+            <tr>
+                <td><button onclick="calPriceElectric()">Tinh Gia Dien</button></td>
+            </tr>
+        </table>
+        <div id="resultDisplay"></div>
+        <script>
+            let inputKwh=document.getElementById('inputKwh');
+            let resultDisplay=document.getElementById('resultDisplay');
+            let price;
+            function calPriceElectric(){
+                let valueInputKwh=parseFloat(inputKwh.value);
+                if(valueInputKwh<0){
+                    resultDisplay.innerHTML="So Kwh khong duoc nho hon 0";
+                }
+                else if(valueInputKwh<=50){
+                    price=valueInputKwh*1500;
+                    resultDisplay.innerHTML=`Tong So Tien Phai Tra La: ${price} VND`;
+                }
+                else if(valueInputKwh<=100){
+                    price=(50*1500)+(valueInputKwh-50)*2000;
+                    resultDisplay.innerHTML=`Tong So Tien Phai Tra La: ${price} VND`;
+                }
+                else if(valueInputKwh<=200){
+                    price=(50*1500)+(50*2000)+(valueInputKwh-100)*2500;
+                    resultDisplay.innerHTML=`Tong So Tien Phai Tra La: ${price} VND`;
+                }
+                else{
+                    price=(50*1500)+(50*2000)+(100*2500)+(valueInputKwh-200)*3000;
+                    resultDisplay.innerHTML=`Tong So Tien Phai Tra La: ${price} VND`;
+                }
+            }
+        </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tinh Thue Thu Thap Ca Nhan</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <td><input type="number" id="inputMonthlyIncome" placeholder="Nhap Thu Nhap Hang Thang"></td>
+        </tr>
+        <tr>
+            <td><button onclick="calPersonalCollectionTax()">Tinh Thu Nhap</button></td>
+        </tr>
+    </table>
+<div id="displayResult"></div>
+<script>
+    let inputMonthlyIncome=document.getElementById('inputMonthlyIncome');
+    let displayResult=document.getElementById('displayResult');
+    let tax;
+    function calPersonalCollectionTax(){
+        let valueInputMonthlyIncome=parseInt(inputMonthlyIncome.value);
+        if(valueInputMonthlyIncome<=5000000){
+            tax=valueInputMonthlyIncome*0.05;
+            displayResult.innerHTML=`So Thue Ca Nhan Can Phai Nop la ${tax} VND`;
+        }else if(valueInputMonthlyIncome<=10000000){
+            tax= 5000000 *0.05 + (valueInputMonthlyIncome - 5000000) *0.10;
+            displayResult.innerHTML=`So Thue Ca Nhan Can Phai Nop la ${tax} VND`;
+        }
+        else if(valueInputMonthlyIncome<=18000000){
+            tax=5000000*0.5+5000000*0.1+(valueInputMonthlyIncome-10000000)*0.15;
+            displayResult.innerHTML=`So Thue Ca Nhan Can Phai Nop la ${tax} VND`;
+        }
+        else if(valueInputMonthlyIncome<32000000){
+            tax=5000000*0.05+5000000*0.10+8000000*0.15+(valueInputMonthlyIncome-180000000)*0.20;
+            displayResult.innerHTML=`So Thue Ca Nhan Can Phai Nop la ${tax} VND`;
+        }
+        else{
+            tax=5000000*0.05+5000000*0.10+8000000*0.15+14000000*0.20+20000000*0.25+28000000*0.30+(valueInputMonthlyIncome-80000000)*0.35;
+            displayResult.innerHTML=`So Thue Ca Nhan Can Phai Nop la ${tax} VND`;
+        }
+    }
+</script>
+</body>
+</html>
