@@ -7,7 +7,7 @@
 <body>
     <table>
         <tr>
-            <td><input type="number"  id="inputHeight" placeholder="Nhap Chieu Dai"></td>
+            <td><input type="number"  id="inputLength" placeholder="Nhap Chieu Dai"></td>
             <td><input type="number"  id="inputWidth" placeholder="Nhap Chieu Rong"></td>
             <td><button onclick="rectangularArea()">Tinh Dien Tich</button></td>
             <td><button onclick="resetDefault()">Reset</button></td>
@@ -15,20 +15,28 @@
     </table>
 <div id="displayResult"></div>
 <script>
-    let inputHeight=document.getElementById('inputHeight');
+    let inputLength=document.getElementById('inputLength');
     let inputWidth=document.getElementById('inputWidth');
     let displayResult=document.getElementById('displayResult');
     let area;
     function rectangularArea(){
-        let valueInputHeight=parseInt(inputHeight.value);
+        let valueInputLength=parseInt(inputLength.value);
         let valueInputWidth=parseInt(inputWidth.value);
-        let area=valueInputHeight* valueInputWidth;
-        displayResult.innerHTML=`Dien Tich Hinh Chu Nhat La ${area} `;
+        if(valueInputLength<=0){
+            displayResult.innerHTML="Chieu Dai Phai Lon Hon 0";
+        }
+        else if(valueInputWidth<=0){
+            displayResult.innerHTML='Chieu Rong Phai Lon Hon 0';
+        }
+        else {
+            let area = valueInputLength * valueInputWidth;
+            displayResult.innerHTML = `Dien Tich Hinh Chu Nhat La ${area} `;
+        }
     }
     function resetDefault(){
         displayResult.innerHTML='';
         inputWidth.value='';
-        inputHeight.value='';
+        inputLength.value='';
     }
 </script>
 </body>

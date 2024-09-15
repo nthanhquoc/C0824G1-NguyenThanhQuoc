@@ -7,8 +7,8 @@
 <body>
     <table>
       <tr>
-        <td><input type="number" id="firstNumber" placeholder="Nhap Canh Ke"></td>
-        <td><input type="number" id="secondNumber" placeholder="Nhap Canh Ke"></td>
+        <td><input type="number" id="firstNumber" placeholder="Nhap Canh Ke Thu Nhat"></td>
+        <td><input type="number" id="secondNumber" placeholder="Nhap Canh Ke Thu Hai"></td>
         <td><button onclick="squareTriangle()">Tinh Dien Tich</button></td>
         <td><button onclick="resetDefault()">Reset</button></td>
       </tr>
@@ -22,8 +22,16 @@
   function squareTriangle(){
     let valueFirstNumber=parseInt(firstNumber.value);
     let valueSecondNumber=parseInt(secondNumber.value);
-    area=1/2*valueSecondNumber*valueFirstNumber;
-    displayResult.innerHTML=`Dien Tich Tam Giac Vuong La ${area} `;
+    if(valueFirstNumber<=0){
+        displayResult.innerHTML="Canh Ke Thu Nhat Phai Lon Hon 0";
+    }
+    else if(valueSecondNumber<=0){
+        displayResult.innerHTML="Canh Ke Thu Hai Phai Lon Hon 0";
+    }
+    else {
+        area = 1 / 2 * valueSecondNumber * valueFirstNumber;
+        displayResult.innerHTML = `Dien Tich Tam Giac Vuong La ${area} `;
+    }
   }
   function resetDefault(){
     displayResult.innerHTML='';

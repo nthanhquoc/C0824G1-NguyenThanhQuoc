@@ -18,8 +18,13 @@
     let square;
     function squareArea(){
       let valueInputLength=parseInt(inputLength.value);
-      square=Math.pow(valueInputLength,2);
-      displayResult.innerHTML=`Dien Tich Hinh Vuong la ${square} `;
+      if(valueInputLength<=0){
+          displayResult.innerHTML='Canh a Phai Lon Hon 0';
+      }
+      else {
+          square = Math.pow(valueInputLength, 2);
+          displayResult.innerHTML = `Dien Tich Hinh Vuong la ${square} `;
+      }
     }
   </script>
 </body>
