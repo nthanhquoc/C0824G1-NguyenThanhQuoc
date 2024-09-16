@@ -3,35 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <title>May Tinh Co Ban</title>
+    <style>
+        div{
+            border: 1px solid black;
+            height: 30px;
+        }
+    </style>
 </head>
 <body>
     <table>
         <tr>
-        <td colspan="4"><input type="number" id="" readonly></td>
+        <td colspan="4"><div id="displayValues"></div></td>
         </tr>
         <tr>
-            <td><button value="1" class="btnNumber">1</button></td>
-            <td><button value="2" class="btnNumber">2</button></td>
-            <td><button value="3" class="btnNumber">3</button></td>
-            <td><button value="+" class="btnOperator">+</button></td>
+            <td><button value="1" class="btn">1</button></td>
+            <td><button value="2" class="btn">2</button></td>
+            <td><button value="3" class="btn">3</button></td>
+            <td><button value="+" class="btn">+</button></td>
         </tr>
         <tr>
-            <td><button value="4" class="btnNumber">4</button></td>
-            <td><button value="5" class="btnNumber">5</button></td>
-            <td><button value="6" class="btnNumber">6</button></td>
-            <td><button value="-" class="btnOperator">-</button></td>
+            <td><button value="4" class="btn">4</button></td>
+            <td><button value="5" class="btn">5</button></td>
+            <td><button value="6" class="btn">6</button></td>
+            <td><button value="-" class="btn">-</button></td>
         </tr>
         <tr>
-            <td><button>7</button></td>
-            <td><button>8</button></td>
-            <td><button>9</button></td>
-            <td><button>*</button></td>
+            <td><button value="7" class="btn">7</button></td>
+            <td><button value="8" class="btn">8</button></td>
+            <td><button value="9" class="btn">9</button></td>
+            <td><button value="*" class="btn">*</button></td>
         </tr>
         <tr>
-            <td><button>C</button></td>
-            <td><button>0</button></td>
-            <td><button>=</button></td>
-            <td><button>/</button></td>
+            <td><button value="C" class="btn">C</button></td>
+            <td><button value="0" class="btn">0</button></td>
+            <td><button value="" class="btn" onclick="equal()">=</button></td>
+            <td><button value="/" class="btn">/</button></td>
         </tr>
     </table>
     <script src="chucNangMayTinh.js"></script>

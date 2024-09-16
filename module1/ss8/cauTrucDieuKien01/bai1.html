@@ -29,10 +29,13 @@
         function checkNumber(){
             let firstNumberValue=parseFloat(firstNumber.value);
             let secondNumberValue=parseFloat(secondNumber.value);
-            if(firstNumberValue % secondNumberValue || firstNumberValue % secondNumberValue ===0){
+            if(secondNumberValue===0){
+                displayResult.innerHTML='Khong The Chia Cho 0';
+            }
+            else if(firstNumberValue % secondNumberValue || firstNumberValue % secondNumberValue ===0){
               displayResult.innerHTML=`${firstNumberValue} chia het cho ${secondNumberValue}`;
             }else{
-              displayResult.innerHTML=`${firstNumberValue} khongchia het cho ${secondNumberValue}`;
+              displayResult.innerHTML=`${firstNumberValue} khong chia het cho ${secondNumberValue}`;
             }
         }
     </script>

@@ -38,10 +38,10 @@
             let valueSecondNumber=parseInt(secondNumber.value);
             let valueThirdNumber=parseInt(thirdNumber.value);
 
-            if(valueFirstNumber>=valueSecondNumber && valueFirstNumber>=valueThirdNumber){
+            if(valueFirstNumber>valueSecondNumber && valueFirstNumber>valueThirdNumber){
                 displayResult.innerHTML= `${valueFirstNumber} lon nhat`;
             }
-            else if(valueSecondNumber >= valueFirstNumber && valueSecondNumber >=valueThirdNumber){
+            else if(valueSecondNumber>valueThirdNumber){
                 displayResult.innerHTML=`${valueSecondNumber} lon nhat`;
             }
             else{
