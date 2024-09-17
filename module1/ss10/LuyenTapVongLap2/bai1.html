@@ -7,12 +7,15 @@
 <body>
     <div id="result"></div>
     <script>
-        let numbers=prompt("Nap N so trong day fibonacci");
+        let numbers=prompt("Nhap N so trong day fibonacci");
         let result=document.getElementById('result');
         let fibonacci;
         let firstNumber=0;
         let secondNumber=1;
-
+        while(isNaN(numbers)){
+          alert("Khong Phai la So");
+          numbers=prompt("Nhap N so trong day fibonacci");
+        }
         result.innerHTML=firstNumber+"<br>"+secondNumber+"<br>";
         for(let i=1;i<=numbers-2;i++){
           fibonacci=firstNumber+secondNumber;
