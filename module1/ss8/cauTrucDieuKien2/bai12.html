@@ -31,28 +31,26 @@
     let displayResult=document.getElementById('displayResult');
     let inputInterestRate=document.getElementById('inputInterestRate');
 
-    function bankInterest(){
-      let valueInputInitialAmount=parseFloat(inputInitialAmount.value);
-      let valueInputMonthOfLoan=parseInt(inputMonthOfLoan.value);
-      let valueInputInterestRate=parseFloat(inputInterestRate.value);
-      console.log(valueInputMonthOfLoan);
-      console.log(valueInputInitialAmount);
-      if(valueInputInitialAmount<=0){
-          displayResult.innerHTML='So Tien Phai Lon Hon 0';
-      }
-      else if(valueInputInitialAmount<0){
-          displayResult.innerHTML='So Tien Khong Duoc Am';
-      }
-      else if(valueInputMonthOfLoan <=0){
-              displayResult.innerHTML='Thang Phai Lon Hon 0';
-      }
-      else if(valueInputInterestRate<=0){
-          displayResult.innerHTML='Lai Suat Phai Lon Hon Khong'
-      }
-        else{
-            let finalAmount=valueInputInitialAmount *Math.pow(1+(valueInputInterestRate/100),valueInputMonthOfLoan);
-            displayResult.innerHTML=`So Tien Phai Tra Sau ${valueInputMonthOfLoan} Thang la ${finalAmount.toFixed(2)} VND`;
-      }
+    function bankInterest() {
+        let valueInputInitialAmount = parseFloat(inputInitialAmount.value);
+        let valueInputMonthOfLoan = parseInt(inputMonthOfLoan.value);
+        let valueInputInterestRate = parseFloat(inputInterestRate.value);
+        console.log(valueInputMonthOfLoan);
+        console.log(valueInputInitialAmount);
+        if (isNaN(valueInputInitialAmount) || isNaN(valueInputMonthOfLoan) || isNaN(valueInputInterestRate)) {
+            displayResult.innerHTML = 'Khong Duoc Nhap  Chu';
+        } else {
+            if (valueInputInitialAmount <= 0) {
+                displayResult.innerHTML = 'So Tien Phai Lon Hon 0';
+            } else if (valueInputMonthOfLoan <= 0) {
+                displayResult.innerHTML = 'Thang Phai Lon Hon 0';
+            } else if (valueInputInterestRate <= 0) {
+                displayResult.innerHTML = 'Lai Suat Phai Lon Hon Khong'
+            } else {
+                let finalAmount = valueInputInitialAmount * Math.pow(1 + (valueInputInterestRate / 100), valueInputMonthOfLoan);
+                displayResult.innerHTML = `So Tien Phai Tra Sau ${valueInputMonthOfLoan} Thang la ${finalAmount.toFixed(2)} VND`;
+            }
+        }
     }
   </script>
 </body>

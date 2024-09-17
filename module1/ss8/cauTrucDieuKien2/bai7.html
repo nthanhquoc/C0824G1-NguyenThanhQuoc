@@ -27,7 +27,10 @@
     let valueFirstNumber=parseInt(firstNumber.value);
     let valueSecondNumber=parseInt(secondNumber.value);
     let valueThirdNumber=parseInt(thirdNumber.value);
-    if(valueFirstNumber!=0){
+    if(isNaN(valueFirstNumber) ||isNaN(valueSecondNumber)||isNaN(valueThirdNumber)){
+      displayResult.innerHTML='Khong Duoc Nhap Chu';
+    }
+    else if(valueFirstNumber!=0){
         delta=Math.pow(valueSecondNumber,2)-4*valueFirstNumber*valueThirdNumber;
         if(delta>0){
             x1= -((valueSecondNumber) + Math.sqrt(delta)) / (2*valueFirstNumber);

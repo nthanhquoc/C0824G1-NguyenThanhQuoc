@@ -22,15 +22,17 @@
     function rectangularArea(){
         let valueInputLength=parseInt(inputLength.value);
         let valueInputWidth=parseInt(inputWidth.value);
-        if(valueInputLength<=0){
-            displayResult.innerHTML="Chieu Dai Phai Lon Hon 0";
-        }
-        else if(valueInputWidth<=0){
-            displayResult.innerHTML='Chieu Rong Phai Lon Hon 0';
-        }
-        else {
-            let area = valueInputLength * valueInputWidth;
-            displayResult.innerHTML = `Dien Tich Hinh Chu Nhat La ${area} `;
+        if(isNaN(valueInputLength) || isNaN(valueInputWidth)){
+            displayResult.innerHTML="Khong Duoc Nhap Chu";
+        }else {
+            if (valueInputLength <= 0) {
+                displayResult.innerHTML = "Chieu Dai Phai Lon Hon 0";
+            } else if (valueInputWidth <= 0) {
+                displayResult.innerHTML = 'Chieu Rong Phai Lon Hon 0';
+            } else {
+                let area = valueInputLength * valueInputWidth;
+                displayResult.innerHTML = `Dien Tich Hinh Chu Nhat La ${area} `;
+            }
         }
     }
     function resetDefault(){

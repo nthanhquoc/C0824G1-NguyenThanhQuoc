@@ -29,14 +29,24 @@
         let valueFirstNumber=parseFloat(firstNumber.value);
         let valueSecondNumber=parseFloat(secondNumber.value);
         let valueThirdNumber=parseFloat(thirdNumber.value);
-        if(valueFirstNumber>0 && valueSecondNumber>0&&valueThirdNumber>0){
-            if(valueFirstNumber+valueSecondNumber>valueThirdNumber)
-                if(valueSecondNumber+valueThirdNumber>valueFirstNumber)
-                    if(valueFirstNumber+valueThirdNumber>valueSecondNumber)
-                        displayResult.innerHTML='la 1 canh cua tam giac';
+        if(isNaN(valueFirstNumber)||isNaN(valueSecondNumber)||isNaN(valueThirdNumber)){
+            displayResult.innerHTML='Khong Duoc Nhap Chu';
         }
-        else{
-            displayResult.innerHTML="Khong phai la canh cua tam giac"};
+        else {
+            if (valueFirstNumber > 0 && valueSecondNumber > 0 && valueThirdNumber > 0) {
+                if ((valueFirstNumber + valueSecondNumber > valueThirdNumber)
+                    &&(valueSecondNumber + valueThirdNumber > valueFirstNumber)
+                        &&(valueFirstNumber + valueThirdNumber > valueSecondNumber)){
+                    displayResult.innerHTML = 'la 1 canh cua tam giac';
+                }
+                else{
+                    displayResult.innerHTML='Khong phai la canh cua tam giac';
+                }
+
+            } else {
+                displayResult.innerHTML = "Khong phai la canh cua tam giac"
+            }
+        }
     }
 </script>
 </body>

@@ -19,13 +19,16 @@
     let displayResult=document.getElementById('displayResult');
     function checkAge(){
       let valueInputNumber=parseInt(inputNumber.value);
-      if(valueInputNumber <=120 && valueInputNumber>0){
-        displayResult.innerHTML="Day la Do Tuoi Cua 1 Nguoi";
+      if(isNaN(valueInputNumber)){
+          displayResult.innerHTML="Khong Duoc Nhap Chu";
       }
-      else{
-        displayResult.innerHTML="Day Khong Phai la Do Tuoi Cua 1 Nguoi";
+      else {
+          if (valueInputNumber <= 120 && valueInputNumber > 0) {
+              displayResult.innerHTML = "Day la Do Tuoi Cua 1 Nguoi";
+          } else {
+              displayResult.innerHTML = "Day Khong Phai la Do Tuoi Cua 1 Nguoi";
+          }
       }
-
     }
   </script>
 </body>

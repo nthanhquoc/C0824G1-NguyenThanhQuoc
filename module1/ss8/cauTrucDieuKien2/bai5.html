@@ -22,16 +22,18 @@
   function squareTriangle(){
     let valueFirstNumber=parseInt(firstNumber.value);
     let valueSecondNumber=parseInt(secondNumber.value);
-    if(valueFirstNumber<=0){
-        displayResult.innerHTML="Canh Ke Thu Nhat Phai Lon Hon 0";
-    }
-    else if(valueSecondNumber<=0){
-        displayResult.innerHTML="Canh Ke Thu Hai Phai Lon Hon 0";
-    }
-    else {
-        area = 1 / 2 * valueSecondNumber * valueFirstNumber;
-        displayResult.innerHTML = `Dien Tich Tam Giac Vuong La ${area} `;
-    }
+       if(isNaN(valueFirstNumber)||isNaN(valueSecondNumber)){
+          displayResult.innerHTML="Khong Duoc Nhap Chu";
+      }else {
+          if (valueFirstNumber <= 0) {
+              displayResult.innerHTML = "Canh Ke Thu Nhat Phai Lon Hon 0";
+          } else if (valueSecondNumber <= 0) {
+              displayResult.innerHTML = "Canh Ke Thu Hai Phai Lon Hon 0";
+          } else {
+              area = 1 / 2 * valueSecondNumber * valueFirstNumber;
+              displayResult.innerHTML = `Dien Tich Tam Giac Vuong La ${area} `;
+          }
+      }
   }
   function resetDefault(){
     displayResult.innerHTML='';
