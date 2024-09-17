@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tong 30 So Dau Tien</title>
+</head>
+<body>
+  <div id="result"></div>
+  <script>
+      let count=0;
+      let sum=0;
+      let result=document.getElementById('result');
+      for(let i=1;i<1000;i++){
+        if(i%7===0){
+          count++;
+          sum+=i;
+        }
+        if(count===30){
+          break;
+        }
+      }
+      result.innerHTML=`Tong cua 30 So Dau Tien Chia Het Cho 7 la ${sum}`;
+  </script>
+</body>
+</html>

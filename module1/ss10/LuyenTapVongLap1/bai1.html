@@ -1,10 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Dem tu 1 den 100</title>
 </head>
 <body>
-$END$
+<div id="result"></div>
+<script>
+    let displayResult = document.getElementById("result");
+    for (let i = 1; i <= 100; i++) {
+        if (i === 99) {
+            alert('Da Hoan Thanh');
+        }
+        displayResult.innerHTML += i + "<br>";
+    }
+</script>
 </body>
 </html>

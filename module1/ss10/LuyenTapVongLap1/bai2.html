@@ -1,10 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
-$END$
+<script>
+    let temperature;
+    while (true) {
+        temperature = prompt("Nhap Nhiet Do: ");
+        temperature = parseFloat(temperature);
+        if (temperature > 100) {
+            alert("Nhiet Do Qua Cao Yeu Cau Giam Nhiet Do");
+        } else if (temperature < 20) {
+            alert("Nhiet Do Qua Thap Yeu Cau Tang Nhiet Do");
+        } else {
+            alert("Nhiet Do Phu Hop");
+            break
+        }
+
+    }
+</script>
 </body>
 </html>

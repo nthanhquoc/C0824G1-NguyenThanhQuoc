@@ -1,10 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Tong 20 So Dau Tien</title>
 </head>
 <body>
-$END$
+    <div id="result"></div>
+    <script>
+        let numbers=20;
+        let fibonacci;
+        let numberOne=0;
+        let numberTwo=1;
+        let sum=0;
+        let result=document.getElementById('result');
+        for(let i=1;i<=numbers;i++){
+            fibonacci=numberOne+numberTwo;
+            numberOne=numberTwo;
+            numberTwo=fibonacci;
+            sum+=fibonacci;
+        }
+        result.innerHTML=`Tong Cua 20 So Dau Tien Trong day fibo la ${sum}`;
+    </script>
 </body>
 </html>

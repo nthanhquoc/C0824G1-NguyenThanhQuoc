@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai 8</title>
+</head>
+<body>
+    <button id="btnGame">Choi</button>
+    <div id="displayResult"></div>
+    <script>
+            let btnGame=document.getElementById('btnGame');
+            let count=0;
+            let displayResult=document.getElementById('displayResult');
+            btnGame.addEventListener('click',function(){
+            let numbers = +prompt("Ban Muon Doan Trong Khoang Nao: ");
+            while(isNaN(numbers)){
+                alert('Khong Duoc Nhap Ky Tu');
+                numbers = +prompt("Ban Muon Doan Trong Khoang Nao: ");
+            }
+            let randomNumber = Math.floor(Math.random() * numbers + 1);
+            console.log(randomNumber);
+            while(count<3) {
+                count++;
+                let userInput = prompt("Nhap So Ban Doan");
+                if(count==3 && userInput!=randomNumber){
+                    displayResult.innerHTML='Ban Da Het So Lan Doan';
+                    break;
+                }
+                else if (userInput == randomNumber) {
+                    alert('Ban Da Doan Dung');
+                    btnGame.innerHTML='Choi Lai';
+                    break;
+                } else if (userInput > randomNumber) {
+                    alert('So Ban Doan Lon Hon');
+                } else {
+                    alert('So Ban Doan Nho Hon');
+                }
+            }
+        })
+    </script>
+</body>
+</html>

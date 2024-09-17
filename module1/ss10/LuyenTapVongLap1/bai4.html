@@ -1,10 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>So Dau Tien Trong Day Fibo chia het cho 5</title>
 </head>
 <body>
-$END$
+    <div id="result"></div>
+    <script>
+      let result = document.getElementById('result');
+      let numbers=prompt("Nhap N so trong day Fibonacci");
+      let fibonacci;
+      let numberOne = 0;
+      let numberTwo = 1;
+      while(isNaN(numbers)){
+          alert('Phai La So');
+          numbers=prompt("Nhap N so trong day Fibonacci");
+      }
+      for (let i = 1; i <= numbers; i++) {
+        fibonacci = numberOne + numberTwo;
+        numberOne = numberTwo;
+        numberTwo = fibonacci;
+        //console.log(fib);
+        if(fibonacci % 5 === 0){
+          result.innerHTML=`So Dau Tien Trong Day Fibo Chia het cho 5:${fibonacci}`;
+          break;
+        }
+      }
+    </script>
 </body>
 </html>
