@@ -12,13 +12,13 @@
     let fibonacci;
     let numberOne = 0;
     let numberTwo = 1;
-    result.innerHTML = numberOne.toString() + " , " + numberTwo.toString() + " , "
-    for (let i = 1; i <= number; i++) {
+    result.innerHTML = numberOne+ "<br> " + numberTwo + "<br>"
+    for (let i = 1; i <= number-2; i++) {
         fibonacci = numberOne +numberTwo;
         numberOne = numberTwo;
         numberTwo = fibonacci;
         //console.log(fib);
-        result.innerHTML += fibonacci + " , ";
+        result.innerHTML += fibonacci + "<br>";
     }
 
 </script>
