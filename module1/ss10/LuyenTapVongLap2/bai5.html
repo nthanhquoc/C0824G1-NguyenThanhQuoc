@@ -24,7 +24,6 @@
             alert("Nhap Sai");
             inputInterestRate = prompt('Nhap Lai Suat Hang Thang: ');
         }
-        inputInterestRate=inputInterestRate/100;
         let finalAmount = inputInitialAmount * Math.pow(1 + (inputInterestRate / 100), inputMonthOfLoan);
         displayResult.innerHTML = `So Tien Phai Tra Sau ${inputMonthOfLoan} Thang la ${finalAmount.toFixed(2)} VND`;
 </script>
