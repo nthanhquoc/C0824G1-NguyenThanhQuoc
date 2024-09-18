@@ -7,41 +7,44 @@
 <body>
   <script>
       let count;
-    for(let i=1;i<=5;i++){
+      let i;
+      let j;
+      let z;
+    for(i=1;i<=5;i++){
         count = '';
-      for(let j=1;j<=i;j++){
+      for(j=1;j<=i;j++){
           count+='*';
       }
       document.write(count+'<br>');
     }
       document.write("<br>");
 
-    for(let i=5;i>=1;i--){
+    for(i=5;i>=1;i--){
         count = '';
-        for(let j=1;j<=i;j++){
+        for(j=1;j<=i;j++){
             count+='*';
         }
         document.write(count+'<br>');
     }
       document.write("<br>");
 
-    for(let i=1;i<=5;i++){
+    for(i=1;i<=5;i++){
         count = '';
-        for(let z=1;z<=5-i;z++){
+        for(z=1;z<=5-i;z++){
             count += '&#8192';
         }
-        for(let j=1;j<=i;j++){
+        for(j=1;j<=i;j++){
             count+='*';
         }
         document.write(count+'<br>');
     }
       document.write("<br>");
-    for(let i=5;i>=1;i--){
+    for(i=5;i>=1;i--){
         count = '';
-        for(let z=1;z<=5-i;z++){
+        for(z=1;z<=5-i;z++){
             count+="&#8192";
         }
-        for(let j=1;j<=i;j++){
+        for(j=1;j<=i;j++){
             count+='*';
         }
         document.write(count+'<br>');
