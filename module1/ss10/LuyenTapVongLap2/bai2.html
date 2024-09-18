@@ -10,13 +10,11 @@
         let factorial = 1;
       let result=document.getElementById('result');
       let number=prompt("Nhap n So Nguyen Duong");
-      while(isNaN(number)){
-        alert('Khong Phai la So');
+      while(isNaN(number)||number<0){
+        alert('Nhap Sai So phai la lon hon 0 hoac khong phai chua ky tu');
         number=prompt("Nhap 1 So Nguyen Duong");
       }
-      if(number<0){
-        alert("Phai la So Nguyen Duong");
-      }else if(number==0||number==1){
+      if(number==0||number==1){
           result.innerHTML = `Giai Thua Cua ${number} la ${factorial}`;
       }else{
         for(let i=1;i<=number;i++){
