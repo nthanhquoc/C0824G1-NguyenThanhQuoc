@@ -7,7 +7,7 @@
 <body>
     <div id="result"></div>
     <script>
-      let giaiThua=1;
+        let factorial = 1;
       let result=document.getElementById('result');
       let number=prompt("Nhap n So Nguyen Duong");
       while(isNaN(number)){
@@ -17,12 +17,12 @@
       if(number<0){
         alert("Phai la So Nguyen Duong");
       }else if(number==0||number==1){
-        result.innerHTML=`Giai Thua Cua ${number} la ${giaiThua}`;
+          result.innerHTML = `Giai Thua Cua ${number} la ${factorial}`;
       }else{
         for(let i=1;i<=number;i++){
-          giaiThua *=i;
+            factorial *= i;
         }
-        result.innerHTML=`Giai Thua cua ${number} la ${giaiThua}`;
+          result.innerHTML = `Giai Thua cua ${number} la ${factorial}`;
       }
     </script>
 </body>
