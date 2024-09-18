@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hinh Chu Nhat</title>
+</head>
+<body>
+    <script>
+      for(let i=1;i<=5;i++){
+        let count='';
+        for(let j=1;j<=10;j++){
+          if(i===1||i===5||j===1||j===10){
+            count+='*';
+          }else{
+            count+='&#8192';
+          }
+        }
+        document.write(count+'<br>');
+      }
+    </script>
+</body>
+</html>

@@ -10,24 +10,24 @@
     let numbers = prompt("Nhap n So Nguyen To: ");
     let displayResult = document.getElementById('result');
     let count = 0;
-    let N = 2;
+    let firstPrimeNumber = 2;
     while (isNaN(numbers)){
         alert('Khong Duoc Nhap Ky Tu');
         numbers = prompt("Nhap n So Nguyen To: ");
     }
     while (count < numbers) {
-        if (checkPrimeNumber(N)) {
-            console.log(N);
-            displayResult.innerHTML += N + "<br>";
+        if (checkPrimeNumber(firstPrimeNumber)) {
+            console.log(firstPrimeNumber);
+            displayResult.innerHTML += firstPrimeNumber + "<br>";
             count++;
         }
-        N++;
+        firstPrimeNumber++;
     }
 
-    function checkPrimeNumber(n) {
-        if (n < 2) return false;
-        for (let i = 2; i < n; i++) {
-            if (n % i === 0) return false;
+    function checkPrimeNumber(number) {
+        if (number < 2) return false;
+        for (let i = 2; i < number; i++) {
+            if (number % i === 0) return false;
         }
         return true;
     }

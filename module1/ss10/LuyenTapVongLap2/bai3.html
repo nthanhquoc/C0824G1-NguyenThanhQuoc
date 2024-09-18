@@ -6,7 +6,43 @@
 </head>
 <body>
   <script>
+    for(let i=1;i<=5;i++){
+        let count='';
+      for(let j=1;j<=i;j++){
+          count+='*';
+      }
+      document.write(count+'<br>');
+    }
 
+    for(let i=5;i>=1;i--){
+        let count='';
+        for(let j=1;j<=i;j++){
+            count+='*';
+        }
+        document.write(count+'<br>');
+    }
+
+    for(let i=1;i<=5;i++){
+        let count='';
+        for(let z=1;z<=5-i;z++){
+            count += '&#8192';
+        }
+        for(let j=1;j<=i;j++){
+            count+='*';
+        }
+        document.write(count+'<br>');
+    }
+
+    for(let i=5;i>=1;i--){
+        let count='';
+        for(let z=1;z<=5-i;z++){
+            count+="&#8192";
+        }
+        for(let j=1;j<=i;j++){
+            count+='*';
+        }
+        document.write(count+'<br>');
+    }
   </script>
 </body>
 </html>
