@@ -7,23 +7,26 @@
 <body>
 <div id="displayResult"></div>
 <script>
-        let InputInitialAmount = prompt('Nhap So Tien Ban Dau: ');
-        let InputMonthOfLoan = prompt('Nhap So Thang Cho Vay: ');
-        let InputInterestRate = prompt('Nhap Lai Suat Hang Thang: ');
-        let displayResult=
-        while(isNaN(InputInitialAmount)||inputInitialAmount<=0) {
+        let inputInitialAmount = prompt('Nhap So Tien Ban Dau: ');
+        let displayResult = document.getElementById('displayResult');
+        while (isNaN(inputInitialAmount) || inputInitialAmount <= 0) {
+            alert("Nhap Sai");
+            inputInitialAmount = prompt('Nhap So Tien Ban Dau: ');
+        }
 
+        let inputMonthOfLoan = prompt('Nhap So Thang Cho Vay: ');
+        while (isNaN(inputMonthOfLoan) || inputMonthOfLoan <= 0) {
+            alert("Nhap Sai");
+            inputMonthOfLoan = prompt('Nhap So Thang Cho Vay: ');
         }
-        if (valueInputInitialAmount <= 0) {
-            displayResult.innerHTML = 'So Tien Phai Lon Hon 0';
-        } else if (valueInputMonthOfLoan <= 0) {
-            displayResult.innerHTML = 'Thang Phai Lon Hon 0';
-        } else if (valueInputInterestRate <= 0) {
-            displayResult.innerHTML = 'Lai Suat Phai Lon Hon Khong'
-        } else {
-            let finalAmount = valueInputInitialAmount * Math.pow(1 + (valueInputInterestRate / 100), valueInputMonthOfLoan);
-            displayResult.innerHTML = `So Tien Phai Tra Sau ${valueInputMonthOfLoan} Thang la ${finalAmount.toFixed(2)} VND`;
+        let inputInterestRate = prompt('Nhap Lai Suat Hang Thang: ');
+        while (isNaN(inputInterestRate) || inputInterestRate <= 0) {
+            alert("Nhap Sai");
+            inputInterestRate = prompt('Nhap Lai Suat Hang Thang: ');
         }
+        inputInterestRate=inputInterestRate/100;
+        let finalAmount = inputInitialAmount * Math.pow(1 + (inputInterestRate / 100), inputMonthOfLoan);
+        displayResult.innerHTML = `So Tien Phai Tra Sau ${inputMonthOfLoan} Thang la ${finalAmount.toFixed(2)} VND`;
 </script>
 </body>
 </html>
