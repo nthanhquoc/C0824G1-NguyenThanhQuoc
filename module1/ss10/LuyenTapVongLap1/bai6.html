@@ -9,17 +9,18 @@
   <script>
       let count=0;
       let sum=0;
-      let number=1;
+
       let result=document.getElementById('result');
-      for(let i=1;i<=number;i++){
+      let i=1;
+      while(true){
         if(i%7===0){
-          count++;
-          sum+=i;
+            count++;
+            sum+=i;
         }
         if(count===30){
-          break;
+            break;
         }
-        number++;
+        i++;
       }
       result.innerHTML=`Tong cua 30 So Dau Tien Chia Het Cho 7 la ${sum}`;
   </script>
