@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <script>
+    let array=[];
+    let valueArray;
+    let result='';
+    let number=prompt('Co Bao Nhieu Phan Tu Can Nhap: ');
+
+    for(let i=0;i<number;i++) {
+      valueArray = prompt(`Nhap Phan Tu Thu ${i + 1}: `);
+      array.push(valueArray);
+      if (array[i - 1] % 2 === 0 && array[i] % 2 === 0) {
+        result += "-";
+      }
+      result+=array[array.length-1];
+    }
+    document.write(result);
+  </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chuyen Doi Ky Tu</title>
+</head>
+<body>
+  <script>
+    let result='';
+    let array=[];
+    let number=prompt('Nhap Chuoi:');
+    for(let i=0;i<number.length;i++){
+      array=number;
+      let char=array[i];
+      if(char===char.toLowerCase()){
+        result+=char.toUpperCase()
+      }
+      else{
+        result+=char.toLowerCase();
+      }
+    }
+    document.write(result);
+  </script>
+</body>
+</html>

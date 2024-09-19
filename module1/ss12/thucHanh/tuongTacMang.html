@@ -1,10 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
-$END$
+<input type="text" id="txtValue">
+<input type="button" id="btnAdd" value="Add"/>
+<input type="button" id="btnDisplay" value="Display"/>
+<div id="result"></div>
+
+<script>
+    let x=0;
+    let array = new Array();
+    let btnAdd=document.getElementById('btnAdd');
+    let btnDisplay=document.getElementById('btnDisplay');
+    btnAdd.addEventListener('click',function(){
+        array[x]=document.getElementById('txtValue').value;
+        alert('Element: '+array[x]+" Added at index "+x);
+        x++;
+        document.getElementById('txtValue').value='';
+    })
+    btnDisplay.addEventListener('click',function(){
+        let e='<hr>';
+        for(let i=0;i<array.length;i++){
+            e+='Element '+i+' = '+array[i]+"<br>";
+        }
+        document.getElementById('result').innerHTML=e;
+    })
+</script>
 </body>
 </html>

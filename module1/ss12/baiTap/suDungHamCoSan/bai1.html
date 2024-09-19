@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai 1</title>
+</head>
+<body>
+    <script>
+        let myColor=[];
+        let number=prompt('Co Bao Nhieu Phan Tu Can Nhap:');
+        while(isNaN(number)){
+          alert('Number Phai la So');
+          number=prompt('Co Bao Nhieu Phan Tu Can Nhap:');
+        }
+        let valueArray;
+        for(let i=0;i<number;i++){
+            valueArray=prompt(`Nhap Phan Tu Thu ${i+1}`);
+            myColor.push(valueArray);
+            myColor.join(',')
+        }
+        document.write('Chuoi Sau Khi Noi la: '+myColor);
+    </script>
+</body>
+</html>
