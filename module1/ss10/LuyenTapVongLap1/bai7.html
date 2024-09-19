@@ -9,14 +9,14 @@
   <script>
       let result=document.getElementById('result');
     for(let i=1;i<100;i++){
-      if(i%3===0){
+        if (i % 3 === 0 && i % 5 === 0) {
+            result.innerHTML += 'FizzBuzz' + "<br>";
+            continue;
+        } else if (i % 3 === 0) {
         result.innerHTML+='Fizz'+"<br>";
         continue;
       }else if(i%5===0){
         result.innerHTML+='Buzz'+"<br>";
-        continue;
-      }else if(i%3===0 && i%5===0){
-        result.innerHTML+='FizzBuzz'+"<br>";
         continue;
       }
       result.innerHTML +=i+"<br>";

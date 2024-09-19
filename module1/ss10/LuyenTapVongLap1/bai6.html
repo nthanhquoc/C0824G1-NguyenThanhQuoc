@@ -5,23 +5,14 @@
     <title>Tong 30 So Dau Tien</title>
 </head>
 <body>
-  <div id="result"></div>
   <script>
-      let count=0;
-      let sum=0;
-      let number=1;
-      let result=document.getElementById('result');
-      for(let i=1;i<=number;i++){
-        if(i%7===0){
-          count++;
-          sum+=i;
-        }
-        if(count===30){
-          break;
-        }
-        number++;
+      let result = 0;
+      let sum = 0;
+      for( let i =1; i<=30; i++){
+          result = 7*i;
+          sum += result;
       }
-      result.innerHTML=`Tong cua 30 So Dau Tien Chia Het Cho 7 la ${sum}`;
+      document.write(sum);
   </script>
 </body>
 </html>
