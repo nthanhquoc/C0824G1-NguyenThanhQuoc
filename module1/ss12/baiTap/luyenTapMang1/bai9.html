@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai9</title>
+</head>
+<body>
+<script>
+    let arrOne = [];
+    let arrTwo = [];
+    let arrThree = new Array(20);
+    let valueArrayOne;
+    let valueArrayTwo;
+    for (let i = 0; i < 10; i++) {
+        valueArrayOne = +prompt(`Nhap phan thu ${i} Cua Mang 1`);
+        while (isNaN(valueArrayOne) || !parseInt(valueArrayOne) == valueArrayOne) {
+            alert('Khong Duoc Chua Ky Tu Hoac So Thap Phan');
+            valueArray = +prompt(`Nhap phan thu ${i} Cua Mang 1`);
+        }
+        arrOne.push(valueArrayOne);
+    }
+    for (let i = 0; i < 10; i++) {
+        valueArrayTwo = +prompt(`Nhap phan thu ${i} Cua Mang 2`);
+        while (isNaN(valueArrayTwo) || !parseInt(valueArrayTwo) == valueArrayTwo) {
+            alert('Khong Duoc Chua Ky Tu Hoac So Thap Phan');
+            valueArrayTwo = +prompt(`Nhap phan thu ${i} Cua Mang 2`);
+        }
+        arrTwo.push(valueArrayTwo);
+    }
+
+    arrThree=arrOne.concat(arrTwo);
+    document.write(`Mang C la ${arrThree}`);
+</script>
+</body>
+</html>

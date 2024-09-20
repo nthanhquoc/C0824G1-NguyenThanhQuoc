@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai8</title>
+</head>
+<body>
+<script>
+    let arr = [];
+    let valueArray;
+    let number = 10;
+    for (let i = 0; i < number; i++) {
+        valueArray = +prompt(`Nhap Phan Tu Thu ${i}: `);
+        while (isNaN(valueArray) || !parseInt(valueArray) == valueArray) {
+            alert('Phan Tu Mang Khong Duoc Chua Ky Tu, Khong Chua So Thap Phan');
+            valueArray = +prompt(`Nhap Phan Tu Thu ${i}: `);
+        }
+        arr.push(valueArray);
+    }
+    arr.sort(function (a, b) {
+        return b - a;
+    })
+    document.write(arr);
+</script>
+</body>
+</html>

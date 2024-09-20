@@ -2,18 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Bai6</title>
+    <title>Title</title>
 </head>
 <body>
 <script>
     let arr = [];
     let valueArray;
-    let number=10;
-    for (let i = 0; i <number; i++) {
-        valueArray = +prompt(`Nhap phan thu ${i}`);
+    let number = 10;
+    for (let i = 0; i < number; i++) {
+        valueArray = +prompt(`Nhap Phan Tu Thu ${i+1}: `);
         while (isNaN(valueArray) || !parseInt(valueArray) == valueArray) {
-            alert('Khong Duoc Chua Ky Tu Hoac So Thap Phan');
-            valueArray = +prompt(`Nhap phan thu ${i}`);
+            alert('Phan Tu Mang Khong Duoc Chua Ky Tu, Khong Chua So Thap Phan');
+            valueArray = +prompt(`Nhap Phan Tu Thu ${i}: `);
         }
         arr.push(valueArray);
     }
@@ -22,9 +22,12 @@
         alert('So Can Kiem Tra Khong Chua Ky Tu Hoac la So Thap Phan');
         numberCheck = +prompt('Nhap So Can Kiem Tra :');
     }
-    let checkNumberInArray = arr.indexOf(numberCheck);
-    if (checkNumberInArray !== -1) {
-        document.write(`${numberCheck} Co Trong Mang`);
+    let checkAppear = arr.indexOf(numberCheck);
+    if (checkAppear != -1) {
+        let deleteNumber = arr.splice(checkAppear, 1)
+        document.write(`${numberCheck} Da Xoa Ra Khoi Mang`);
+        document.write("<br>")
+        document.write(`Mang Sau Khi Xoa la ${arr}`);
     } else {
         document.write(`${numberCheck} Khong Co Trong Mang`);
     }
