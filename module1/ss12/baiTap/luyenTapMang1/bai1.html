@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="resultArray"></div>
+<div id="result"></div>
+<script>
+    let array = [];
+    let number = 10;
+    let valueArray;
+    let count = 0;
+    let result = document.getElementById('result');
+    let resultArray = document.getElementById('resultArray');
+    for (let i = 0; i < number; i++) {
+        valueArray = prompt(`Nhap Phan Thu Thu ${i + 1}: `);
+        while (isNaN(valueArray) || !parseInt(valueArray) === valueArray) {
+            alert('Khong Duoc Nhap Ky Tu Hoac Khong Phai La So Nguyen');
+            valueArray = prompt(`Nhap Phan Thu Thu ${i + 1}: `);
+        }
+        array.push(valueArray);
+        if (array[i] >= 0) {
+            count++;
+        }
+    }
+    resultArray.innerHTML = `Mang : [ ${array} ]`;
+    result.innerHTML = `Co ${count} So Nguyen Duong Lon Hon Hoac Bang 0`;
+</script>
+</body>
+</html>

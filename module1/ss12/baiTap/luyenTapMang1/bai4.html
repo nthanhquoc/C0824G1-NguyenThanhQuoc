@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dao Nguoc Mang</title>
+</head>
+<body>
+<div id="resultArray"></div>
+<div id="resultReverArray"></div>
+<script>
+    let arr = [];
+    let reverArray;
+    let valueArray;
+    let resultArray = document.getElementById('resultArray');
+    let resultReverArray = document.getElementById('resultReverArray');
+    let number = +prompt('Co Bao Nhieu Phan Tu Trong Mang: ');
+    while (isNaN(number) || number < 0 || !parseInt(number) === number) {
+        alert('Khong Duoc Ky Tu , Nho Hon 0 Hoac So Thap Phan, Nhap Lai: ');
+        number = +prompt('Co Bao Nhieu Phan Tu Trong Mang: ');
+    }
+    for (let i = 0; i < number; i++) {
+        valueArray = +prompt(`Nhap Phan Tu Thu ${i}: `);
+        while (isNaN(valueArray) || !parseInt(number) === number) {
+            alert("Khong Duoc Nhap Ky Tu Hoac Khong Phai la So Nguyen");
+            valueArray = prompt(`Nhap Phan Tu Thu ${i + 1}`);
+        }
+        arr.push(valueArray);
+    }
+    reverArray = arr.reverse();
+    resultArray.innerHTML = `Mang Hien Thi : [ ${arr} ]`;
+    resultReverArray.innerHTML = `Mang Sau Khi Doi Nguoc : [ ${reverArray} ]`;
+</script>
+</body>
+</html>

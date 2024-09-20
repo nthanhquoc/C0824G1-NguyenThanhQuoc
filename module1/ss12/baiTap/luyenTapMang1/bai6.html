@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai6</title>
+</head>
+<body>
+<script>
+    let arr = [];
+    let valueArray;
+    let found = false;
+    let number = +prompt('Nhap n phan tu : ');
+    while (isNaN(number) || number > 10 || !parseInt(number) == number) {
+        alert('So Phai Lon Hon 10 , Khong Phai La Ky Tu,Khong la So Thap Phan');
+        number = +prompt('Nhap n phan tu : ');
+    }
+    for (let i = 0; i < number; i++) {
+        valueArray = +prompt(`Nhap phan thu ${i}`);
+        while (isNaN(valueArray) || !parseInt(number) == number) {
+            alert('Khong Duoc Chua Ky Tu Hoac So Thap Phan');
+            valueArray = +prompt(`Nhap phan thu ${i}`);
+        }
+        arr.push(valueArray);
+    }
+    let numberCheck = +prompt('Nhap So Can Kiem Tra :');
+    while (isNaN(numberCheck) || !parseInt(number) == number) {
+        alert('So Can Kiem Tra Khong Chua Ky Tu Hoac la So Thap Phan');
+        numberCheck = +prompt('Nhap So Can Kiem Tra :');
+    }
+    for (let i = 0; i < number; i++) {
+        if (numberCheck == arr[i]) {
+            found = true;
+            break;
+        }
+    }
+    if (found) {
+        document.write(`${numberCheck} Co Trong Mang`);
+    } else {
+        document.write(`${numberCheck} Khong Co Trong Mang`);
+    }
+</script>
+</body>
+</html>

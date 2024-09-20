@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let array = [];
+    let number = 10;
+    let valueArray;
+    let max;
+    let position = 0;
+    for (let i = 0; i < number; i++) {
+        valueArray = prompt(`Nhap Phan Tu Thu ${i + 1}`);
+        if (isNaN(valueArray) || !parseInt(valueArray) === valueArray) {
+            alert("Khong Duoc Nhap Ky Tu Hoac Khong Phai la So Nguyen");
+            valueArray = prompt(`Nhap Phan Tu Thu ${i + 1}`);
+        }
+        array.push(valueArray);
+        console.log(array);
+    }
+    max = array[0];
+    for (let i = 1; i < number; i++) {
+        if (max < array[i]) {
+            max = array[i];
+            position++;
+        }
+    }
+    alert(`Phan Tu Lon Nhat la ${max} o vi tri ${position}`);
+</script>
+</body>
+</html>

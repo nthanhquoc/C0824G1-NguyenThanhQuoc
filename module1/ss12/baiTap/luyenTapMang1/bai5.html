@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dem So Nguyen Am</title>
+</head>
+<body>
+<script>
+
+    let count = 0;
+    let arr;
+    let text = prompt('Nhập Chuỗi Để Kiểm Tra');
+    arr = text.split('');
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] == '-') {
+            arr[i] += arr[i + 1];
+            arr.splice(i + 1, 1);
+        }
+        if (arr[i] < 0) {
+            count++;
+        }
+    }
+    alert(`So Nguyen Am Trong Chuoi la ${count}`);
+</script>
+</body>
+</html>

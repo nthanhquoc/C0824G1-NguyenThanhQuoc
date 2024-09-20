@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let array = [];
+    let avg;
+    let max;
+    let sum;
+    let number = +prompt('Co Bao Nhieu Phan Tu Trong Mang Can Tao: ');
+    while (isNaN(number) || number < 0 || !parseInt(number) == number) {
+        alert('Nhap Sai Vui Long Nhap Lai');
+        number = +prompt('Co Bao Nhieu Phan Tu Trong Mang Can Tao: ')
+    }
+    for (let i = 0; i < number; i++) {
+        let valueArray = +prompt(`Nhap Phan Tu Thu ${i + 1}`);
+        if (isNaN(valueArray) || !parseInt(valueArray) === valueArray) {
+            alert("Khong Duoc Nhap Ky Tu Hoac Khong Phai la So Nguyen");
+            valueArray = prompt(`Nhap Phan Tu Thu ${i + 1}`);
+        }
+        array.push(valueArray);
+    }
+    max = array[0];
+    sum = array[0];
+    for (let i = 1; i < number; i++) {
+        if (array[i] > max) {
+            max = array[i];
+        }
+        sum += array[i];
+        avg = sum / number;
+    }
+    document.write(`Phan Tu Lon Nhat la ${max} va Trung Binh Cac Phan Tu Trong Mang La ${avg}`);
+</script>
+</body>
+</html>

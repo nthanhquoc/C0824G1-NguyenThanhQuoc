@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tu Dien</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <td><input type="text" id="dictionary"></td>
+            <td><button id="btnTranslate">Dich</button></td>
+        </tr>
+        <tr>
+            <td><div id="result"></div></td>
+        </tr>
+    </table>
+    <script>
+        let arrayEng=['apple','orange','banana','mango','lemon'];
+        let arrayVie=['tao','cam','chuoi','xoai','chanh'];
+        let inputDictionary=document.getElementById('dictionary');
+        let btnTranslate=document.getElementById('btnTranslate');
+        let result=document.getElementById('result');
+        let string='';
+        let index_eng=0;
+        btnTranslate.addEventListener('click',function (){
+            let valueInputDictionary=inputDictionary.value;
+            let lowercase=valueInputDictionary.toLowerCase();
+            for(let i=0;i<arrayEng.length;i++){
+                if(lowercase==arrayEng[i]) {
+                    index_eng = i;
+                    for (let j = 0; j < arrayVie.length; j++) {
+                        if (index_eng === j) {
+                            string = arrayVie[j];
+                        }
+                    }
+                }
+            }
+            result.innerHTML=string;
+        })
+    </script>
+
+</body>
+</html>
