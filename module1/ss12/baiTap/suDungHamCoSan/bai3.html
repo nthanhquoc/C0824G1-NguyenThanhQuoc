@@ -9,6 +9,10 @@
     let result='';
     let array=[];
     let number=prompt('Nhap Chuoi:');
+    if(!isNaN(number)){
+      alert('Nhap Chuoi Ky Tu:');
+      number=prompt('Nhap Chuoi:');
+    }
     for(let i=0;i<number.length;i++){
       array=number;
       let char=array[i];
