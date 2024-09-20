@@ -10,7 +10,10 @@
     let valueArray;
     let result='';
     let number=prompt('Co Bao Nhieu Phan Tu Can Nhap: ');
-
+    while(isNaN(number)||number<0||!parseInt(number)==number){
+        alert('Nhap Sai, Nhap Lai:');
+        number=prompt('Co Bao Nhieu Phan Tu Can Nhap:');
+    }
     for(let i=0;i<number;i++) {
       valueArray = prompt(`Nhap Phan Tu Thu ${i + 1}: `);
       array.push(valueArray);
