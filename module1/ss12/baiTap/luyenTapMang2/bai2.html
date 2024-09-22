@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai2</title>
+</head>
+<body>
+<script>
+    let arr = [];
+    let number = +prompt('Co Bao Nhieu Phan Tu Can Tao : ');
+    while(isNaN(number)||number<0){
+        alert('Khong Duoc Nhap Ky Tu , So Nho Hon 0');
+        number = +prompt('Co Bao Nhieu Phan Tu Can Tao : ');
+    }
+    for(let i=0;i<number;i++){
+        arr[i] = prompt(`Nhap Phan Tu Thu ${i+1}: `);
+    }
+    arr.reverse();
+    let newArray=arr.join("");
+    document.write(newArray);
+</script>
+
+</body>
+</html>

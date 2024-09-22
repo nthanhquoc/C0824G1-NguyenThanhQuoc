@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let str = prompt("Vui lòng nhập một chuỗi:");
+    str = str.trim();
+    if (str === "") {
+        console.log("Số từ trong chuỗi là: 0");
+    } else {
+        let words = str.split(/\s+/);
+        let wordCount = words.length;
+        document.write(`So Tu Trong Chuoi la ${wordCount}`);
+    }
+</script>
+</body>
+</html>

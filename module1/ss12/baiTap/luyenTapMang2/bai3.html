@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai3</title>
+</head>
+<body>
+<script>
+    let arr = [];
+    let number;
+    let count = 0;
+    number = +prompt('Co Bao Nhieu Phan Tu Trong Mang : ');
+    while (isNaN(number) || number < 0) {
+        alert('Khong Duoc Nhap Ky Tu Va So Nho Hon 0 ');
+        number = +prompt('Co Bao Nhieu Phan Tu Trong Mang : ');
+    }
+    for (let i = 0; i < number; i++) {
+        arr[i] = prompt(`Nhap Phan Thu Thu ${i + 1}: `);
+        console.log(arr[i]);
+    }
+
+    for (let i = 0; i < number; i++) {
+        if (!isNaN(arr[i]) && arr[i] !== ' ') {
+            count++;
+            console.log(count);
+        }
+
+    }
+    document.write(`Ky Tu So Trong Mang La ${count}`);
+</script>
+</body>
+</html>

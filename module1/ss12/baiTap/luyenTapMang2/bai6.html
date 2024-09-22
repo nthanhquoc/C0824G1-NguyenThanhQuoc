@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <script>
+    let input = prompt("Vui lòng nhập một chuỗi ký tự:");
+    let charArray = input.split("");
+    for (let i = 0; i < charArray.length; i++) {
+      if (charArray[i] === '-') {
+        charArray[i] = '_';
+      }
+    }
+    let result = charArray.join("");
+    document.write(`Chuoi Sau Khi Thay The la : ${result}`);
+  </script>
+</body>
+</html>
