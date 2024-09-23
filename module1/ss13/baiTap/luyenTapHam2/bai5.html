@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function checkMin3Number(number1, number2, number3) {
+        if (number1 < number2 && number1 < number3) {
+            return number1;
+        } else if (number2 < number3) {
+            return number2;
+        } else {
+            return number3;
+        }
+    }
+
+    function checkNumberInput(number) {
+        while (isNaN(number)) {
+            alert('Khong Phai La So ');
+            number = +prompt('Nhap Lai :');
+        }
+    }
+
+    let numberOne = +prompt('Nhap So Thu Nhat: ');
+    checkNumberInput(numberOne);
+    let numberTwo = +prompt('Nhap So Thu Hai: ');
+    checkNumberInput(numberTwo);
+    let numberThree = +prompt('Nhap So Thu Ba: ');
+    checkNumberInput(numberThree);
+    alert(`So Nho Nhat cua ${numberOne} , ${numberTwo} , ${numberThree} la ${checkMin3Number(numberOne, numberTwo, numberThree)}`);
+</script>
+</body>
+</html>

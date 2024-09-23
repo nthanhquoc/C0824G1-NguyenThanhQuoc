@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        function checkIntegerNumber(number){
+          if(parseInt(number) === number && number >=0 ){
+            return true;
+          }
+          return false;
+        }
+
+        let number=+prompt('Nhap So De Kiem Tra : ');
+        while(isNaN(number)){
+          alert('Khong Duoc Nhap Ky Tu: ');
+          number=+prompt('Nhap So De Kiem Tra : ');
+        }
+        if(checkIntegerNumber(number)){
+          alert(`${number} la So Nguyen Duong`);
+        }
+        else{
+          alert(`${number} Khong La So Nguyen Duong`);
+        }
+    </script>
+</body>
+</html>

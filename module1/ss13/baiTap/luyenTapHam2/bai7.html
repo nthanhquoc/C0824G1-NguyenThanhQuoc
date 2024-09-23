@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function swapNumber(numberOne, numberTwo) {
+        let number = numberOne;
+        numberOne = numberTwo;
+        numberTwo = number;
+        return [numberOne,numberTwo];
+    }
+
+    let numberOne=+prompt('Nhap So Thu Nhat : ')
+    let numberTwo=+prompt('Nhap So Thu Hai : ');
+    alert(`${numberOne} va ${numberTwo} sau khi dao la ${swapNumber(numberOne,numberTwo)}`);
+</script>
+</body>
+</html>

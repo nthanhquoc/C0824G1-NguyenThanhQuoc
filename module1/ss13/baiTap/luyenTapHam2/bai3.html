@@ -5,6 +5,20 @@
     <title>Title</title>
 </head>
 <body>
-
+    <script>
+        function factorialNumber(number){
+            let sum=1;
+            for(let i=1;i<=number;i++){
+                sum*=i;
+            }
+            return sum;
+        }
+        let numberInput=+prompt('Nhap N : ');
+        while(isNaN(numberInput)||numberInput<0){
+            alert('Khong Phai la So, Khong Duoc Nho Hon 0')
+            numberInput=+prompt('Nhap N : ');
+        }
+        alert(`Giai Thua Cua ${numberInput} la ${factorialNumber(numberInput)}`);
+    </script>
 </body>
 </html>
