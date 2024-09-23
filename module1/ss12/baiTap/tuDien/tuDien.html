@@ -27,12 +27,7 @@
             let lowercase=valueInputDictionary.toLowerCase();
             for(let i=0;i<arrayEng.length;i++){
                 if(lowercase==arrayEng[i]) {
-                    index_eng = i;
-                    for (let j = 0; j < arrayVie.length; j++) {
-                        if (index_eng === j) {
-                            string = arrayVie[j];
-                        }
-                    }
+                    string= arrayVie[i];
                 }
             }
             result.innerHTML=string;
