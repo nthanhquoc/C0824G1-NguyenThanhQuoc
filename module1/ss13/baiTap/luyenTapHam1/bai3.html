@@ -13,17 +13,17 @@
             return `${numberOne} Lon hon ${numberTwo}`;
         }
     }
+    function checkNumber(number){
+        while(isNaN(number)){
+            alert('Khong Phai la So');
+            number = +prompt('Nhap Lai: ');
+        }
+    }
 
     let numberOne = +prompt('Nhap So Thu Nhat: ');
-    while(isNaN(numberOne)){
-        alert('Khong Phai la So');
-        numberOne = +prompt('Nhap So Thu Nhat: ');
-    }
+    checkNumber(numberOne);
     let numberTwo = +prompt('Nhap So Thu Hai : ');
-    while(isNaN(numberTwo)){
-        lert('Khong Phai la So');
-        numberTwo = +prompt('Nhap So Thu Nhat: ');
-    }
+    checkNumber(numberTwo);
     alert(checkTwoNumber(numberOne, numberTwo));
 </script>
 </body>

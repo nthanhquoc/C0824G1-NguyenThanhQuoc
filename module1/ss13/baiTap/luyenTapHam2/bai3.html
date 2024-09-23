@@ -13,11 +13,16 @@
             }
             return sum;
         }
-        let numberInput=+prompt('Nhap N : ');
-        while(isNaN(numberInput)||numberInput<0){
-            alert('Khong Phai la So, Khong Duoc Nho Hon 0')
-            numberInput=+prompt('Nhap N : ');
+
+        function checkNumber(number) {
+            while (isNaN(number) || number < 0 || !parseInt(number) === number) {
+                alert('Khong Phai la So, Khong Duoc Nho Hon 0')
+                number = +prompt('Nhap N : ');
+            }
         }
+
+        let numberInput=+prompt('Nhap N : ');
+        checkNumber(numberInput);
         alert(`Giai Thua Cua ${numberInput} la ${factorialNumber(numberInput)}`);
     </script>
 </body>

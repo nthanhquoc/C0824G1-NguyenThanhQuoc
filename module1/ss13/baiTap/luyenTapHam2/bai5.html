@@ -17,7 +17,7 @@
     }
 
     function checkNumberInput(number) {
-        while (isNaN(number)) {
+        while (isNaN(number)||!parseInt(number)===number) {
             alert('Khong Phai La So ');
             number = +prompt('Nhap Lai :');
         }

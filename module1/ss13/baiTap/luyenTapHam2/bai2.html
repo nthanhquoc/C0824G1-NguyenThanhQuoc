@@ -15,8 +15,8 @@
     }
 
     let numberValue = +prompt('Nhap r : ');
-    while (isNaN(numberValue)) {
-        alert('Khong Duoc Nhap Chu ');
+    while (isNaN(numberValue)||numberValue<0) {
+        alert('Khong Duoc Nhap Chu,Phai Lon Hon 0');
         numberValue = +prompt('Nhap Lai r : ');
     }
     document.write(`Chu Vi Hinh Tron la : ${circumference(numberValue)}`);

@@ -10,8 +10,8 @@
           return number*number;
         }
         let numberInput=+prompt('Nhap number : ');
-        while(isNaN(numberInput)){
-          alert('Khong Duoc Nhap Chu : ');
+        while(isNaN(numberInput)||numberInput<0){
+          alert('Khong Duoc Nhap Chu, So Phai Lon Hon 0');
           numberInput=+prompt('Nhap number : ');
         }
         document.write(`Binh Phuong Cua ${numberInput} la ${squareNumber(numberInput)}`);
