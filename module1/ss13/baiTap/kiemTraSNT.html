@@ -7,9 +7,9 @@
 <body>
 <script>
     let numberCheck = +prompt('Nhap So Can kiem Tra : ');
-    while (isNaN(numberCheck)) {
-        alert('Kong duoc nhap chu ');
-        numberCheck = +prompt('Nhap So Can kiem Tra : ');
+    while (isNaN(numberCheck)||numberCheck<0||parseInt(numberCheck)===numberCheck) {
+        alert('Khong Duoc Nhap Chu ,So Nho Hon 0, So Thap Phan: ');
+        numberCheck = +prompt('Nhap lai:  ');
     }
     if (checkPrimeNumber(numberCheck)) {
         alert(`${numberCheck} la SNT`);
