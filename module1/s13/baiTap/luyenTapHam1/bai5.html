@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let star = ['Polaris', 'Aldebaran', 'Deneb', 'Vega', 'Altair', 'Dubhe', 'Regulus'];
+    let constellation = ['Ursa Minor', 'Tarurus', 'Cygnus', 'Lyra', 'Aquila', 'Ursa Major', 'Leo'];
+
+    function checkStarName(starName) {
+        const index = star.indexOf(starName);
+        if (index !== -1) {
+            return constellation[index];
+        } else {
+            return "Không tìm thấy ngôi sao nào!";
+        }
+    }
+
+    let nameStar = prompt('Nhap Ten Cua Star: ');
+    alert(checkStarName(nameStar));
+</script>
+</body>
+</html>

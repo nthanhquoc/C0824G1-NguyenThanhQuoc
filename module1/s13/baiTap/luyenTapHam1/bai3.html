@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function checkTwoNumber(numberOne, numberTwo) {
+        if (numberOne <= numberTwo) {
+            return numberOne + numberTwo;
+        } else {
+            return `${numberOne} Lon hon ${numberTwo}`;
+        }
+    }
+
+    let numberOne = +prompt('Nhap So Thu Nhat: ');
+    while(isNaN(numberOne)){
+        alert('Khong Phai la So');
+        numberOne = +prompt('Nhap So Thu Nhat: ');
+    }
+    let numberTwo = +prompt('Nhap So Thu Hai : ');
+    while(isNaN(numberTwo)){
+        lert('Khong Phai la So');
+        numberTwo = +prompt('Nhap So Thu Nhat: ');
+    }
+    alert(checkTwoNumber(numberOne, numberTwo));
+</script>
+</body>
+</html>

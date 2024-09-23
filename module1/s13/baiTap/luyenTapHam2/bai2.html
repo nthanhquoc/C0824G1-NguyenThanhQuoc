@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tinh Dien Tich, Chu Vi</title>
+</head>
+<body>
+<script>
+    function circumference(number) {
+        return (2 * Math.PI * number).toFixed(1);
+    }
+
+    function areaCircle(number) {
+        return (Math.pow(circumference(number), 2) / 4 * Math.PI).toFixed(1);
+    }
+
+    let numberValue = +prompt('Nhap r : ');
+    while (isNaN(numberValue)) {
+        alert('Khong Duoc Nhap Chu ');
+        numberValue = +prompt('Nhap Lai r : ');
+    }
+    document.write(`Chu Vi Hinh Tron la : ${circumference(numberValue)}`);
+    document.write('<br>');
+    document.write(`Dien Tich Hinh Tron la: ${areaCircle(numberValue)}`);
+</script>
+</body>
+</html>

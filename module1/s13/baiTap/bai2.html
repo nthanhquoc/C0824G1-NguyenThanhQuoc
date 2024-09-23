@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let meterNumber = +prompt('Nhap meter: ');
+    let footNumber = +prompt('Nhap Foot: ');
+    while (isNaN(meterNumber)) {
+        alert('Khong Duoc Nhap Chu');
+        meterNumber = +prompt('Nhap meter: ');
+    }
+    while (isNaN(footNumber)) {
+        alert('khong Duoc Nhap Chu');
+        footNumber = +prompt('Nhap Foot: ');
+    }
+
+    function footToMeter(foot) {
+        let meter = 0.305 * foot;
+        return meter;
+    }
+
+    function meterToFoot(meter) {
+        let foot = 3.279 * meter;
+        return foot;
+    }
+
+    document.write(footToMeter(footNumber));
+    document.write("<br>");
+    document.write(meterToFoot(meterNumber));
+</script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        function squareNumber(number){
+          return number*number;
+        }
+        let numberInput=+prompt('Nhap number : ');
+        while(isNaN(numberInput)){
+          alert('Khong Duoc Nhap Chu : ');
+          numberInput=+prompt('Nhap number : ');
+        }
+        document.write(`Binh Phuong Cua ${numberInput} la ${squareNumber(numberInput)}`);
+    </script>
+</body>
+</html>

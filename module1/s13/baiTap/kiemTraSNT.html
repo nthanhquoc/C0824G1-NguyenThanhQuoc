@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ham Kiem Tra So Nguyen To</title>
+</head>
+<body>
+<script>
+    let numberCheck = +prompt('Nhap So Can kiem Tra : ');
+    while (isNaN(numberCheck)) {
+        alert('Kong duoc nhap chu ');
+        numberCheck = +prompt('Nhap So Can kiem Tra : ');
+    }
+    if (checkPrimeNumber(numberCheck)) {
+        alert(`${numberCheck} la SNT`);
+    } else {
+        alert(`${numberCheck} khong phai la SNT`);
+    }
+
+    function checkPrimeNumber(number) {
+        if (number < 2) return false;
+        for (let i = 2; i < number; i++) {
+            if (number % i === 0) return false;
+        }
+        return true;
+    }
+</script>
+</body>
+</html>

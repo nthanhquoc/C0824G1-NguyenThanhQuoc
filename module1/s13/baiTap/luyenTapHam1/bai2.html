@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function increaseNumber(number) {
+        return number + 1;
+    }
+
+    let number = +prompt('Nhap So : ')
+    while (isNaN(number)) {
+        alert('Khong Phai La So');
+        number = +prompt('Nhap So : ');
+    }
+    let increaseNumberValue = increaseNumber(number);
+    alert(`${number} sau khi tang la ${increaseNumberValue}`)
+</script>
+</body>
+</html>
