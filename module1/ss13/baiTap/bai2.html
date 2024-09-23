@@ -7,15 +7,16 @@
 <body>
 <script>
     let meterNumber = +prompt('Nhap meter: ');
+    checkNumber(meterNumber);
     let footNumber = +prompt('Nhap Foot: ');
-    while (isNaN(meterNumber)) {
-        alert('Khong Duoc Nhap Chu');
-        meterNumber = +prompt('Nhap meter: ');
+    checkNumber(footNumber);
+    function checkNumber(number){
+        while (isNaN(number)) {
+            alert('Khong Duoc Nhap Chu');
+            number = +prompt('Nhap Lai: ');
+        }
     }
-    while (isNaN(footNumber)) {
-        alert('khong Duoc Nhap Chu');
-        footNumber = +prompt('Nhap Foot: ');
-    }
+
 
     function footToMeter(foot) {
         let meter = 0.305 * foot;
