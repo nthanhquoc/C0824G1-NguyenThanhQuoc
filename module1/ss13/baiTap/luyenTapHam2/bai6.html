@@ -12,13 +12,14 @@
           }
           return false;
         }
-
-        let number=+prompt('Nhap So De Kiem Tra : ');
-        while(isNaN(number)){
-          alert('Khong Duoc Nhap Ky Tu: ');
-          number=+prompt('Nhap So De Kiem Tra : ');
+        function checkNumber(number){
+            while(isNaN(number)){
+                alert('Khong Duoc Nhap Ky Tu: ');
+                number=+prompt('Nhap So De Kiem Tra : ');
+            }
+            return number;
         }
-
+        let number=checkNumber(+prompt('Nhap So De Kiem Tra : '));
         if(checkIntegerNumber(number)){
           alert(`${number} la So Nguyen Duong`);
         }

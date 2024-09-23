@@ -13,12 +13,14 @@
     function areaCircle(number) {
         return (Math.pow(circumference(number), 2) / 4 * Math.PI).toFixed(1);
     }
-
-    let numberValue = +prompt('Nhap r : ');
-    while (isNaN(numberValue)||numberValue<0) {
-        alert('Khong Duoc Nhap Chu,Phai Lon Hon 0');
-        numberValue = +prompt('Nhap Lai r : ');
+    function checkNumber(number){
+        while (isNaN(number)||number<0) {
+            alert('Khong Duoc Nhap Chu,Phai Lon Hon 0');
+            number = +prompt('Nhap Lai r : ');
+        }
+        return number;
     }
+    let numberValue = checkNumber(+prompt('Nhap r : '));
     document.write(`Chu Vi Hinh Tron la : ${circumference(numberValue)}`);
     document.write('<br>');
     document.write(`Dien Tich Hinh Tron la: ${areaCircle(numberValue)}`);

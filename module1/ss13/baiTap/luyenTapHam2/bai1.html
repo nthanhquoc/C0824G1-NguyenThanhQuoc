@@ -9,11 +9,14 @@
         function squareNumber(number){
           return number*number;
         }
-        let numberInput=+prompt('Nhap number : ');
-        while(isNaN(numberInput)||numberInput<0){
-          alert('Khong Duoc Nhap Chu, So Phai Lon Hon 0');
-          numberInput=+prompt('Nhap number : ');
+        function checkNumber(number){
+            while(isNaN(number)||number<0||!parseInt(number)===numberInput){
+                alert('Khong Duoc Nhap Chu, So Phai Lon Hon 0, Khong Phai So Thap Phan');
+                number=+prompt('Nhap number : ');
+            }
+            return number;
         }
+        let numberInput=checkNumber(+prompt('Nhap number : '));
         document.write(`Binh Phuong Cua ${numberInput} la ${squareNumber(numberInput)}`);
     </script>
 </body>

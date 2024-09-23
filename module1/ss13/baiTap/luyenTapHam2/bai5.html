@@ -21,13 +21,12 @@
             alert('Khong Phai La So ');
             number = +prompt('Nhap Lai :');
         }
+        return number;
     }
 
-    let numberOne = +prompt('Nhap So Thu Nhat: ');
-    checkNumberInput(numberOne);
-    let numberTwo = +prompt('Nhap So Thu Hai: ');
-    checkNumberInput(numberTwo);
-    let numberThree = +prompt('Nhap So Thu Ba: ');
+    let numberOne = checkNumberInput(+prompt('Nhap So Thu Nhat: '));
+    let numberTwo = checkNumberInput(+prompt('Nhap So Thu Hai: '));
+    let numberThree = checkNumberInput(+prompt('Nhap So Thu Ba: '));
     checkNumberInput(numberThree);
     alert(`So Nho Nhat cua ${numberOne} , ${numberTwo} , ${numberThree} la ${checkMin3Number(numberOne, numberTwo, numberThree)}`);
 </script>

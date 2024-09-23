@@ -18,12 +18,11 @@
             alert('Khong Phai la So');
             number = +prompt('Nhap Lai: ');
         }
+        return number
     }
 
-    let numberOne = +prompt('Nhap So Thu Nhat: ');
-    checkNumber(numberOne);
-    let numberTwo = +prompt('Nhap So Thu Hai : ');
-    checkNumber(numberTwo);
+    let numberOne = checkNumber(+prompt('Nhap So Thu Nhat: '));
+    let numberTwo = checkNumber(+prompt('Nhap So Thu Hai : '));
     alert(checkTwoNumber(numberOne, numberTwo));
 </script>
 </body>
