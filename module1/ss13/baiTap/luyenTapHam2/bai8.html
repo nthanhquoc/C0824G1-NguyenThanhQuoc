@@ -11,17 +11,16 @@
     }
     let arr = [];
     let number;
-    number = +prompt('Co Bao Nhieu Phan Tu Trong Mang : ');
-    while (isNaN(number) || number < 0) {
-      alert('Khong Duoc Nhap Ky Tu Va So Nho Hon 0 ');
-      number = +prompt('Co Bao Nhieu Phan Tu Trong Mang : ');
+    function checkNum(number){
+        while(!parseInt(number)===number||isNaN(number)||number<0){
+            alert('Khong Nhap So Thap Phan, Ky Tu, Lon Hon 0');
+            number = prompt(`Nhap Lai : `);
+        }
+        return number;
     }
+    number = checkNum(+prompt('Co Bao Nhieu Phan Tu Trong Mang : '));
     for (let i = 0; i < number; i++) {
-      arr[i] = prompt(`Nhap Phan Thu Thu ${i + 1}: `);
-      while(!parseInt(arr[i])===arr[i]||isNaN(arr[i])){
-        alert('Khong Nhap So Thap Phan, Ky Tu');
-        arr[i] = prompt(`Nhap Phan Thu Thu ${i + 1}: `);
-      }
+      arr[i] = checkNum(+prompt(`Nhap Phan Thu Thu ${i + 1}: `));
     }
     alert(`Mang Sau Khi Dao Nguoc la ${inventingArray(arr)}`);
 </script>
