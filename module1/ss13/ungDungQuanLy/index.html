@@ -85,7 +85,7 @@
 
     function addProduct() {
         let value = inputValue.value;
-        if (value && value.trim().length!=0 && !value.includes('"') && !value.includes("'")) {
+        if (value && value.trim().length!==0 && !value.includes('"') && !value.includes("'")) {
             arr.push(value);
             countProduct();
             displayProduct();
