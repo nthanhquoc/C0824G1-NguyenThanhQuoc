@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        button{
+            background-color: aquamarine;
+            width: 100px;
+            border: lawngreen;
+            height: 40px;
+
+        }
+        input{
+            height: 30px;
+            width: 500px;
+        }
+        #table2{
+            width: 500px;
+
+        }
+        #table2 td,th{
+            padding: 8px;
+        }
+        th{
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #04AA6D;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<h1>Add New Product</h1>
+<table>
+    <tr>
+        <td>
+            <input type="text" id="inputValue">
+        </td>
+        <td>
+            <button id="addBtn" onclick="addProduct()">Add</button>
+        </td>
+    </tr>
+</table>
+<table id="table2">
+    <thead id="headTable">
+
+    </thead>
+    <tbody id="productTable">
+    </tbody>
+</table>
+<script>
+    let arr = [];
+    let inputValue = document.getElementById('inputValue');
+    function displayProduct() {
+        let tableBody = document.getElementById('productTable');
+        tableBody.innerHTML = '';
+        for (let i = 0; i < arr.length; i++) {
+            let product = arr[i];
+            let row = `<tr>
+                <td colspan="2">${product}</td>
+                <td><button onclick="editProduct(${i})">Edit</button></td>
+                <td><button onclick="deleteProduct(${i})">Xoa</button></td>
+                </tr>`;
+            tableBody.innerHTML += row;
+        }
+
+    }
+
+    function countProduct() {
+        let headTable = document.getElementById('headTable');
+        headTable.innerHTML = '';
+        let count = 0;
+        for (let i = 0; i < arr.length; i++) {
+            count++;
+        }
+        let row = `<tr>
+            <th colspan="2" style="text-align: left;width: 300px">ProductName</th>
+            <th colspan="2" style="text-align: right">${count} Product</th>
+            </tr>`
+        headTable.innerHTML += row;
+
+    }
+
+    function addProduct() {
+        let value = inputValue.value;
+        if (value && value.trim().length!=0) {
+            arr.push(value);
+            countProduct();
+            displayProduct();
+            inputValue.value = "";
+        } else {
+            alert("Vui lòng nhập tên sản phẩm.");
+        }
+    }
+    function deleteProduct(index){
+        arr.splice(index,1);
+        countProduct();
+        displayProduct();
+    }
+    function editProduct(index){
+        let newProduct=prompt('Nhap Tu Moi: ');
+        arr[index]=newProduct;
+        countProduct();
+        displayProduct();
+    }
+</script>
+</body>
+</html>
