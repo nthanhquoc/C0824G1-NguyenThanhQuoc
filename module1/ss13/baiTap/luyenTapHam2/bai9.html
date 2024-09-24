@@ -8,7 +8,9 @@
     <script>
         function checkCharacter(character,array){
             if (array.includes(character)) {
-                return arr.filter(c => c === character).length;
+                return arr.filter(function(c) {
+                    return c=== character;
+                })
             } else {
                 return -1;
             }
