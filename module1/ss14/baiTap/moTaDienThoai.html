@@ -14,7 +14,6 @@
       this.inBox = [];
       this.sentMessage = [];
     }
-
     checkStatus() {
       if (!this.isOn) {
         console.log('DT Dang Tat Vui Long Bat');
@@ -22,21 +21,18 @@
         console.log('Dt Dang Bat');
       }
     }
-
     turnOn() {
       if (!this.isOn) {
         this.isOn = true;
         console.log('Dien Thoai Da Bat');
       }
     }
-
     turnOff() {
       if (this.isOn) {
         this.isOn = false;
         console.log('Dien Thoat Da Tat');
       }
     }
-
     checkIfOn() {
       if (!this.isOn) {
         return false;
@@ -44,12 +40,10 @@
         return true;
       }
     }
-
     chargeBattery() {
       this.pin = 100;
       console.log('Pin Da Day');
     }
-
     useBattery() {
       if (this.pin > 0) {
         this.pin--;
@@ -65,14 +59,42 @@
       this.useBattery();
       console.log(`Tin Nhan Soan Thao la ${message}`);
     }
-    
+
+    sendMessage(x) {
+      if (!this.checkIfOn()) return;
+      if (this.drafMessage === '') {
+        console.log('Khong Co Tin Nhan nao Duoc Gui Di');
+      } else {
+        x.inBox.push(this.drafMessage);
+        this.sentMessage.push(this.drafMessage);
+        this.drafMessage = '';
+        this.useBattery();
+        console.log(`Tin Nhan Duoc Gui Di`);
+      }
+    }
+
+    viewInbox() {
+      if (!this.checkIfOn()) return;
+      if (this.inBox.length == 0) {
+        console.log('Ban Khong Co Tin Nhan');
+      } else {
+        for (let i = 0; i < this.inBox.length; i++) {
+          console.log(this.inBox[i]);
+        }
+      }
+      this.useBattery();
+    }
   }
 
+
   let iPhone = new Mobile();
+  let nokia = new Mobile();
   iPhone.checkStatus();
   iPhone.turnOn();
   iPhone.drawMessage('Hello World');
-
+  iPhone.sendMessage(nokia);
+  nokia.turnOn();
+  nokia.viewInbox();
 </script>
 </body>
 </html>
