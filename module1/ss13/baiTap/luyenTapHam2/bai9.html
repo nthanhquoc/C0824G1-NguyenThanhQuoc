@@ -15,23 +15,25 @@
                 return -1;
             }
         }
-
+        function checkNumber(number){
+            while (isNaN(number) || number < 0||!parseInt(number)===number) {
+                alert('Nhap Sai');
+                number = +prompt('Nhap lai: ');
+            }
+            return number
+        }
         let arr = [];
         let number;
-        number = +prompt('Co Bao Nhieu Phan Tu Trong Mang : ');
-        while (isNaN(number) || number < 0) {
-            alert('Khong Duoc Nhap Ky Tu Va So Nho Hon 0 ');
-            number = +prompt('Co Bao Nhieu Phan Tu Trong Mang : ');
-        }
+        number = checkNumber(+prompt('Co Bao Nhieu Phan Tu Trong Mang : '));
         for (let i = 0; i < number; i++) {
-            arr[i] = prompt(`Nhap Phan Thu Thu ${i + 1}: `);
-            while(!parseInt(arr[i])===arr[i]||isNaN(arr[i])){
-                alert('Khong Nhap So Thap Phan, Ky Tu');
-                arr[i] = prompt(`Nhap Phan Thu Thu ${i + 1}: `);
-            }
+            arr[i] = checkNumber(prompt(`Nhap Phan Thu Thu ${i + 1}: `));
         }
         console.log(arr);
         let character=prompt('Nhap Ky Tu');
+        while(character.length>1){
+            alert('Nhap Sai');
+            character=prompt('Nhap Lai : ');
+        }
         alert(checkCharacter(character,arr));
     </script>
 </body>

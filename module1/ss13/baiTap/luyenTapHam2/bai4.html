@@ -6,7 +6,7 @@
 </head>
 <body>
 <script>
-    function checkNumberInArray(number) {
+    function countNumberInArray(number) {
         let count = 0;
         for (let i = 0; i < number.length; i++) {
             if (!isNaN(number[i]) && number[i] !== ' ') {
@@ -24,11 +24,15 @@
     }
     for (let i = 0; i < number; i++) {
       arr[i] = prompt(`Nhap Phan Thu Thu ${i + 1}: `);
+      while(arr[i].length>1){
+          alert('Nhap Sai');
+          arr[i] = prompt(`Nhap Lai Phan Thu Thu ${i + 1}: `);
+      }
       console.log(arr[i]);
     }
     document.write(`Mang la : [ ${arr} ]`);
     document.write('<br>');
-    document.write(`Ky Tu So Trong Mang la ${checkNumberInArray(arr)}`);
+    document.write(`Ky Tu So Trong Mang la ${countNumberInArray(arr)}`);
 </script>
 </body>
 </html>
