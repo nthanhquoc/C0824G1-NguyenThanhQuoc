@@ -1,10 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
-$END$
+<canvas id="myCanvas" width="500" height="300"></canvas>
+
+<script>
+    let myCanvas = document.getElementById('myCanvas');
+
+    class Rectangle {
+        width;
+        length;
+        constructor(width, length) {
+            this.width = width;
+            this.length = length;
+        }
+
+        getArea() {
+            return this.width * this.length;
+        }
+
+        getPerimeter() {
+            return (this.width + this.length) * 2;
+        }
+
+        getCanvas() {
+            let ctx = myCanvas.getContext("2d");
+            ctx.fillRect(50, 50, this.width, this.length);
+        }
+    }
+
+    let newRetangcle = new Rectangle(50, 50);
+    alert(newRetangcle.getArea());
+    alert(newRetangcle.getPerimeter());
+    newRetangcle.getCanvas();
+</script>
 </body>
 </html>

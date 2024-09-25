@@ -1,10 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
-$END$
+    <script>
+      class Temperature{
+        celsius;
+        constructor(celsius) {
+          this.celsius=celsius;
+        }
+        toFahrenheit() {
+          return (this.celsius * 9 / 5) + 32;
+        }
+
+        toKelvin() {
+          return this.celsius + 273.15;
+        }
+      }
+      let temp= new Temperature(1);
+      document.write(temp.toFahrenheit());
+      document.write('<br>')
+      document.write(temp.toKelvin());
+
+    </script>
 </body>
 </html>

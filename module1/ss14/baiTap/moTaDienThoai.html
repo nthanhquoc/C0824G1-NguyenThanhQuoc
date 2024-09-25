@@ -2,9 +2,77 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>$Title$</title>
+  <title>Title</title>
 </head>
 <body>
-$END$
+<script>
+  class Mobile {
+    constructor() {
+      this.pin = 100;
+      this.isOn = false;
+      this.drafMessage = "";
+      this.inBox = [];
+      this.sentMessage = [];
+    }
+
+    checkStatus() {
+      if (!this.isOn) {
+        console.log('DT Dang Tat Vui Long Bat');
+      } else {
+        console.log('Dt Dang Bat');
+      }
+    }
+
+    turnOn() {
+      if (!this.isOn) {
+        this.isOn = true;
+        console.log('Dien Thoai Da Bat');
+      }
+    }
+
+    turnOff() {
+      if (this.isOn) {
+        this.isOn = false;
+        console.log('Dien Thoat Da Tat');
+      }
+    }
+
+    checkIfOn() {
+      if (!this.isOn) {
+        return false;
+      } else {
+        return true;
+      }
+    }
+
+    chargeBattery() {
+      this.pin = 100;
+      console.log('Pin Da Day');
+    }
+
+    useBattery() {
+      if (this.pin > 0) {
+        this.pin--;
+        console.log(`Pin con lai la ${this.pin}`);
+      } else {
+        console.log(`Pin Da Can, Hay Sac Pin`)
+      }
+    }
+
+    drawMessage(message) {
+      if (!this.checkIfOn()) return;
+      this.drafMessage = message;
+      this.useBattery();
+      console.log(`Tin Nhan Soan Thao la ${message}`);
+    }
+    
+  }
+
+  let iPhone = new Mobile();
+  iPhone.checkStatus();
+  iPhone.turnOn();
+  iPhone.drawMessage('Hello World');
+
+</script>
 </body>
 </html>
