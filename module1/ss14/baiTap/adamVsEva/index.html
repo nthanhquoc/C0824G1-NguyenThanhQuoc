@@ -39,14 +39,7 @@
                 this.weight=weight;
             }
             isMale(){
-                if(this.gender==1){
-                    return true;
-                }else{
-                    return false;
-                }
-            }
-            setGender(){
-                if(this.isMale()){
+                if(this.gender){
                     return 'Male';
                 }else{
                     return 'FeMale';
@@ -77,18 +70,27 @@
                 this.weight=weight;
             }
         }
-        function displayPerson(person){
+        function displayPersonAction(person){
+            document.write('<br>');
             person.eat(apple_1);
             document.write(`${person.name} an Tao <br>`)
             document.write(`Qua Tao Con ${apple_1.getWeight()} <br>`);
             document.write(`Can nang Cua ${person.name} la ${person.getWeight()} <br>`);
         }
-        let person=new Human('Adam',1,65);
-        let person2 =new Human('Eva',2,45);
+        function displayPerson(person){
+            document.write('<br>');
+            document.write(`Ten la : ${person.name}<br>`);
+            document.write(`Gioi Tinh: ${person.isMale()}<br>`);
+            document.write(`Can nang: ${person.getWeight()}<br>`);
+        }
+        let person=new Human('Adam',true,65);
+        displayPerson(person);
+        let person2 =new Human('Eva',false,45);
+        displayPerson(person2);
         let apple_1=new Apple();
         while(apple_1.weight>0){
-            displayPerson(person);
-            displayPerson(person2);
+            displayPersonAction(person);
+            displayPersonAction(person2);
         }
     </script>
 </body>

@@ -25,41 +25,49 @@
           return 'Chet';
         }
       }
+      displayInform(){
+        document.write(`Ten : ${this.name}<br>`);
+        document.write(`Can nang: ${this.weight}<br>`);
+        document.write(`Toc Do: ${this.speed}<br>`);
+        document.write(`Trang Thai: ${this.status}<br>`);
+      }
+
       call(){
-        console.log('Chit Chit');
+          document.write('Keu : Chit Chit<br>');
       }
     }
     class Cat extends Rat{
       call(){
-        console.log('Meo Meo');
+          document.write('Keu: Meo Meo<br>');
       }
 
       catch(rat){
         if(this.speed>rat.speed){
-          console.log('Da Bat Duoc');
+          document.write('Da Bat Duoc<br>');
           return true;
         }
         else{
-          console.log('Khong Bat Duoc');
+          document.write('Khong Bat Duoc<br>');
           return false;
         }
       }
       eat(rat){
         if(this.catch(rat))
         if(rat.status==1){
-          console.log('Da An');
+          document.write('Da An<br>');
           this.weight+=rat.weight;
+          document.write(`Trong Luong Sau Khi An la ${this.weight}<br>`);
         }
         else{
-          console.log('Chuot Chet khong an Duoc');
+          console.log('Chuot Chet Khong An Duoc<br>');
         }
       }
-
     }
-
-    let mouse=new Rat('jerry',50,20,true);
+    let mouse=new Rat('jerry',60,20,true);
+    mouse.displayInform();
     mouse.call();
     let cat=new Cat('tom',60,60,true);
+    cat.displayInform();
     cat.call();
     cat.eat(mouse);
   </script>
