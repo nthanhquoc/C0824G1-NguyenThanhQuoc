@@ -19,6 +19,13 @@
       controlVolume(volume){
         this.tv.volume=volume;
       }
+      turnOffTV(){
+        this.tv.turnOffTV();
+      }
+      turnOnTV(){
+        this.tv.turnOnTV();
+      }
+      
     }
     class Tivi{
       chanel;
@@ -43,7 +50,7 @@
           console.log("TV Đang Bật");
         }
       }
-      turnOnTv(){
+      turnOnTV(){
           this.status=true;
           console.log('Đã Bật TV');
       }
@@ -60,9 +67,10 @@
     }
     let tivi3=new Tivi(3,10);
     tivi3.checkStatus();
-    tivi3.turnOnTv();
+    tivi3.turnOnTV();
     tivi3.checkStatus();
     let remote3 = new Remote(1,tivi3);
+    remote3.turnOffTV();
   </script>
 </body>
 </html>
