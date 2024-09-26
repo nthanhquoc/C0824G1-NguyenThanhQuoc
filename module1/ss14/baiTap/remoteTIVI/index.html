@@ -14,10 +14,10 @@
         this.tv=tv;
       }
       setChanel(chanel){
-
+        this.tv.chanel=chanel;
       }
       controlVolume(volume){
-
+        this.tv.volume=volume;
       }
     }
     class Tivi{
@@ -36,21 +36,33 @@
           return this.volume;
       }
       checkStatus(){
-
+        if(!this.status){
+          console.log("TV Đang Tắt");
+        }
+        else{
+          console.log("TV Đang Bật");
+        }
       }
       turnOnTv(){
-
+          this.status=true;
+          console.log('Đã Bật TV');
       }
       turnOffTV(){
-
+          this.status=false;
+          console.log('Đã Tắt TV');
       }
       setChanel(chanel){
-
+          this.chanel=chanel;
       }
       setVolume(volume){
-
+          this.volume=volume;
       }
     }
+    let tivi3=new Tivi(3,10);
+    tivi3.checkStatus();
+    tivi3.turnOnTv();
+    tivi3.checkStatus();
+    let remote3 = new Remote(1,tivi3);
   </script>
 </body>
 </html>
