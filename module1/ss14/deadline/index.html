@@ -78,6 +78,7 @@ Quantity: <input id="quantity" placeholder="Nhập số lượng sản phẩm">
         let foundProducts= arrProduct.filter(function(product){
             return product.name.toLowerCase().includes(searchName);
         })
+        console.log(foundProducts);
         displayProduct(foundProducts);
 
     }

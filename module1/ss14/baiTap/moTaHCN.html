@@ -9,7 +9,6 @@
 
 <script>
     let myCanvas = document.getElementById('myCanvas');
-
     class Rectangle {
         width;
         length;
@@ -31,10 +30,19 @@
             ctx.fillRect(50, 50, this.width, this.length);
         }
     }
+    let width= checkNumber(+prompt('Nhap Width: '));
+    let length=checkNumber(+prompt('Nhap Length: '));
 
-    let newRetangcle = new Rectangle(50, 50);
-    alert(newRetangcle.getArea());
-    alert(newRetangcle.getPerimeter());
+    function checkNumber(number){
+        while(isNaN(number)||number<0||!parseInt(number)===number){
+            alert('Nhap Sai!!');
+            number=prompt('Nhap Lai');
+        }
+        return number;
+    }
+    let newRetangcle = new Rectangle(width,length);
+    alert(`Chu Vi Hinh Chu Nhat : ${newRetangcle.getPerimeter()}`);
+    alert(`Dien Tich Hinh Chu Nhat ${newRetangcle.getArea()}`);
     newRetangcle.getCanvas();
 </script>
 </body>

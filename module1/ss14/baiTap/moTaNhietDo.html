@@ -19,11 +19,18 @@
           return this.celsius + 273.15;
         }
       }
-      let temp= new Temperature(1);
-      document.write(temp.toFahrenheit());
-      document.write('<br>')
-      document.write(temp.toKelvin());
-
+      let inputNumber=checkInputNumber(+prompt('Nhap Nhiet Do'));
+      function checkInputNumber(number){
+          while(isNaN(number)||!parseInt(number)===number){
+              alert('Nhap Sai Nhiet Do ');
+              number=+prompt('Nhap Lai Nhiet Do : ');
+          }
+          return number;
+      }
+      let temp= new Temperature(inputNumber);
+      document.write(`${temp.celsius}°C Thanh ${temp.toFahrenheit()} F`);
+      document.write('<br>');
+      document.write(`${temp.celsius}°C Thanh ${temp.toKelvin()} K`);
     </script>
 </body>
 </html>

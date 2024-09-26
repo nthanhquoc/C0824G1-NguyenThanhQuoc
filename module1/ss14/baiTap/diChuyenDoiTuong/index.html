@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="game"></div>
+    <script>
+        class Hero{
+            image;
+            top;
+            left;
+            size;
+            speed;
+            constructor(image,top,left,size,speed) {
+                this.image = image;
+                this.top = top;
+                this.left = left;
+                this.size = size;
+                this.speed=speed;
+            }
+            getHeroElement(){
+                return '<img width="'+ this.size + '"' +
+                    ' height="'+ this.size + '"' +
+                    ' src="' + this.image +'"' +
+                    ' style="top: '+this.top+'px; left:'+this.left+'px;position:absolute;" />';
+            }
+
+            moveRight(){
+                this.left += this.speed;
+            }
+            moveLeft(){
+                this.left -= this.speed;
+            }
+            moveUp(){
+                this.top-=this.speed;
+            }
+
+            moveDown(){
+                this.top+=this.speed;
+            }
+
+        }
+
+        let hero = new Hero('luffy.png', 20, 30, 200,20);
+        function updatePosition(){
+            document.getElementById('game').innerHTML=hero.getHeroElement();
+        }
+        function start(){
+            if(hero.left < window.innerWidth - hero.size){
+                hero.moveRight();
+            }
+            updatePosition();
+            setTimeout(start, 500)
+        }
+        start();
+    </script>
+</body>
+</html>
