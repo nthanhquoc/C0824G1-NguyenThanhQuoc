@@ -25,9 +25,9 @@
     class SwitchButton{
         status;
         lamp;
-        constructor(status,lamp) {
+        constructor(status) {
             this.status=status;
-            this.lamp=lamp;
+            this.lamp=null;
         }
         connectToLamp(ElectricLamp){
             this.lamp=ElectricLamp;
@@ -42,7 +42,8 @@
         }
     }
     let lamp = new ElectricLamp();
-    let switchButton = new SwitchButton(false, lamp);
+    let switchButton = new SwitchButton(false);
+    switchButton.connectToLamp(lamp);
     for(let i=0;i<5;i++){
         switchButton.switchOn();
         switchButton.switchOff();
