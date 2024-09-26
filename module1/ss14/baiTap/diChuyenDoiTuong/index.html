@@ -48,12 +48,37 @@
             document.getElementById('game').innerHTML=hero.getHeroElement();
         }
         function start(){
-            if(hero.left < window.innerWidth - hero.size){
-                hero.moveRight();
-            }
+            // if(hero.left < window.innerWidth - hero.size){
+            //     hero.moveRight();
+            // }
             updatePosition();
             setTimeout(start, 500)
         }
+        window.addEventListener('keydown',function(event){
+            switch(event.key){
+                case 'ArrowRight':
+                    if(hero.left < window.innerWidth - hero.size){
+                        hero.moveRight();
+                    }
+                    break;
+                case 'ArrowLeft':
+                    if(hero.left>0){
+                        hero.moveLeft();
+                    }
+                    break;
+                case 'ArrowUp':
+                    if(hero.top>0){
+                        hero.moveUp();
+                    }
+                    break;
+                case 'ArrowDown':
+                    if(hero.top<window.innerWidth-hero.size){
+                        hero.moveDown();
+                    }
+                    break;
+            }
+            updatePosition();
+        })
         start();
     </script>
 </body>
