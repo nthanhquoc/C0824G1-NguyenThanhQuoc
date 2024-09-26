@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cong Tac Va Bong Den</title>
+</head>
+<body>
+<script>
+    class ElectricLamp{
+        status;
+        constructor(){
+            this.status=false;
+        }
+        turnOff(){
+            this.status=false;
+            document.write('Lamp is turn off');
+            document.write('<br>');
+        }
+        turnOn(){
+            this.status=true;
+            document.write('Lamp is turn on');
+            document.write('<br>');
+        }
+    }
+    class SwitchButton{
+        status;
+        lamp;
+        constructor(status,lamp) {
+            this.status=status;
+            this.lamp=lamp;
+        }
+        connectToLamp(ElectricLamp){
+            this.lamp=ElectricLamp;
+        }
+        switchOff(){
+            this.status=false;
+            this.lamp.turnOff();
+        }
+        switchOn(){
+            this.status=true;
+            this.lamp.turnOn();
+        }
+    }
+    let lamp = new ElectricLamp();
+    let switchButton = new SwitchButton(false, lamp);
+    for(let i=0;i<5;i++){
+        switchButton.switchOn();
+        switchButton.switchOff();
+    }
+</script>
+</body>
+</html>

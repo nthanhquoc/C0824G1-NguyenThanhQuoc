@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cau Chuyen Adam Va Eva</title>
+</head>
+<body>
+    <script>
+        class Apple{
+            weight;
+            constructor() {
+                this.weight=10;
+            }
+            decrease(){
+                if(this.isEmpty()){
+                   return alert('Tao Da Het');
+                }else {
+                    return this.weight--;
+                }
+            }
+            isEmpty(){
+                if(this.weight<=0){
+                    return true;
+                }else{
+                    return false;
+                }
+            }
+            getWeight(){
+                return this.weight;
+            }
+        }
+        class Human{
+            name;
+            gender;
+            weight;
+            constructor(name,gender,weight) {
+                this.name=name;
+                this.gender=gender;
+                this.weight=weight;
+            }
+            isMale(){
+                if(this.gender==1){
+                    return true;
+                }else{
+                    return false;
+                }
+            }
+            setGender(){
+                if(this.isMale()){
+                    return 'Male';
+                }else{
+                    return 'FeMale';
+                }
+            }
+            checkApple(apple){
+                return apple.isEmpty();
+            }
+            eat(apple){
+                if(!this.checkApple(apple)){
+                    apple.decrease();
+                    this.weight++;
+                }
+            }
+            say(string){
+                console.log(string);
+            }
+            getName(){
+                return this.name;
+            }
+            setName(name){
+                this.name=name;
+            }
+            getWeight(){
+                return this.weight;
+            }
+            setWeight(weight){
+                this.weight=weight;
+            }
+        }
+        function displayPerson(person){
+            person.eat(apple_1);
+            document.write(`${person.name} an Tao <br>`)
+            document.write(`Qua Tao Con ${apple_1.getWeight()} <br>`);
+            document.write(`Can nang Cua ${person.name} la ${person.getWeight()} <br>`);
+        }
+        let person=new Human('Adam',1,65);
+        let person2 =new Human('Eva',2,45);
+        let apple_1=new Apple();
+        while(apple_1.weight>0){
+            displayPerson(person);
+            displayPerson(person2);
+        }
+    </script>
+</body>
+</html>
