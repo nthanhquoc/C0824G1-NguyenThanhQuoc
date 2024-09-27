@@ -39,11 +39,10 @@
                 this.weight=weight;
             }
             isMale(){
-                if(this.gender){
-                    return 'Male';
-                }else{
-                    return 'FeMale';
-                }
+               return this.gender;
+            }
+            setGender(gender){
+                this.gender=gender;
             }
             checkApple(apple){
                 return apple.isEmpty();
