@@ -27,22 +27,25 @@
         lamp;
         constructor(status) {
             this.status=status;
-            this.lamp=null;
         }
-        connectToLamp(ElectricLamp){
-            this.lamp=ElectricLamp;
+        connectToLamp(lamp){
+            this.lamp=lamp;
         }
         switchOff(){
             this.status=false;
-            this.lamp.turnOff();
+            if (this.lamp) {
+                this.lamp.turnOff();
+            }
         }
         switchOn(){
             this.status=true;
-            this.lamp.turnOn();
+            if (this.lamp) {
+                this.lamp.turnOn();
+            }
         }
     }
     let lamp = new ElectricLamp();
-    let switchButton = new SwitchButton(false);
+    let switchButton = new SwitchButton();
     switchButton.connectToLamp(lamp);
     for(let i=0;i<5;i++){
         switchButton.switchOn();
