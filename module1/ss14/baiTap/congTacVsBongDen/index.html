@@ -25,8 +25,9 @@
     class SwitchButton{
         status;
         lamp;
-        constructor(status) {
-            this.status=status;
+        constructor() {
+            this.status=false;
+            this.lamp=null;
         }
         connectToLamp(lamp){
             this.lamp=lamp;
