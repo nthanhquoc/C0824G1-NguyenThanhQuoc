@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <script>
+      let n=prompt('Nhap Chuoi: ');
+      let newN=n.trim().split(/\s+/);
+      for(let i=0;i<newN.length;i++){
+        console.log(newN[i]);
+      }
+      let countstr=newN.length;
+      console.log(countstr);
+      let wordFrequency = {};
+      for (let i = 0; i < newN.length; i++) {
+        let word = newN[i].toLowerCase();
+        if (wordFrequency[word]) {
+          wordFrequency[word]++;
+        } else {
+          wordFrequency[word] = 1;
+        }
+      }
+      console.log("\nBảng tần số xuất hiện của các từ:");
+      for (let word in wordFrequency) {
+        console.log(`${word}: ${wordFrequency[word]}`);
+      }
+  </script>
+</body>
+</html>

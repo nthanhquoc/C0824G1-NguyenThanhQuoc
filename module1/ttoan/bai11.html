@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+      let arr=[];
+      let n=+prompt('Nhap N: ');
+      for(let i=0;i<n;i++){
+        let index=prompt(`Nhap phan tu thu ${i}: `);
+        arr.push(index);
+      }
+      console.log(arr);
+      let sum=0;
+      for(let i=0;i<arr.length;i++){
+        if(arr[i]%2!==0){
+          sum+=Number(arr[i]);
+        }
+      }
+      console.log(sum);
+      let k=+prompt('Nhap Ky Tu ');
+      console.log(arr.indexOf(k));
+      arr.sort(function(a,b){
+        return a-b;
+      })
+      console.log(arr);
+    </script>
+</body>
+</html>

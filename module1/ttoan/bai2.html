@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+      let month=+prompt('Nhap Vao Thang');
+      let year=+prompt('Nhap Vao Nam');
+      let songay=0;
+      if (month >= 1 && month <= 12)
+      {
+        switch (month)
+        {
+          case 1:
+          case 3:
+          case 5:
+          case 7:
+          case 8:
+          case 10:
+          case 12: songay = 31; break;
+          case 4:
+          case 6:
+          case 9:
+          case 11: songay = 30; break;
+
+          case 2:
+            if (year % 400 == 0 || (year % 4 == 0 && year % 100 != 0))
+              songay = 29;
+            else
+              songay = 28;
+            break;
+        }
+
+        document.write("Thang "+month+"/"+year+" co "+songay+" ngay\n");
+      }
+      else
+        document.write(" Thang khong hop le!\n");
+    </script>
+</body>
+</html>

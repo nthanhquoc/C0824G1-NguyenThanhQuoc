@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        function giaiThua(n){
+              let sum=1;
+              for(let i=1;i<=n;i++){
+                  sum=sum*i;
+              }
+              return sum;
+        }
+
+        let n=+prompt('Nhap N: ');
+        let sum=0;
+        for(let i=0;i<n;i++){
+            if(n%i!==0){
+                sum+=1/giaiThua(i);
+            }
+        }
+        console.log(sum);
+    </script>
+</body>
+</html>

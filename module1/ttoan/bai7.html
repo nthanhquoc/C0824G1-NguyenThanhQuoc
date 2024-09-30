@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+    <script>
+      let n=prompt('Nhap n: ');
+      let newN=n.split("");
+      let sum=0;
+      let p=1;
+      for(let i=0;i<newN.length;i++){
+        sum+=Number(newN[i]);
+        p*=Number(newN[i]);
+      }
+      console.log(sum);
+      console.log(p);
+    </script>
+</body>
+</html>

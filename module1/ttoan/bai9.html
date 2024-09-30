@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+      let str=prompt('Nhap Chuoi: ');
+
+      function reverseString(str){
+        return str.split("").reverse().join("");
+      }
+
+      function upperCase(str){
+        return str.toUpperCase();
+      }
+      function lowerCase(str){
+        return str.toLowerCase();
+      }
+      function toggleCase(str){
+        let newstr='';
+          for(let i=0;i<str.length;i++){
+            if(str[i]==str[i].toUpperCase()){
+              newstr+=str[i].toLowerCase();
+            }
+            else{
+              newstr+=str[i].toUpperCase();
+            }
+          }
+          return newstr;
+      }
+
+      console.log('Dao Nguoc Chuoi la '+reverseString(str));
+      console.log('In Hoa Trong Chuoi la ' +upperCase(str));
+      console.log('In Thuong Trong Chuoi la '+lowerCase(str));
+      console.log('Sau Khi Thay Doi la '+toggleCase(str));
+    </script>
+</body>
+</html>

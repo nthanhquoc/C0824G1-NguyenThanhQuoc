@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        let number1=+prompt("Nhap a: ");
+        let number2=+prompt('Nhap b: ');
+        function uCLN(a,b){
+            while (b !== 0) {
+                let temp = b;
+                b = a % b;
+                a = temp;
+            }
+            return a;
+        }
+        function bCNN(a, b) {
+            return Math.abs(a * b) / uCLN(a, b);
+        }
+
+    </script>
+</body>
+</html>
