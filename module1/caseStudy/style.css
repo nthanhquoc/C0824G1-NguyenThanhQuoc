@@ -1,0 +1,135 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #e6ebed;
+    padding: 20px;
+}
+
+.board {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+#boardTitle {
+    text-align: left;
+    font-size: 2em;
+    color: #333333;
+    font-weight: bold;
+    padding-left: 10px;
+    margin-bottom: 20px;
+}
+
+.listContainer {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    overflow-x: auto;
+    padding-bottom: 15px;
+}
+
+.list {
+    flex: 0 0 300px;
+    background-color: #f4f5f7;
+    border-radius: 8px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.list h2 {
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.card {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.card h3 {
+    margin: 0 0 10px;
+}
+
+.card p {
+    margin: 0 0 10px;
+}
+
+.card button {
+    /*background-color: #007bff;*/
+    /*color: white;*/
+    border: none;
+    padding: 5px 10px;
+    margin-right: 5px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.card button:hover {
+    background-color: cornflowerblue;
+}
+
+.removeCard {
+    background-color: crimson;
+}
+
+.addCard {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #0079bf;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 0.9em;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.addCard:hover {
+    background-color: #005b9f;
+}
+
+.listContainer::-webkit-scrollbar {
+    height: 8px;
+}
+
+.listContainer::-webkit-scrollbar-thumb {
+    background-color: #b0b0b0;
+    border-radius: 4px;
+}
+
+.listContainer::-webkit-scrollbar-track {
+    background-color: #f4f5f7;
+}
+.addList {
+    display: block;
+    margin-bottom: 20px;
+    padding: 10px 15px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.addList:hover {
+    background-color: #218838;
+}
