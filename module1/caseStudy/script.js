@@ -1,7 +1,6 @@
 class Board {
     title;
     lists;
-
     constructor(title) {
         this.title = title;
         this.lists = [];
@@ -103,6 +102,9 @@ class Board {
     }
     removeSelectList(){
         let listTitle=[];
+        for (let i = 0; i < this.lists.length; i++) {
+            listTitle.push(listTitle[i].title);
+        }
 
     }
 }
@@ -110,7 +112,6 @@ class Board {
 class List {
     title;
     cards;
-
     constructor(title) {
         this.title = title;
         this.cards = [];
@@ -135,7 +136,6 @@ class Card {
     title;
     description;
     comments;
-
     constructor(title, description = '', comments = []) {
         this.title = title;
         this.description = description;
@@ -155,7 +155,6 @@ class Card {
 class User {
     name;
     boards;
-
     constructor(name) {
         this.name = name;
         this.boards = [];
