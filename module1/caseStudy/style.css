@@ -1,4 +1,3 @@
-
 * {
     margin: 0;
     padding: 0;
@@ -7,7 +6,7 @@
 
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background-color: #e6ebed;
+    background-color: #f0f4f8;
     padding: 20px;
 }
 
@@ -16,17 +15,57 @@ body {
     margin: 0 auto;
     padding: 20px;
     background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 #boardTitle {
     text-align: left;
-    font-size: 2em;
+    font-size: 2.5em;
     color: #333333;
     font-weight: bold;
     padding-left: 10px;
     margin-bottom: 20px;
+}
+
+/* Các nút điều khiển thêm/xóa danh sách */
+.listButtons {
+    margin-bottom: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.addList,
+.removeList {
+    padding: 12px 20px;
+    font-size: 1.1em;
+    font-weight: bold;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.addList {
+    background-color: #4caf50; /* Màu xanh lá cây */
+}
+
+.addList:hover {
+    background-color: #45a049;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+
+.removeList {
+    background-color: #f44336; /* Màu đỏ nhạt */
+}
+
+.removeList:hover {
+    background-color: #e53935;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
 }
 
 .listContainer {
@@ -40,96 +79,95 @@ body {
 .list {
     flex: 0 0 300px;
     background-color: #f4f5f7;
-    border-radius: 8px;
-    padding: 15px;
+    border-radius: 10px;
+    padding: 20px;
     display: flex;
     flex-direction: column;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .list h2 {
-    font-size: 1.5em;
+    font-size: 1.8em;
     color: #333;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
 .card {
-    background-color: #f9f9f9;
+    background-color: #ffffff;
     border: 1px solid #ddd;
-    padding: 10px;
-    margin-bottom: 10px;
-    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
 }
 
 .card h3 {
     margin: 0 0 10px;
+    font-size: 1.2em;
 }
 
 .card p {
     margin: 0 0 10px;
+    font-size: 1em;
+    color: #555;
 }
 
+/* Nút trong các thẻ card */
 .card button {
-    /*background-color: #007bff;*/
-    /*color: white;*/
+    padding: 8px 12px;
     border: none;
-    padding: 5px 10px;
-    margin-right: 5px;
+    border-radius: 5px;
+    font-size: 0.9em;
     cursor: pointer;
-    border-radius: 3px;
+    transition: all 0.2s ease;
 }
 
 .card button:hover {
-    background-color: cornflowerblue;
+    background-color: #007bff;
+    color: white;
+    transform: translateY(-2px);
 }
 
 .removeCard {
-    background-color: crimson;
+    background-color: #f44336; /* Màu đỏ nhạt */
+    color: white;
 }
 
+.removeCard:hover {
+    background-color: #e53935;
+}
+
+/* Nút thêm thẻ card */
 .addCard {
     display: block;
     width: 100%;
-    padding: 10px;
-    background-color: #0079bf;
+    padding: 12px;
+    background-color: #2196f3; /* Màu xanh dương */
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     text-align: center;
-    font-size: 0.9em;
+    font-size: 1em;
     cursor: pointer;
-    transition: background-color 0.3s ease-in-out;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .addCard:hover {
-    background-color: #005b9f;
+    background-color: #1976d2;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
 }
 
+/* Tùy chỉnh thanh cuộn */
 .listContainer::-webkit-scrollbar {
-    height: 8px;
+    height: 10px;
 }
 
 .listContainer::-webkit-scrollbar-thumb {
-    background-color: #b0b0b0;
-    border-radius: 4px;
+    background-color: #a0a0a0;
+    border-radius: 5px;
 }
 
 .listContainer::-webkit-scrollbar-track {
     background-color: #f4f5f7;
-}
-.addList {
-    display: block;
-    margin-bottom: 20px;
-    padding: 10px 15px;
-    background-color: #28a745;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 1em;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.addList:hover {
-    background-color: #218838;
 }

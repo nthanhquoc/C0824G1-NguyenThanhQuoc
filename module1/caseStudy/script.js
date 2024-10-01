@@ -100,12 +100,23 @@ class Board {
             this.addList(newList);
         }
     }
-    removeSelectList(){
-        let listTitle=[];
+    removeSelectList() {
+        let listTitles = [];
         for (let i = 0; i < this.lists.length; i++) {
-            listTitle.push(listTitle[i].title);
+            listTitles.push(this.lists[i].title);
         }
-
+        let listTitleToRemove = prompt(`Chon danh sach de xoa:\n${listTitles.join('\n')}`);
+        let found = false;
+        for (let i = 0; i < listTitles.length; i++) {
+            if (listTitles[i] === listTitleToRemove) {
+                found = true;
+                this.removeList(listTitleToRemove);
+                break;
+            }
+        }
+        if (!found) {
+            alert('Danh sach khong ton tai.');
+        }
     }
 }
 
@@ -176,7 +187,15 @@ class User {
 }
 
 let board = new Board('Quan Ly Bang Cong Viec');
+let removeListButton=document.querySelector('.removeList');
 let addListButton=document.querySelector('.addList');
+removeListButton.addEventListener('click', function(){
+    if (board.lists.length === 0) {
+        alert('Không có danh sách nào để xóa.');
+    } else {
+        board.removeSelectList();
+    }
+})
 addListButton.addEventListener('click',function(){
     board.newAddList();
 })
