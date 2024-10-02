@@ -47,12 +47,12 @@ class Board {
                 cardDiv.innerHTML = `
                     <h3>${card.title}</h3>
                     <p>${card.description}</p>
-                    <button class="viewComments"><img src="img/review.png" alt="View Comments" style="width: 20px"></button>
+                    <button class="viewCards"><img src="img/review.png" alt="View Cards" style="width: 20px"></button>
                     <button class="addComments"><img src="img/add-comment.png" alt="Add Comments" style="width: 20px"></button>
                     <button class="setInfoCard"><img src="img/description.png" alt="Set InFo Card" style="width: 20px"></button>
                     <button class="removeCard"><img src="img/trash-can.png" alt="Remove Card" style="width: 20px"></button>
                 `;
-                cardDiv.querySelector('.viewComments').addEventListener('click', function () {
+                cardDiv.querySelector('.viewCards').addEventListener('click', function () {
                     board.viewCard(list.title, card.title);
                 })
                 cardDiv.querySelector('.addComments').addEventListener('click', function () {
