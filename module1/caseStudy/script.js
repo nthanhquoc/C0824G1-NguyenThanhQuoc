@@ -120,6 +120,24 @@ class Board {
             alert('Danh Sách Không Tồn Tại');
         }
     }
+    viewCard(listTitle,CardTitle){
+        let foundList=this.lists.find(function(item){
+            return item.title === listTitle;
+        })
+        if(!foundList){
+            alert('Danh Sách Không Tồn Tại !');
+            return;
+        }
+        let foundCard=foundList.cards.find(function(item){
+            return item.title === CardTitle;
+        })
+        if(!foundCard){
+            alert('Card Không Tồn Tại !');
+            return;
+        }
+
+        alert(`Tiêu Đề: ${foundCard.title}\nMô Tả: ${foundCard.description}\nComments: ${foundCard.comments.join(',')||'Không Có Bình Luận'}`);
+    }
 }
 
 class List {
