@@ -30,6 +30,16 @@ class Board {
             let listDiv = document.createElement("div");
             listDiv.className = 'list';
             listDiv.innerHTML = `<h2>${list.title}</h2>`;
+            listDiv.addEventListener('dblclick', function () {
+                let newListTitle = prompt("Input New List Title: ");
+                if (newListTitle) {
+                    let confirmList=confirm('Do You Want to Change List Title?');
+                    if(confirmList){
+                        list.title = newListTitle;
+                        board.renderList();
+                    }
+                }
+            })
             for (let j = 0; j < list.cards.length; j++) {
                 let card = list.cards[j];
                 let cardDiv = document.createElement("div");
@@ -39,20 +49,12 @@ class Board {
                     <p>${card.description}</p>
                     <button class="viewComments"><img src="img/review.png" alt="View Comments" style="width: 20px"></button>
                     <button class="addComments"><img src="img/add-comment.png" alt="Add Comments" style="width: 20px"></button>
-                    <button class="setDescription"><img src="img/description.png" alt="Set Description" style="width: 20px"></button>
+                    <button class="setInfoCard"><img src="img/description.png" alt="Set InFo Card" style="width: 20px"></button>
                     <button class="removeCard"><img src="img/trash-can.png" alt="Remove Card" style="width: 20px"></button>
                 `;
-                // cardDiv.querySelector('.viewComments').addEventListener('click', function () {
-                //     if(card.comments.length > 0){
-                //         alert(`You Have A Comment ${card.comments}`);
-                //     }else{
-                //         alert('You Not Have a Comment');
-                //     }
-                // });
                 cardDiv.querySelector('.viewComments').addEventListener('click', function () {
                     board.viewCard(list.title, card.title);
                 })
-
                 cardDiv.querySelector('.addComments').addEventListener('click', function () {
                     let newComments = prompt('Enter a Comment ');
                     if (newComments) {
@@ -60,11 +62,23 @@ class Board {
                         alert('Comment Added Successfully');
                     }
                 })
-                cardDiv.querySelector('.setDescription').addEventListener('click', function () {
-                    let newDescription = prompt('Add New Description: ');
-                    if (newDescription) {
-                        card.setDescription(newDescription);
-                        alert('Description Change Successfully');
+                cardDiv.querySelector('.setInfoCard').addEventListener('click', function () {
+                    let inputText = prompt('1 to Change Card Title, 2 To Change Description');
+                    if (inputText) {
+                        while(inputText<1||inputText>2||isNaN(inputText)||!parseInt(inputText)===inputText){
+                            alert('Wrong Input!!!');
+                            inputText=prompt('1 to Change Card Title, 2 To Change Description');
+                        }
+                        if(inputText==1){
+                            let newCardTitle=prompt('Enter New Card Title:');
+                            card.title=newCardTitle;
+                            alert('Title Change Successfully!');
+                        }
+                        else{
+                            let newDescription=prompt('Enter New Description:');
+                            card.setDescription(newDescription);
+                            alert('Description Change Successfully');
+                        }
                     }
                     board.renderList();
                 })
@@ -237,7 +251,7 @@ class User {
                 updateBoard.push(this.boards[i]);
             }
         }
-        this.cards = updateBoard;
+        this.boards = updateBoard;
     }
 }
 
