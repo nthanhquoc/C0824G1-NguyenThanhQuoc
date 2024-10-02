@@ -42,30 +42,34 @@ class Board {
                     <button class="setDescription"><img src="img/description.png" alt="Set Description" style="width: 20px"></button>
                     <button class="removeCard"><img src="img/trash-can.png" alt="Remove Card" style="width: 20px"></button>
                 `;
+                // cardDiv.querySelector('.viewComments').addEventListener('click', function () {
+                //     if(card.comments.length > 0){
+                //         alert(`You Have A Comment ${card.comments}`);
+                //     }else{
+                //         alert('You Not Have a Comment');
+                //     }
+                // });
                 cardDiv.querySelector('.viewComments').addEventListener('click', function () {
-                    if(card.comments.length > 0){
-                        alert(`Bạn Có Comment là: ${card.comments}`);
-                    }else{
-                        alert('Bạn Không Có Comment ');
-                    }
-                });
+                    board.viewCard(list.title, card.title);
+                })
+
                 cardDiv.querySelector('.addComments').addEventListener('click', function () {
-                    let newComments = prompt('Nhập Bình Luận: ');
+                    let newComments = prompt('Enter a Comment ');
                     if (newComments) {
                         card.addComment(newComments);
-                        alert('Bình Luận Đã Được Thêm');
+                        alert('Comment Added Successfully');
                     }
                 })
                 cardDiv.querySelector('.setDescription').addEventListener('click', function () {
-                    let newDescription = prompt('Nhập Mô Tả Mới: ');
-                    if(newDescription){
+                    let newDescription = prompt('Add New Description: ');
+                    if (newDescription) {
                         card.setDescription(newDescription);
-                        alert('Đã Thay Đổi');
+                        alert('Description Change Successfully');
                     }
                     board.renderList();
                 })
                 cardDiv.querySelector('.removeCard').addEventListener('click', function () {
-                    let conFirmText = confirm("Bạn Có Muốn Xóa Không ?");
+                    let conFirmText = confirm("Do You Want To Delete Card ?");
                     if (conFirmText) {
                         list.removeCard(card.title);
                     }
@@ -86,8 +90,8 @@ class Board {
     }
 
     addCardToList(list) {
-        let cardTitle = prompt('Nhập Tiêu Đề Thẻ : ');
-        let cardDescription = prompt('Nhập Mô Tả Thẻ:  ');
+        let cardTitle = prompt('Input Title Card: ');
+        let cardDescription = prompt('Input Description Card:  ');
         if (cardTitle) {
             let newCard = new Card(cardTitle, cardDescription);
             list.addCard(newCard);
@@ -96,47 +100,78 @@ class Board {
     }
 
     newAddList() {
-        let titleList=prompt('Nhập Tên Danh Sách Mới');
-        if(titleList){
-            let newList=new List(titleList);
+        let titleList = prompt('Add New List Title: ');
+        if (titleList) {
+            let newList = new List(titleList);
             this.addList(newList);
         }
     }
+
     removeSelectList() {
         let listTitles = [];
         for (let i = 0; i < this.lists.length; i++) {
             listTitles.push(this.lists[i].title);
         }
-        let listTitleToRemove = prompt(`Chọn Danh Sách Để Xóa:\n${listTitles.join('\n')}`);
+        let listTitleToRemove = prompt(`Choose List To Delete:\n${listTitles.join('\n')}`);
         let found = false;
         for (let i = 0; i < listTitles.length; i++) {
             if (listTitles[i] === listTitleToRemove) {
                 found = true;
-                this.removeList(listTitleToRemove);
-                break;
+                let confirmText = confirm('Do You Want To Delete ?');
+                if (confirmText) {
+                    this.removeList(listTitleToRemove);
+                    break;
+                }
             }
         }
         if (!found) {
-            alert('Danh Sách Không Tồn Tại');
+            alert('List Not Found');
         }
     }
-    viewCard(listTitle,CardTitle){
-        let foundList=this.lists.find(function(item){
+
+    viewCard(listTitle, CardTitle) {
+        let foundList = this.lists.find(function (item) {
             return item.title === listTitle;
         })
-        if(!foundList){
-            alert('Danh Sách Không Tồn Tại !');
+        if (!foundList) {
+            alert('List Not Found');
             return;
         }
-        let foundCard=foundList.cards.find(function(item){
+        let foundCard = foundList.cards.find(function (item) {
             return item.title === CardTitle;
         })
-        if(!foundCard){
-            alert('Card Không Tồn Tại !');
+        if (!foundCard) {
+            alert('Card Not Found');
             return;
         }
-
-        alert(`Tiêu Đề: ${foundCard.title}\nMô Tả: ${foundCard.description}\nComments: ${foundCard.comments.join(',')||'Không Có Bình Luận'}`);
+        let modal = document.getElementById('cardModal');
+        let modalTitle = document.getElementById('modalTitle');
+        let modalDescription = document.getElementById('modalDescription');
+        let modalComments = document.getElementById('modalComments');
+        modalTitle.textContent = foundCard.title;
+        modalDescription.textContent = foundCard.description;
+        modalComments.innerHTML = '';
+        if (foundCard.comments.length > 0) {
+            for (let i = 0; i < foundCard.comments.length; i++) {
+                let commentItem = document.createElement('li');
+                commentItem.textContent = foundCard.comments[i];
+                modalComments.appendChild(commentItem);
+            }
+        } else {
+            let noItem = document.createElement('li');
+            noItem.textContent = `No Comments`;
+            modalComments.appendChild(noItem);
+        }
+        modal.style.display = 'block';
+        let close = document.querySelector('.close');
+        close.addEventListener('click', function () {
+            modal.style.display = 'none';
+        })
+        window.onclick=function(event){
+            if(event.target===modal){
+                modal.style.display = 'none';
+            }
+        }
     }
 }
 
@@ -211,7 +246,7 @@ let removeListButton=document.querySelector('.removeList');
 let addListButton=document.querySelector('.addList');
 removeListButton.addEventListener('click', function(){
     if (board.lists.length === 0) {
-        alert('Không có danh sách nào để xóa.');
+        alert('No Have List To Delete');
     } else {
         board.removeSelectList();
     }
