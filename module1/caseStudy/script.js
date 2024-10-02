@@ -44,28 +44,28 @@ class Board {
                 `;
                 cardDiv.querySelector('.viewComments').addEventListener('click', function () {
                     if(card.comments.length > 0){
-                        alert(`Ban Co Comment la: ${card.comments}`);
+                        alert(`Bạn Có Comment là: ${card.comments}`);
                     }else{
-                        alert('Ban Khong Co Comment');
+                        alert('Bạn Không Có Comment ');
                     }
                 });
                 cardDiv.querySelector('.addComments').addEventListener('click', function () {
-                    let newComments = prompt('Nhap Binh Luan: ');
+                    let newComments = prompt('Nhập Bình Luận: ');
                     if (newComments) {
                         card.addComment(newComments);
-                        alert('Binh Luan Da Duoc Thêm');
+                        alert('Bình Luận Đã Được Thêm');
                     }
                 })
                 cardDiv.querySelector('.setDescription').addEventListener('click', function () {
-                    let newDescription = prompt('Nhap Mô Tả Mới: ');
+                    let newDescription = prompt('Nhập Mô Tả Mới: ');
                     if(newDescription){
                         card.setDescription(newDescription);
-                        alert('Da Thay Đổi');
+                        alert('Đã Thay Đổi');
                     }
                     board.renderList();
                 })
                 cardDiv.querySelector('.removeCard').addEventListener('click', function () {
-                    let conFirmText = confirm("Ban Co Muon Xoa Khong?");
+                    let conFirmText = confirm("Bạn Có Muốn Xóa Không ?");
                     if (conFirmText) {
                         list.removeCard(card.title);
                     }
@@ -86,8 +86,8 @@ class Board {
     }
 
     addCardToList(list) {
-        let cardTitle = prompt('Nhap Tieu De The: ');
-        let cardDescription = prompt('Nhap Mo Ta The: ');
+        let cardTitle = prompt('Nhập Tiêu Đề Thẻ : ');
+        let cardDescription = prompt('Nhập Mô Tả Thẻ:  ');
         if (cardTitle) {
             let newCard = new Card(cardTitle, cardDescription);
             list.addCard(newCard);
@@ -96,7 +96,7 @@ class Board {
     }
 
     newAddList() {
-        let titleList=prompt('Nhap Ten Danh Sach Moi');
+        let titleList=prompt('Nhập Tên Danh Sách Mới');
         if(titleList){
             let newList=new List(titleList);
             this.addList(newList);
@@ -107,7 +107,7 @@ class Board {
         for (let i = 0; i < this.lists.length; i++) {
             listTitles.push(this.lists[i].title);
         }
-        let listTitleToRemove = prompt(`Chon danh sach de xoa:\n${listTitles.join('\n')}`);
+        let listTitleToRemove = prompt(`Chọn Danh Sách Để Xóa:\n${listTitles.join('\n')}`);
         let found = false;
         for (let i = 0; i < listTitles.length; i++) {
             if (listTitles[i] === listTitleToRemove) {
@@ -117,7 +117,7 @@ class Board {
             }
         }
         if (!found) {
-            alert('Danh sach khong ton tai.');
+            alert('Danh Sách Không Tồn Tại');
         }
     }
 }
@@ -188,7 +188,7 @@ class User {
     }
 }
 
-let board = new Board('Quan Ly Bang Cong Viec');
+let board = new Board('Quản Lý Bảng Công Việc');
 let removeListButton=document.querySelector('.removeList');
 let addListButton=document.querySelector('.addList');
 removeListButton.addEventListener('click', function(){
