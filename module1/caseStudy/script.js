@@ -44,7 +44,9 @@ class Board {
                 `;
                 cardDiv.querySelector('.viewComments').addEventListener('click', function () {
                     if(card.comments.length > 0){
-                        console.log(card.comments);
+                        alert(`Ban Co Comment la: ${card.comments}`);
+                    }else{
+                        alert('Ban Khong Co Comment');
                     }
                 });
                 cardDiv.querySelector('.addComments').addEventListener('click', function () {
