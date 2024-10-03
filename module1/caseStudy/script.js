@@ -66,7 +66,7 @@ class Board {
                         card.addComment(newComments);
                         alert('Comment Added Successfully');
                     }
-                }).bind(this));
+                }));
 
                 cardDiv.querySelector('.setInfoCard').addEventListener('click', (function () {
                     let inputText = prompt('1 to Change Card Title, 2 To Change Description');
@@ -93,8 +93,8 @@ class Board {
                     if (confirmText) {
                         list.removeCard(card.title);
                     }
-                    this.renderList();
-                }).bind(this));
+                    board.renderList();
+                }));
 
                 listDiv.appendChild(cardDiv);
             }
@@ -103,8 +103,8 @@ class Board {
             addCardButton.className = 'addCard';
             addCardButton.textContent = 'Add Card';
             addCardButton.addEventListener('click', (function () {
-                this.addCardToList(list);
-            }).bind(this));
+                board.addCardToList(list);
+            }));
 
             listDiv.appendChild(addCardButton);
             listContainer.appendChild(listDiv);
