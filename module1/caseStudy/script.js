@@ -126,6 +126,7 @@ class Board {
         }
         let cardDescription = prompt('Input Description Card:  ');
         let newCard = new Card(cardTitle, cardDescription);
+        alert('Add Card Successfully!');
         list.addCard(newCard);
         this.renderList();
     }
@@ -161,6 +162,7 @@ class Board {
                 let confirmText = confirm('Do You Want To Delete ?');
                 if (confirmText) {
                     this.removeList(listTitleToRemove);
+                    alert('Delete List Successfully!');
                     break;
                 }
             }
