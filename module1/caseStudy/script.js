@@ -60,7 +60,6 @@ class Board {
                 cardDiv.querySelector('.viewCards').addEventListener('click', (function () {
                     this.viewCard(list.title, card.title);
                 }).bind(this));
-
                 cardDiv.querySelector('.addComments').addEventListener('click', (function () {
                     let newComments = prompt('Enter a Comment ');
                     if (newComments) {
@@ -113,28 +112,40 @@ class Board {
     }
 
     addCardToList(list) {
-        let cardTitle = prompt('Input Title Card: ');
-        if (cardTitle) {
-            let existingCard = list.cards.find(function (card) {
+        let cardTitle = prompt('Input Title Card: ').trim();
+        if (!cardTitle.trim() || cardTitle === '""' || cardTitle === "''") {
+            alert('Invalid title');
+            return;
+        }
+        let existingCard = list.cards.find(function (card) {
                 return card.title === cardTitle;
-            });
-            if (existingCard) {
+        });
+        if (existingCard) {
                 alert('A card with this title already exists!');
                 return;
-            }
-            let cardDescription = prompt('Input Description Card:  ');
-            let newCard = new Card(cardTitle, cardDescription);
-            list.addCard(newCard);
-            this.renderList();
         }
+        let cardDescription = prompt('Input Description Card:  ');
+        let newCard = new Card(cardTitle, cardDescription);
+        list.addCard(newCard);
+        this.renderList();
     }
 
     newAddList() {
-        let titleList = prompt('Add New List Title: ');
-        if (titleList) {
-            let newList = new List(titleList);
-            this.addList(newList);
+        let titleList = prompt('Add New List Title: ').trim();
+        if (!titleList.trim() || titleList === '""' || titleList === "''") {
+            alert('Invalid Title');
+            return;
         }
+        let existingList = this.lists.find(function (list) {
+            return list.title === titleList;
+        });
+        if (existingList) {
+            alert('A list with this title already exists!');
+            return;
+        }
+        let newList = new List(titleList);
+        this.addList(newList);
+        alert('Add List Success!');
     }
 
     removeSelectList() {
@@ -202,6 +213,11 @@ class Board {
                 modal.style.display = 'none';
             }
         };
+        window.addEventListener('keydown',function (event){
+            if (event.key === 'Escape') {
+                modal.style.display = 'none';
+            }
+        })
     }
 }
 
