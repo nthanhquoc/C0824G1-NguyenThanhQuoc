@@ -90,6 +90,7 @@ body {
     font-size: 1.8em;
     color: #333;
     margin-bottom: 15px;
+    cursor: pointer;
 }
 
 .card {
@@ -123,8 +124,6 @@ body {
 }
 
 .card button:hover {
-    background-color: #007bff;
-    color: white;
     transform: translateY(-2px);
 }
 
