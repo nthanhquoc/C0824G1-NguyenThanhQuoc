@@ -6,7 +6,7 @@
 
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background-color: #f0f4f8;
+    background-color: #e9f0f5;
     padding: 20px;
 }
 
@@ -28,7 +28,6 @@ body {
     margin-bottom: 20px;
 }
 
-/* Các nút điều khiển thêm/xóa danh sách */
 .listButtons {
     margin-bottom: 20px;
     display: flex;
@@ -49,21 +48,21 @@ body {
 }
 
 .addList {
-    background-color: #4caf50; /* Màu xanh lá cây */
+    background-color: #6aa84f;
 }
 
 .addList:hover {
-    background-color: #45a049;
+    background-color: #5c9943;
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
     transform: translateY(-2px);
 }
 
 .removeList {
-    background-color: #f44336; /* Màu đỏ nhạt */
+    background-color: #cc4125;
 }
 
 .removeList:hover {
-    background-color: #e53935;
+    background-color: #b33a1f;
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
     transform: translateY(-2px);
 }
@@ -113,7 +112,6 @@ body {
     color: #555;
 }
 
-/* Nút trong các thẻ card */
 .card button {
     padding: 8px 12px;
     border: none;
@@ -128,20 +126,19 @@ body {
 }
 
 .removeCard {
-    background-color: #f44336; /* Màu đỏ nhạt */
+    background-color: #cc4125;
     color: white;
 }
 
 .removeCard:hover {
-    background-color: #e53935;
+    background-color: #b33a1f;
 }
 
-/* Nút thêm thẻ card */
 .addCard {
     display: block;
     width: 100%;
     padding: 12px;
-    background-color: #2196f3; /* Màu xanh dương */
+    background-color: #66b2ff;
     color: white;
     border: none;
     border-radius: 8px;
@@ -152,18 +149,17 @@ body {
 }
 
 .addCard:hover {
-    background-color: #1976d2;
+    background-color: #5aa3e5;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transform: translateY(-2px);
 }
 
-/* Tùy chỉnh thanh cuộn */
 .listContainer::-webkit-scrollbar {
     height: 10px;
 }
 
 .listContainer::-webkit-scrollbar-thumb {
-    background-color: #a0a0a0;
+    background-color: #b0b0b0;
     border-radius: 5px;
 }
 
