@@ -32,17 +32,17 @@ class Board {
                 if (newListTitle) {
                     let confirmList = confirm('Do You Want to Change List Title?');
                     if (confirmList) {
-                        if (this.lists.some(function (item) {
+                        if (board.lists.some(function (item) {
                             return item.title === newListTitle;
                         })) {
                             alert('A list with this title already exists!');
                         } else {
                             list.title = newListTitle;
-                            this.renderList();
+                            board.renderList();
                         }
                     }
                 }
-            }).bind(this));
+            }));
 
             for (let j = 0; j < list.cards.length; j++) {
                 let card = list.cards[j];
@@ -58,8 +58,8 @@ class Board {
                 `;
 
                 cardDiv.querySelector('.viewCards').addEventListener('click', (function () {
-                    this.viewCard(list.title, card.title);
-                }).bind(this));
+                    board.viewCard(list.title, card.title);
+                }));
                 cardDiv.querySelector('.addComments').addEventListener('click', (function () {
                     let newComments = prompt('Enter a Comment ');
                     if (newComments) {
@@ -85,8 +85,8 @@ class Board {
                             alert('Description Changed Successfully');
                         }
                     }
-                    this.renderList();
-                }).bind(this));
+                    board.renderList();
+                }));
 
                 cardDiv.querySelector('.removeCard').addEventListener('click', (function () {
                     let confirmText = confirm("Do You Want To Delete Card ?");
