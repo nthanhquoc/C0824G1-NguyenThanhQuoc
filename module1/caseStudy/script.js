@@ -285,7 +285,7 @@ class User {
     }
 }
 
-let board = new Board('Quản Lý Bảng Công Việc');
+let board = new Board('Managing Job Boards');
 let removeListButton = document.querySelector('.removeList');
 let addListButton = document.querySelector('.addList');
 removeListButton.addEventListener('click', function () {

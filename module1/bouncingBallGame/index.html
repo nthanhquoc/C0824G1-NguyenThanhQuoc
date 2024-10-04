@@ -1,10 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
-$END$
+    <div></div>
+<script>
+   class GameBoard{
+       width;
+       height;
+       constructor(width,height) {
+           this.width=width;
+           this.height=height;
+       }
+   }
+   class Ball{
+       x;
+       y;
+       angle;
+       speed;
+       radius;
+       constructor(x,y,angle,speed) {
+           this.x=x;
+           this.y=y;
+           this.angle=angle;
+           this.speed=speed;
+           this.radius=10;
+       }
+       move(){
+
+       }
+       checkCollision(board, bar){
+
+       }
+   }
+   class Bar{
+       width;
+       x;
+       speed;
+       height;
+       constructor(width,x,speed) {
+           this.width=width;
+           this.x=x;
+           this.speed=speed;
+           this.height=20;
+       }
+       moveLeft(){
+            this.x-=this.speed;
+       }
+       moveRight(){
+            this.x+=this.speed;
+       }
+   }
+
+</script>
 </body>
 </html>

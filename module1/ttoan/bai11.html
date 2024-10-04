@@ -25,7 +25,12 @@
       arr.sort(function(a,b){
         return a-b;
       })
-      console.log(arr);
+      let p=prompt('Nhap Phan Tu')
+      let index=prompt('Nhap Vi Tri');
+      arr.splice(index,0,p);
+      arr.sort(function(a,b){
+        return a-b;
+      })
     </script>
 </body>
 </html>
