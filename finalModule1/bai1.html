@@ -18,7 +18,7 @@
         }
         for(let i=0;i<number;i++){
             let inputValue=prompt(`Nhap Phan Tu Thu ${i+1}: `);
-            while(inputValue<0||isNaN(inputValue)||parseInt(inputValue)===inputValue){
+            while(inputValue<0||isNaN(inputValue)||!parseInt(inputValue)===inputValue){
                 alert('Nhap Sai Nhap Lai');
                 inputValue=prompt(`Nhap Lai Phan Tu Thu ${i+1}: `);
             }
