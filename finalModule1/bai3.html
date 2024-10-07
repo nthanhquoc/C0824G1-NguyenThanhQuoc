@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let number;
+    let arr = [];
+
+    function isPrimeNumber(num) {
+        if (num <= 1) return false;
+        for (let i = 2; i <= Math.sqrt(num); i++) {
+            if (num % i === 0) return false;
+        }
+        return true;
+    }
+
+    function findPrimesArray(arr) {
+        let prime = [];
+        for (let i = 0; i < arr.length; i++) {
+            if (isPrimeNumber(arr[i])) {
+                prime.push(arr[i]);
+            }
+        }
+        return prime;
+    }
+
+    number = +prompt("Co Bao Nhieu phan tu can tao!!");
+    while (number <= 0 || isNaN(number) || !parseInt(number) === number) {
+        alert('Nhap Sai, Nhap Lai :');
+        number = +prompt("Co Bao Nhieu phan tu can tao!!");
+    }
+
+    for (let i = 0; i < number; i++) {
+        let inputValue = +prompt(`Nhap phan tu thu ${i + 1}: `);
+        while (isNaN(inputValue) || !parseInt(inputValue) === inputValue || inputValue < 0) {
+            alert('Nhap Sai , Nhap Lai');
+            inputValue = +prompt(`Nhap Lai phan tu thu ${i + 1}: `);
+        }
+        arr.push(inputValue);
+    }
+
+    let sortArrPrime=findPrimesArray(arr);
+    sortArrPrime.sort(function (a,b){
+      return a-b;
+    });
+    document.write(`Ket Qua la ${sortArrPrime}`);
+
+</script>
+</body>
+</html>

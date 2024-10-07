@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+PhoneId: <input type="text" id="phoneId">
+Name: <input type="text" id="name">
+Manufacture: <input type="text" id="manufacture">
+Price: <input type="number" id="price">
+<button id="addItem">Them Moi</button>
+<div id="result"></div>
+<script>
+    class Phone {
+        phoneId;
+        name;
+        manufacture;
+        price;
+
+        constructor(phoneId, name, manufacture, price) {
+            this.phoneId = phoneId;
+            this.name = name;
+            this.manufacture = manufacture;
+            this.price = price;
+        }
+
+        getPhoneId() {
+            return this.phoneId;
+        }
+
+        setPhoneId(phoneId) {
+            this.phoneId = phoneId;
+        }
+
+        getName() {
+            return this.name;
+        }
+
+        setName(name) {
+            this.name = name;
+        }
+
+        getManufacture() {
+            return this.manufacture;
+        }
+
+        setManufacture(manufacture) {
+            this.manufacture = manufacture;
+        }
+
+        getPrice() {
+            return this.price;
+        }
+
+        setPrice(price) {
+            this.price = price;
+        }
+
+        toString() {
+            return `Phone ID: ${this.phoneId}, Name: ${this.name}, Manufacturer: ${this.manufacture}, Price: $${this.price}`;
+        }
+    }
+
+    document.getElementById('addItem').addEventListener('click', addProduct);
+    let arrProduct = [];
+    let iphone16 = new Phone('Iphone', 'Iphone 16', 'China', 160000);
+    let A16 = new Phone('APhone', 'Aphone 16', 'China', 160000);
+    arrProduct.push(iphone16, A16);
+
+    function addProduct() {
+        let phoneIdValue = document.getElementById('phoneId').value;
+        let nameValue = document.getElementById('name').value;
+        let manufactureValue = document.getElementById('manufacture').value;
+        let priceValue = document.getElementById('price').value;
+        let newPhone = new Phone(phoneIdValue, nameValue, manufactureValue, priceValue);
+        arrProduct.push(newPhone);
+        displayProduct(arrProduct);
+    }
+
+    function displayProduct(arr) {
+        arr.sort(function (a, b) {
+            return a.name.localeCompare(b.name);
+        })
+        let result = "<table width='1000px' border='1px'>"
+        result += '<tr>';
+        result += '<th>Phone ID</th>'
+        result += '<th>Name</th>'
+        result += '<th>Manufacture</th>'
+        result += '<th>Price</th>'
+        result += "</tr>"
+        for (let i in arr) {
+            result += `<tr>`
+            result += `<td>${arr[i].phoneId}</td>`
+            result += `<td>${arr[i].name}</td>`
+            result += `<td>${arr[i].manufacture}</td>`;
+            result += `<td>${arr[i].price}</td>`;
+            result += `</tr>`
+
+        }
+        result += "</table>"
+        document.getElementById("result").innerHTML = result
+    }
+
+    displayProduct(arrProduct);
+</script>
+</body>
+</html>

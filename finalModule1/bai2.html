@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <script>
+    function countUpperChar(string){
+      let count=0;
+      for (let i = 0; i < string.length; i++) {
+        if (string[i].toUpperCase() === string[i] && string[i] !== string[i].toLowerCase()) {
+          count++;
+        }
+      }
+      if (count === 0) {
+        return 'The string does not contain any uppercase characters';
+      }
+      return count;
+    }
+    let string=prompt('Nhap Chuoi Ky Tu In Hoa');
+    document.write(countUpperChar(string));
+
+  </script>
+</body>
+</html>
