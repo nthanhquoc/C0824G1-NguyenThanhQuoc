@@ -6,10 +6,10 @@ public class CurrencyConversion {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         double exchangeRate=24.83000;
-        double valueDolla,changeVietNamDong;
+        double valueDollar,changeVietNamDong;
         System.out.println("Input Value USD: ");
-        valueDolla=sc.nextDouble();
-        changeVietNamDong=valueDolla*exchangeRate;
-        System.out.println(valueDolla+" USD = "+changeVietNamDong+" VND");
+        valueDollar=sc.nextDouble();
+        changeVietNamDong=valueDollar*exchangeRate;
+        System.out.println(valueDollar+" USD = "+changeVietNamDong+" VND");
     }
 }
