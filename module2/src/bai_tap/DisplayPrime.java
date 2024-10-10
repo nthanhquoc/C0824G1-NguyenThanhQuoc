@@ -10,15 +10,16 @@ public class DisplayPrime {
             try{
                 System.out.println("Input number");
                 number=sc.nextInt();
-                if(number<0||number==0){
-                    System.out.println("Invalid Input");
-                    continue;
-                }
-                break;
             } catch (Exception e) {
                 System.out.println("Invalid input");
-                return;
+                sc.nextLine();
+                continue;
             }
+            if(number<0||number==0){
+                System.out.println("Invalid Input");
+                continue;
+            }
+            break;
         }
         int count=0;
         int prime=2;
