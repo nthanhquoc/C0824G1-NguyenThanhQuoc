@@ -45,7 +45,7 @@ public class Geometry {
                     }
                     break;
                 case 2:
-                    while (true) {  // Vòng lặp để người dùng chọn kiểu tam giác vuông.
+                    while (true) {
                         System.out.println("Do You Want to Print the square triangle");
                         System.out.println("1. Top-left");
                         System.out.println("2. Top-right");
