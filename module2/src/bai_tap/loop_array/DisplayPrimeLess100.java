@@ -1,4 +1,4 @@
-package bai_tap;
+package bai_tap.loop_array;
 
 public class DisplayPrimeLess100 {
     public static void main(String[] args) {
