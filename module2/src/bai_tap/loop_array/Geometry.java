@@ -8,13 +8,12 @@ public class Geometry {
         int width;
         int height;
         int choice;
-
+        System.out.println("Menu: ");
+        System.out.println("1. Print the rectangle");
+        System.out.println("2. Print the square triangle");
+        System.out.println("3. Print isosceles triangle");
+        System.out.println("4. Exit");
         while (true) {
-            System.out.println("Menu: ");
-            System.out.println("1. Print the rectangle");
-            System.out.println("2. Print the square triangle");
-            System.out.println("3. Print isosceles triangle");
-            System.out.println("4. Exit");
             try {
                 System.out.println("Enter your choice: ");
                 choice = sc.nextInt();
@@ -45,13 +44,13 @@ public class Geometry {
                     }
                     break;
                 case 2:
+                    System.out.println("Do You Want to Print the square triangle");
+                    System.out.println("1. Top-left");
+                    System.out.println("2. Top-right");
+                    System.out.println("3. Bottom-left");
+                    System.out.println("4. Bottom-right");
+                    System.out.println("5. Exit");
                     while (true) {
-                        System.out.println("Do You Want to Print the square triangle");
-                        System.out.println("1. Top-left");
-                        System.out.println("2. Top-right");
-                        System.out.println("3. Bottom-left");
-                        System.out.println("4. Bottom-right");
-                        System.out.println("5. Exit");
                         int chooseRectangle;
                         try {
                             System.out.println("Enter your choice: ");

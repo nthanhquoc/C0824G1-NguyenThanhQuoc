@@ -2,18 +2,13 @@ package bai_tap.loop_array;
 
 public class DisplayPrimeLess100 {
     public static void main(String[] args) {
-        int count=0;
-        int prime=2;
-        while(count<100){
-            if (isPrime(prime)) {
-                if(prime<100){
-                    System.out.print(prime+" ");
-                    count++;
-                }
+        for (int i = 2; i < 100; i++) {
+            if (isPrime(i)) {
+                System.out.print(i+" ");
             }
-            prime++;
         }
     }
+
     public static boolean isPrime(int num) {
         if (num < 2) {
             return false;
