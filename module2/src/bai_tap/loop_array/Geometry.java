@@ -8,6 +8,7 @@ public class Geometry {
         int width;
         int height;
         int choice;
+        String x;
         System.out.println("Menu: ");
         System.out.println("1. Print the rectangle");
         System.out.println("2. Print the square triangle");
@@ -36,7 +37,7 @@ public class Geometry {
                     System.out.println("Enter height: ");
                     height = sc.nextInt();
                     for (int i = 0; i < height; i++) {
-                        String x = "";
+                        x = "";
                         for (int j = 0; j < width; j++) {
                             x += "*";
                         }
@@ -72,7 +73,7 @@ public class Geometry {
                                 System.out.println("Enter Height:");
                                 height = sc.nextInt();
                                 for (int i = 0; i < height; i++) {
-                                    String x = "";
+                                    x = "";
                                     for (int j = 0; j <= i; j++) {
                                         x += "*";
                                     }
@@ -97,7 +98,7 @@ public class Geometry {
                                 System.out.println("Enter Height: ");
                                 height = sc.nextInt();
                                 for (int i = 0; i < height; i++) {
-                                    String x = "";
+                                    x = "";
                                     for (int j = i; j < height; j++) {
                                         x += "*";
                                     }
@@ -125,7 +126,7 @@ public class Geometry {
                     System.out.println("Enter Height:");
                     height = sc.nextInt();
                     for (int i = 1; i <= height; i++) {
-                        String x = "";
+                        x = "";
                         for (int j = 1; j <= height - i; j++)
                             x += " ";
                         for (int j = 1; j <= 2 * i - 1; j++)
