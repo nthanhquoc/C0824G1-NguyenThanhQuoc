@@ -1,5 +1,7 @@
 package bai_tap.class_practice.ex1;
 
+import java.util.Scanner;
+
 public class QuadraticEquation {
     double variableA;
     double variableB;
@@ -30,18 +32,45 @@ public class QuadraticEquation {
     }
 
     public double getRoot1() {
-        if (getDiscriminant() > 0) {
-            return (-variableB + Math.sqrt(getDiscriminant())) / (2 * variableA);
+        if (delta > 0) {
+            return (-variableB + Math.sqrt(delta)) / (2 * variableA);
+        } else if (delta == 0) {
+            return -variableB / (2 * variableA);
         } else {
             return 0;
         }
     }
 
     public double getRoot2() {
-        if (getDiscriminant() > 0) {
-            return (-variableB - Math.sqrt(getDiscriminant())) / (2 * variableA);
+        if (delta > 0) {
+            return (-variableB - Math.sqrt(delta)) / (2 * variableA);
         } else {
             return 0;
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        double variableA;
+        double variableB;
+        double variableC;
+        System.out.print("Input a: ");
+        variableA = sc.nextDouble();
+        System.out.print("Input b: ");
+        variableB = sc.nextDouble();
+        System.out.print("Input c: ");
+        variableC = sc.nextDouble();
+        QuadraticEquation equation = new QuadraticEquation(variableA, variableB, variableC);
+        System.out.println("a = " + equation.getVariableA());
+        System.out.println("b = " + equation.getVariableB());
+        System.out.println("c = " + equation.getVariableC());
+        System.out.println("Delta = " + equation.getDiscriminant());
+        if (equation.getDiscriminant() > 0) {
+            System.out.printf("The equation has two roots: %.3f and %.3f\n", equation.getRoot1(), equation.getRoot2());
+        } else if (equation.getDiscriminant() == 0) {
+            System.out.printf("The equation has one root: %.3f\n", equation.getRoot1());
+        } else {
+            System.out.println("The equation has no real roots.");
         }
     }
 }

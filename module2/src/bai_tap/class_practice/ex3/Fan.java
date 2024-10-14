@@ -9,7 +9,13 @@ public class Fan {
     private double radius;
     private String color;
     public  void setSpeed(int speed) {
-        this.speed = speed;
+        if(speed==SLOW||speed==MEDIUM||speed==FAST){
+            this.speed=speed;
+        }
+        else{
+            System.out.println("Invalid speed. Setting to default speed");
+            this.speed=SLOW;
+        }
     }
     public int getSpeed() {
         return this.speed;
@@ -52,7 +58,7 @@ public class Fan {
     public static void main(String[] args) {
         Fan fan1=new Fan();
         fan1.setStatus(true);
-        fan1.setSpeed(10);
+        fan1.setSpeed(3);
         fan1.setColor("Blue");
         System.out.println(fan1.toString());
 
