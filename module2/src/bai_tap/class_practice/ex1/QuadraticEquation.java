@@ -4,6 +4,7 @@ public class QuadraticEquation {
     double variableA;
     double variableB;
     double variableC;
+    double delta;
 
     public QuadraticEquation(double variableA, double variableB, double variableC) {
         this.variableA = variableA;
@@ -24,7 +25,7 @@ public class QuadraticEquation {
     }
 
     public double getDiscriminant() {
-        double delta = Math.pow(variableB, 2) - 4 * variableC * variableA;
+        delta = Math.pow(variableB, 2) - 4 * variableC * variableA;
         return delta;
     }
 
