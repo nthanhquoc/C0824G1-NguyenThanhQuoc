@@ -34,16 +34,16 @@ public class MinArray {
             }
         }
         System.out.println(Arrays.toString(arr));
-        minArray(arr);
+        System.out.println("Min Of Array: "+minArray(arr));
     }
 
-    public static void minArray(int[] arr) {
+    public static int minArray(int[] arr) {
         int minArr = arr[0];
         for (int i = 1; i < arr.length; i++) {
             if (arr[i] < minArr) {
                 minArr = arr[i];
             }
         }
-        System.out.println("Min Of Array is Value: "+minArr);
+       return minArr;
     }
 }
