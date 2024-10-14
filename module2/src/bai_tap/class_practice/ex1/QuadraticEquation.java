@@ -54,12 +54,43 @@ public class QuadraticEquation {
         double variableA;
         double variableB;
         double variableC;
-        System.out.print("Input a: ");
-        variableA = sc.nextDouble();
-        System.out.print("Input b: ");
-        variableB = sc.nextDouble();
-        System.out.print("Input c: ");
-        variableC = sc.nextDouble();
+        while (true) {
+            try {
+                System.out.print("Input a: ");
+                variableA = sc.nextDouble();
+            } catch (Exception e) {
+                System.out.println("Invalid input");
+                sc.nextLine();
+                continue;
+            }
+            if (variableA == 0) {
+                System.out.println("Variable A must not be zero");
+                continue;
+            }
+            break;
+        }
+        while (true) {
+            try {
+                System.out.print("Input b: ");
+                variableB = sc.nextDouble();
+            } catch (Exception e) {
+                System.out.println("Invalid input");
+                sc.nextLine();
+                continue;
+            }
+            break;
+        }
+        while (true) {
+            try {
+                System.out.print("Input c: ");
+                variableC = sc.nextDouble();
+            } catch (Exception e) {
+                System.out.println("Invalid input");
+                sc.nextLine();
+                continue;
+            }
+            break;
+        }
         QuadraticEquation equation = new QuadraticEquation(variableA, variableB, variableC);
         System.out.println("a = " + equation.getVariableA());
         System.out.println("b = " + equation.getVariableB());
