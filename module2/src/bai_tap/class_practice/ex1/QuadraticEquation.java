@@ -34,8 +34,6 @@ public class QuadraticEquation {
     public double getRoot1() {
         if (delta > 0) {
             return (-variableB + Math.sqrt(delta)) / (2 * variableA);
-        } else if (delta == 0) {
-            return -variableB / (2 * variableA);
         } else {
             return 0;
         }
@@ -54,43 +52,12 @@ public class QuadraticEquation {
         double variableA;
         double variableB;
         double variableC;
-        while (true) {
-            try {
-                System.out.print("Input a: ");
-                variableA = sc.nextDouble();
-            } catch (Exception e) {
-                System.out.println("Invalid input");
-                sc.nextLine();
-                continue;
-            }
-            if (variableA == 0) {
-                System.out.println("Variable A must not be zero");
-                continue;
-            }
-            break;
-        }
-        while (true) {
-            try {
-                System.out.print("Input b: ");
-                variableB = sc.nextDouble();
-            } catch (Exception e) {
-                System.out.println("Invalid input");
-                sc.nextLine();
-                continue;
-            }
-            break;
-        }
-        while (true) {
-            try {
-                System.out.print("Input c: ");
-                variableC = sc.nextDouble();
-            } catch (Exception e) {
-                System.out.println("Invalid input");
-                sc.nextLine();
-                continue;
-            }
-            break;
-        }
+        String messageA = "Input a: ";
+        String messageB = "Input b: ";
+        String messageC = "Input c: ";
+        variableA = inputValue(sc, messageA);
+        variableB = inputValue(sc, messageB);
+        variableC = inputValue(sc, messageC);
         QuadraticEquation equation = new QuadraticEquation(variableA, variableB, variableC);
         System.out.println("a = " + equation.getVariableA());
         System.out.println("b = " + equation.getVariableB());
@@ -103,5 +70,21 @@ public class QuadraticEquation {
         } else {
             System.out.println("The equation has no real roots.");
         }
+    }
+
+    public static double inputValue(Scanner sc, String message) {
+        double variable;
+        while (true) {
+            try {
+                System.out.println(message);
+                variable = sc.nextDouble();
+            } catch (Exception e) {
+                System.out.println("Invalid input");
+                sc.nextLine();
+                continue;
+            }
+            break;
+        }
+        return variable;
     }
 }
