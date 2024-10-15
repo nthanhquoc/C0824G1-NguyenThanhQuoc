@@ -1,8 +1,8 @@
 package bai_tap.access_modifier.bt2;
 
 public class Student {
-    private String name;
-    private String classes;
+    public String name;
+    public String classes;
     public Student(){
         this.name = "John";
         this.classes = "C02";
