@@ -5,6 +5,7 @@ public class Triangle extends Shape {
     private double side2;
     private double side3;
     public Triangle(){
+        super();
         this.side1 = 1.0;
         this.side2=1.0;
         this.side3=1.0;
