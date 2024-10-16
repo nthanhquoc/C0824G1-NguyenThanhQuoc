@@ -36,4 +36,8 @@ public class Rectangle extends Shape implements Resizeable {
         this.width += this.width * percent / 100;
         this.height += this.height * percent / 100;
     }
+    @Override
+    public String toString() {
+        return "Rectangle [width=" + width + ", height=" + height + "]";
+    }
 }

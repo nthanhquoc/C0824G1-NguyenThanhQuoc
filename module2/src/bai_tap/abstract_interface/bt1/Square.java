@@ -26,4 +26,8 @@ public class Square extends Shape implements Resizeable{
     public void resize(double percent) {
         this.side += this.side * percent / 100;
     }
+    @Override
+    public String toString() {
+        return "Square [side=" + side + "]";
+    }
 }
