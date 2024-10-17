@@ -1,6 +1,6 @@
 package bai_tap.abstract_interface.bt2;
 
-public class Square extends Geometric implements Colorable {
+public class Square extends Geometric implements IColorable {
     private double side;
 
     public Square() {

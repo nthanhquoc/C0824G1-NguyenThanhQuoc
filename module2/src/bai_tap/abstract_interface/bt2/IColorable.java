@@ -1,6 +1,6 @@
 package bai_tap.abstract_interface.bt2;
 
-public interface Colorable {
+public interface IColorable {
     void howToColor();
 }
 

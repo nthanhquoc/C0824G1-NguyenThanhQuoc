@@ -1,6 +1,6 @@
 package bai_tap.abstract_interface.bt1;
 
-public class Rectangle extends Shape implements Resizeable {
+public class Rectangle extends Shape implements IResizeable {
     private double width;
     private double height;
     public Rectangle(){

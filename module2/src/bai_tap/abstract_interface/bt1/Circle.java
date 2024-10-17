@@ -1,6 +1,6 @@
 package bai_tap.abstract_interface.bt1;
 
-public class Circle extends Shape implements Resizeable {
+public class Circle extends Shape implements IResizeable {
     private double radius;
 
     public Circle() {

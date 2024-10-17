@@ -15,8 +15,8 @@ public class Main {
                 double randomArea = 1 + rand.nextInt(100);
                 System.out.println("Loại hình: " + shape.toString());
                 System.out.println("Diện tích ban đầu: " + initialArea);
-                if (shape instanceof Resizeable) {
-                    ((Resizeable) shape).resize(randomArea);
+                if (shape instanceof IResizeable) {
+                    ((IResizeable) shape).resize(randomArea);
                     double newArea = shape.getArea();
                     System.out.println("Tăng Kích Thước Lên :" + randomArea + " ");
                     System.out.println("Dien Tich Sau Khi Tang Kich Thuoc " + newArea);

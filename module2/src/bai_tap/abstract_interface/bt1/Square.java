@@ -1,6 +1,6 @@
 package bai_tap.abstract_interface.bt1;
 
-public class Square extends Shape implements Resizeable{
+public class Square extends Shape implements IResizeable {
     private double side;
     public Square(){
         this.side = 1.0;
