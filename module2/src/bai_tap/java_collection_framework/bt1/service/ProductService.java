@@ -6,15 +6,16 @@ import bai_tap.java_collection_framework.bt1.repo.ProductRepo;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class ProductService {
+public class ProductService implements IProductService {
+    @Override
     public void sortProduct() {
         Collections.sort(ProductRepo.products);
     }
-
+    @Override
     public void addProduct(Product product) {
         ProductRepo.products.add(product);
     }
-
+    @Override
     public void editProduct(int id, String name, double price) {
         for (Product product : ProductRepo.products) {
             if (product.getId() == id) {
@@ -25,10 +26,11 @@ public class ProductService {
             System.out.println("Product with id " + id + " not found.");
         }
     }
-
+    @Override
     public void deleteProduct(int id) {
         ProductRepo.products.removeIf(product -> product.getId() == id);
     }
+    @Override
     public Product searchProduct(String name) {
         for(Product product : ProductRepo.products){
             if(product.getName().equals(name)){
@@ -40,6 +42,7 @@ public class ProductService {
         System.out.println("Product with name " + name + " not found.");
         return null;
     }
+    @Override
     public ArrayList<Product> getAllProducts() {
         return ProductRepo.products;
     }
