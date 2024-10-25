@@ -4,6 +4,7 @@ import bai_tap.java_collection_framework.bt1.enity.Product;
 import bai_tap.java_collection_framework.bt1.service.ProductService;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ProductController {
     private ProductService productService;
@@ -14,39 +15,23 @@ public class ProductController {
 
     public void addProduct(Product product) {
         productService.addProduct(product);
-        displayProducts();
     }
 
-    public void editProduct(int id, String newName, double newPrice) {
-        productService.editProduct(id, newName, newPrice);
-        displayProducts();
+    public boolean editProduct(int id, String newName, double newPrice) {
+        return productService.editProduct(id, newName, newPrice);
     }
 
-    public void deleteProduct(int id) {
-        productService.deleteProduct(id);
-        displayProducts();
+    public boolean deleteProduct(int id) {
+        return productService.deleteProduct(id);
     }
 
-    public void displayProducts() {
-        ArrayList<Product> products = productService.getAllProducts();
-        for (Product product : products) {
-            System.out.println(product);
-        }
-    }
-
-    public void displayProduct(Product product) {
-        if (product != null) {
-            System.out.println(product);
-        } else {
-            System.out.println("Product not found.");
-        }
-    }
     public void sortProducts() {
         productService.sortProduct();
-        displayProducts();
     }
-
-    public void searchProduct(int id) {
-        Product product = productService.searchProduct(id);
+    public List<Product> getAllProducts(){
+        return productService.getAllProducts();
+    }
+    public Product searchProduct(int id) {
+        return productService.searchProduct(id);
     }
 }
