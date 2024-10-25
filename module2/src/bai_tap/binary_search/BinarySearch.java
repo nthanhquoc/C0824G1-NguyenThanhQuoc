@@ -17,6 +17,13 @@ public class BinarySearch {
         System.out.println("Mang Sau Khi Sap Xep la " + Arrays.toString(arr));
         value = getInput("Input value to search", sc);
         int result = binarySearch(arr, 0, arr.length - 1, value);
+        displayIndex(result);
+
+        int result2 = binarySearch2(arr, value);
+        displayIndex(result2);
+    }
+
+    private static void displayIndex(int result) {
         if (result == -1) {
             System.out.println("Not found");
         } else {
@@ -62,6 +69,20 @@ public class BinarySearch {
         }
         return -1;
     }
-
-
+    public static int binarySearch2(int[] arr, int value) {
+        int low=arr[0];
+        int high=arr[arr.length-1];
+        while(low<=high) {
+            int mid=(low+high)/2;
+            if(arr[mid]==value) {
+                return mid;
+            }else if(arr[mid]<value) {
+                low=mid+1;
+            }
+            else {
+                high=mid-1;
+            }
+        }
+        return -1;
+    }
 }
