@@ -46,7 +46,7 @@ public class ProductController {
         displayProducts();
     }
 
-    public void searchProduct(String name) {
-        Product product = productService.searchProduct(name);
+    public void searchProduct(int id) {
+        Product product = productService.searchProduct(id);
     }
 }

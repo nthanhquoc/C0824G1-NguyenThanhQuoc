@@ -79,8 +79,8 @@ public class ProductView {
             case 3:
                 while (true) {
                     try {
-                        System.out.println("Input Name to Search: ");
-                        name = sc.next();
+                        System.out.println("Input Id to Search: ");
+                        id = sc.nextInt();
                     } catch (Exception e) {
                         System.out.println("Invalid input. Try again.");
                         sc.nextLine();
@@ -88,7 +88,7 @@ public class ProductView {
                     }
                     break;
                 }
-                controller.searchProduct(name);
+                controller.searchProduct(id);
                 break;
             case 4:
                 System.out.println("Sort Products To Prices");

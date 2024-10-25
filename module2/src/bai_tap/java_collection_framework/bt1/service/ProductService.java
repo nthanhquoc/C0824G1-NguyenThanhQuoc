@@ -31,15 +31,15 @@ public class ProductService implements IProductService {
         ProductRepo.products.removeIf(product -> product.getId() == id);
     }
     @Override
-    public Product searchProduct(String name) {
+    public Product searchProduct(int id) {
         for(Product product : ProductRepo.products){
-            if(product.getName().equals(name)){
+            if(product.getId()==id){
                 System.out.println(product);
                 return product;
             }
 
         }
-        System.out.println("Product with name " + name + " not found.");
+        System.out.println("Product with id " + id + " not found.");
         return null;
     }
     @Override
