@@ -1,15 +1,29 @@
 package thuc_hanh.mvc.service.impl;
 
 import thuc_hanh.mvc.entity.Student;
-import thuc_hanh.mvc.repo.StudentRepo;
+import thuc_hanh.mvc.repository.StudentRepository;
 import thuc_hanh.mvc.service.IStudentService;
+import thuc_hanh.mvc.utils.sort.ComparatorStudentById;
+
+import java.util.List;
 
 public class StudentService implements IStudentService {
-    private static StudentRepo studentRepository = new StudentRepo();
+    private static StudentRepository studentRepository = new StudentRepository();
     @Override
-    public Student[] getAll() {
-        Student[] students = studentRepository.getAll();
+    public List<Student> getAll() {
+        List<Student> students = studentRepository.getAll();
 
         return students;
     }
+
+    @Override
+    public List<Student> getAllSortById() {
+        List<Student> students = studentRepository.getAll();
+        students.sort(new ComparatorStudentById());
+        return students;
+    }
+    public void addStudent(Student student) {
+        studentRepository.getAll().add(student);
+    }
 }
+

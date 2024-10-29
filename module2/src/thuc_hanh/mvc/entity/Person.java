@@ -2,7 +2,7 @@ package thuc_hanh.mvc.entity;
 
 import java.util.Objects;
 
-public class Person {
+public abstract class Person {
     private long code;
     private String name;
     private String address;
@@ -62,4 +62,6 @@ public class Person {
                 ", address='" + address + '\'' +
                 '}';
     }
+
+
 }
