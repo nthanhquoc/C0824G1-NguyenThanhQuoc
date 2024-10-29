@@ -13,16 +13,16 @@
         }
 
         public static void main(String[] args) {
-            double a;
-            double b;
-            double c;
+            double sideOne;
+            double sideTwo;
+            double sideThree;
             Scanner sc=new Scanner(System.in);
             while(true) {
-                a=inputSide(sc,"A");
-                b=inputSide(sc,"B");
-                c=inputSide(sc,"C");
+                sideOne=inputSide(sc,"A");
+                sideTwo=inputSide(sc,"B");
+                sideThree=inputSide(sc,"C");
                 try{
-                    validTriangle(a,b,c);
+                    validTriangle(sideOne,sideTwo,sideThree);
                     System.out.println("Valid Triangle");
                     break;
                 }catch (IllegalTriangleException e){
