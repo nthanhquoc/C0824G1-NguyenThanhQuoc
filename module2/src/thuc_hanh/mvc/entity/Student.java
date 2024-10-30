@@ -32,18 +32,18 @@ public class Student extends Person implements Comparable<Student> {
 
     @Override
     public String toString() {
-        return "Student{" +
-                "id="+super.getCode()+
-                ", name="+super.getName()+
-                ", address="+super.getAddress()+
-                "point=" + point +
-                ", className='" + className + '\'' +
-                '}';
+        return String.format(
+                "┌────────────┬────────────────┬─────────────────────┬───────┬─────────────┐%n" +
+                        "│    ID      │      Name      │      Address        │ Point │ Class Name  │%n" +
+                        "├────────────┼────────────────┼─────────────────────┼───────┼─────────────┤%n" +
+                        "│ %-10s │ %-14s │ %-19s │ %-5s │ %-11s │%n" +
+                        "└────────────┴────────────────┴─────────────────────┴───────┴─────────────┘",
+                super.getCode(), super.getName(), super.getAddress(), point, className
+        );
     }
-
     @Override
     public int compareTo(Student o) {
-        if(this.getCode() > o.getCode()) {
+        if (this.getCode() > o.getCode()) {
             return 1;
         } else if (this.getCode() == o.getCode()) {
             return 0;

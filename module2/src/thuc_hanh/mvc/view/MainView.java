@@ -1,7 +1,9 @@
 package thuc_hanh.mvc.view;
 
 import thuc_hanh.mvc.controller.StudentController;
+import thuc_hanh.mvc.controller.TeacherController;
 import thuc_hanh.mvc.entity.Student;
+import thuc_hanh.mvc.entity.Teacher;
 
 import java.util.List;
 import java.util.Scanner;
@@ -19,7 +21,7 @@ public class MainView {
                     menuStudent();
                     break;
                 case 2:
-                    System.out.println("Quản lý giảng viên");
+                    menuTeacher();
                     break;
                 case 3:
                     return;
@@ -29,7 +31,28 @@ public class MainView {
         }
 
     }
-
+    public static void menuTeacher(){
+        TeacherController teacherController = new TeacherController();
+        while (true){
+            System.out.println("Menu quản lý giáo viên");
+            System.out.println("1. Hiển thị danh sách giáo viên");
+            System.out.println("2. Thêm mới Giáo Viên");
+            System.out.println("3. Sửa Thông tin Giáo viên");
+            System.out.println("4. Xóa Giáo Viên");
+            Scanner scanner = new Scanner(System.in);
+            int choice = inputPropertyNumberInteger("Lựa Chọn");
+            List<Teacher> teachers;
+            switch (choice) {
+                case 1:
+                    System.out.println("Danh Sách Giáo Viên");
+                    teachers=teacherController.getAll();
+                    for(Teacher teacher : teachers){
+                        System.out.println(teacher);
+                    }
+                    break;
+            }
+        }
+    }
     public static void menuStudent() {
         StudentController studentController = new StudentController();
         while (true) {
@@ -54,12 +77,11 @@ public class MainView {
                     break;
                 case 2:
                     System.out.println("Thêm Mới Học Sinh");
-                    Student newStudent = createNewStudent();
+                    Student newStudent = inputStudent();
                     studentController.addStudent(newStudent);
                     System.out.println("Học sinh mới đã được thêm thành công!");
                     break;
                 case 3:
-                    System.out.println("Sửa thông tin học sinh");
                     break;
                 case 4:
                     System.out.println("Xóa học sinh");
@@ -118,7 +140,7 @@ public class MainView {
         return value;
     }
 
-    public static Student createNewStudent() {
+    public static Student inputStudent() {
         Scanner scanner = new Scanner(System.in);
         int id;
         String name;
