@@ -3,7 +3,8 @@ package thuc_hanh.junit.bt1.apj_2023_junit_calculator.src;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.DisplayName;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 public class SimpleCalculatorTest {
     @Test
