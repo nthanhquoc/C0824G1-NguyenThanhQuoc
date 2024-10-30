@@ -1,5 +1,6 @@
 package thuc_hanh.mvc.view;
 
+import bai_tap.io_file.bt2.Country;
 import thuc_hanh.mvc.controller.StudentController;
 import thuc_hanh.mvc.controller.TeacherController;
 import thuc_hanh.mvc.entity.Student;
@@ -71,15 +72,12 @@ public class MainView {
                 case 1:
                     System.out.println("Hiển thị danh sách học sinh");
                     students = studentController.getAll();
-                    for (int i = 0; i < students.size(); i++) {
-                        System.out.println(students.get(i));
-                    }
+                    System.out.println(Student.printStudents(students));
                     break;
                 case 2:
                     System.out.println("Thêm Mới Học Sinh");
                     Student newStudent = inputStudent();
                     studentController.addStudent(newStudent);
-                    System.out.println("Học sinh mới đã được thêm thành công!");
                     break;
                 case 3:
                     break;

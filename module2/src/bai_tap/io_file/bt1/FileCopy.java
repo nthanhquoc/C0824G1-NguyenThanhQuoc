@@ -39,7 +39,6 @@ public class FileCopy {
                 System.err.println("Tệp đích đã tồn tại.");
                 return;
             }
-
             BufferedWriter bw = new BufferedWriter(new FileWriter(targetFile));
             int charCount = 0;
             for (Integer number : numbers) {
@@ -53,14 +52,5 @@ public class FileCopy {
         } catch (IOException e) {
             System.err.println("Lỗi khi ghi vào file đích.");
         }
-    }
-
-    public static void main(String[] args) {
-        String sourcePath = "module2/src/bai_tap/io_file/bt1/number.txt";
-        String targetPath = "module2/src/bai_tap/io_file/bt1/copy.txt";
-        FileCopy fileCopy = new FileCopy(sourcePath, targetPath);
-
-        List<Integer> numbers = fileCopy.readFile(sourcePath);
-        fileCopy.writeFile(numbers);
     }
 }
