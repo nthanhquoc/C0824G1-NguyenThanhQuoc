@@ -22,5 +22,8 @@ public class StudentController {
     public void addStudent(Student student) {
         studentService.addStudent(student);
     }
+    public boolean editStudent(Student student) {
+        return studentService.editStudent(student);
+    }
 }
 

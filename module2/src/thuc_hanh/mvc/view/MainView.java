@@ -78,6 +78,9 @@ public class MainView {
                     System.out.println("Thêm Mới Học Sinh");
                     Student newStudent = inputStudent();
                     studentController.addStudent(newStudent);
+                    System.out.println("Đã thêm học sinh thành công!");
+                    students = studentController.getAll();
+                    System.out.println(Student.printStudents(students));
                     break;
                 case 3:
                     break;

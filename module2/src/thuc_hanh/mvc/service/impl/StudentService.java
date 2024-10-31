@@ -24,7 +24,13 @@ public class StudentService implements IStudentService {
         return students;
     }
     public void addStudent(Student student) {
-        studentRepository.getAll().add(student);
+        studentRepository.addStudent(student);
+    }
+
+    @Override
+    public boolean editStudent(Student student) {
+        studentRepository.editStudent(student);
+        return false;
     }
 }
 
