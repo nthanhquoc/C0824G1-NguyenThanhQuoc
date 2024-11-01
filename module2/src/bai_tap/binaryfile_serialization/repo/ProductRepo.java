@@ -60,4 +60,44 @@ public class ProductRepo {
             e.printStackTrace();
         }
     }
+    public static boolean editProduct(Product product) {
+        List<Product> products1 = getProducts();
+        boolean found=false;
+        for (int i = 0; i < products1.size(); i++) {
+            if (products1.get(i).getId() == product.getId()) {
+                products1.set(i, product);
+                found = true;
+                break;
+            }
+        }
+        if (found) {
+            saveProducts(products1);
+        }
+        return found;
+    }
+    public static boolean deleteProduct(int productID){
+        List<Product> products1 = getProducts();
+        boolean found=false;
+        for (int i = 0; i < products1.size(); i++) {
+            if (products1.get(i).getId() == productID) {
+                products1.remove(i);
+                found=true;
+                break;
+            }
+        }
+        if (found) {
+            saveProducts(products1);
+        }
+        return found;
+    }
+    private static void saveProducts(List<Product> products) {
+        File file = new File("module2/src/bai_tap/binaryfile_serialization/data/product.dat");
+        try (FileOutputStream out = new FileOutputStream(file);
+             ObjectOutputStream objectOutputStream = new ObjectOutputStream(out)) {
+            objectOutputStream.writeObject(products);
+        } catch (Exception e) {
+            System.out.println("Error saving products: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
 }

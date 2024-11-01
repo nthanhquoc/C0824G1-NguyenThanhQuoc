@@ -16,4 +16,12 @@ public class ProductService implements IProductService {
     public void addProduct(Product product){
         productRepo.addProduct(product);
     }
+
+    @Override
+    public boolean editProduct(Product product) {
+        return productRepo.editProduct(product);
+    }
+    public boolean deleteProduct(int productId){
+        return productRepo.deleteProduct(productId);
+    }
 }

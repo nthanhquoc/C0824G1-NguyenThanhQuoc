@@ -13,14 +13,16 @@ public class Main {
             System.out.println("1. Display Product");
             System.out.println("2. Add Product");
             System.out.println("3. Find Product");
-            System.out.println("4. Exit");
+            System.out.println("4. Edit Product");
+            System.out.println("5. Delete Product");
+            System.out.println("6. Exit");
             Scanner sc = new Scanner(System.in);
             int choice = 0;
-            while(true) {
+            while (true) {
                 try {
                     System.out.print("Enter your choice: ");
                     choice = Integer.parseInt(sc.nextLine());
-                    if(choice > 4 || choice < 1) {
+                    if (choice > 6 || choice < 1) {
                         System.out.println("Invalid choice, please enter between 1 and 4.");
                         continue;
                     }
@@ -60,30 +62,52 @@ public class Main {
                     products = productController.getProducts();
                     boolean foundProduct = false;
                     for (Product product : products) {
-                        if(product.getId() == productID) {
+                        if (product.getId() == productID) {
                             System.out.println(product);
                             foundProduct = true;
                             break;
                         }
                     }
-                    if(!foundProduct) {
+                    if (!foundProduct) {
                         System.out.println("Product not found.");
                     }
                     break;
                 case 4:
+                    Product updatedProduct = inputProduct();
+                    if (productController.editProduct(updatedProduct)) {
+                        System.out.println("Product edited successfully.");
+                        products = productController.getProducts();
+                        for (Product product : products) {
+                            System.out.println(product);
+                        }
+                    } else {
+                        System.out.println("Product not found.");
+                    }
+                    break;
+                case 5:
+                    System.out.print("Enter product ID: ");
+                    int id = Integer.parseInt(sc.nextLine());
+                    if (productController.deleteProduct(id)) {
+                        System.out.println("Product deleted successfully.");
+                    } else {
+                        System.out.println("Product not found.");
+                    }
+                    break;
+                case 6:
                     return;
             }
         }
     }
-    public static Product inputProduct(){
+
+    public static Product inputProduct() {
         Scanner sc = new Scanner(System.in);
         int id;
         String name;
         double price;
         String manufacturer;
         String description;
-        while(true){
-            try{
+        while (true) {
+            try {
                 System.out.print("Input Product ID: ");
                 id = Integer.parseInt(sc.nextLine());
                 if (id < 0) {
@@ -96,8 +120,8 @@ public class Main {
             }
 
         }
-        while(true){
-            try{
+        while (true) {
+            try {
                 System.out.print("Input Product Name: ");
                 name = sc.nextLine();
                 break;
@@ -105,8 +129,8 @@ public class Main {
                 System.out.println("Invalid input. Try again.");
             }
         }
-        while(true){
-            try{
+        while (true) {
+            try {
                 System.out.print("Input Product Price: ");
                 price = Double.parseDouble(sc.nextLine());
                 break;
@@ -114,18 +138,17 @@ public class Main {
                 System.out.println("Invalid input. Try again.");
             }
         }
-        while(true){
-            try{
+        while (true) {
+            try {
                 System.out.print("Input Product Manufacturer: ");
                 manufacturer = sc.nextLine();
                 break;
-            }
-            catch(Exception e){
+            } catch (Exception e) {
                 System.out.println("Invalid input. Try again.");
             }
         }
-        while(true){
-            try{
+        while (true) {
+            try {
                 System.out.print("Input Product Description: ");
                 description = sc.nextLine();
                 break;

@@ -15,4 +15,10 @@ public class ProductController {
     public void addProduct(Product product) {
         productService.addProduct(product);
     }
+    public boolean editProduct(Product product) {
+        return productService.editProduct(product);
+    }
+    public boolean deleteProduct(int productId) {
+        return productService.deleteProduct(productId);
+    }
 }
