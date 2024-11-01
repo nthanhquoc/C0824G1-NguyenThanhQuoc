@@ -7,13 +7,14 @@ import java.util.List;
 
 public class ProductService implements IProductService {
     private static ProductRepo productRepo = new ProductRepo();
+
     @Override
-    public List<Product>getProducts(){
+    public List<Product> getProducts() {
         List<Product> products = productRepo.getProducts();
         return products;
     }
 
-    public void addProduct(Product product){
+    public void addProduct(Product product) {
         productRepo.addProduct(product);
     }
 
@@ -21,7 +22,8 @@ public class ProductService implements IProductService {
     public boolean editProduct(Product product) {
         return productRepo.editProduct(product);
     }
-    public boolean deleteProduct(int productId){
+
+    public boolean deleteProduct(int productId) {
         return productRepo.deleteProduct(productId);
     }
 }
