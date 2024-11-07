@@ -43,7 +43,7 @@ public class BookService implements IBookService {
         return books;
     }
 
-    public Book findBookById(int id){
+    public Book findBookById(int id) {
         return bookRepo.findBookById(id);
     }
 }

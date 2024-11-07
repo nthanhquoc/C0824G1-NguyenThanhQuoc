@@ -22,7 +22,7 @@ public class BookRepo {
             objectOutputStream.close();
             out.close();
         } catch (Exception e) {
-            System.out.println("Lỗi");
+            System.out.println("Error: " + e.getMessage());
         }
     }
 
@@ -76,21 +76,23 @@ public class BookRepo {
         }
         return found;
     }
-    public static boolean deleteBook(int id){
+
+    public static boolean deleteBook(int id) {
         List<Book> books = getBooks();
-        boolean found=false;
-        for(int i=0;i<books.size();i++){
-            if(books.get(i).getId()==id){
+        boolean found = false;
+        for (int i = 0; i < books.size(); i++) {
+            if (books.get(i).getId() == id) {
                 books.remove(i);
-                found=true;
+                found = true;
                 break;
             }
         }
-        if(found){
+        if (found) {
             saveBooks(books);
         }
         return found;
     }
+
     private static void saveBooks(List<Book> books) {
         File file = new File("module2/src/case_study/data/Book.dat");
         try (FileOutputStream out = new FileOutputStream(file);
@@ -101,6 +103,7 @@ public class BookRepo {
             e.printStackTrace();
         }
     }
+
     public static Book findBookById(int id) {
         List<Book> books = getBooks();
         for (Book book : books) {

@@ -13,22 +13,29 @@ public class BookController {
         List<Book> products = bookService.getBooks();
         return products;
     }
+
     public void addBook(Book book) {
         bookService.addBook(book);
     }
+
     public boolean editBook(Book book) {
         return bookService.editBook(book);
     }
-    public boolean deleteBook(int id){
+
+    public boolean deleteBook(int id) {
         return bookService.deleteBook(id);
     }
-    public List<Book> displayAllBookSortById(){
+
+    public List<Book> displayAllBookSortById() {
         return bookService.getAllSortById();
     }
-    public List<Book> displayAllBookSortByName(){
+
+    public List<Book> displayAllBookSortByName() {
         return bookService.getAllSortByName();
     }
+
     public Book findBookById(int id) {
         return bookService.findBookById(id);
     }
+
 }

@@ -1,8 +1,9 @@
 package case_study.entity;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Member {
+public class Member implements Serializable {
     private int memberId;
     private String name;
 
