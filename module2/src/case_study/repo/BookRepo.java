@@ -93,13 +93,13 @@ public class BookRepo {
         return found;
     }
 
-    private static void saveBooks(List<Book> books) {
+    public static void saveBooks(List<Book> books) {
         File file = new File("module2/src/case_study/data/Book.dat");
         try (FileOutputStream out = new FileOutputStream(file);
              ObjectOutputStream objectOutputStream = new ObjectOutputStream(out)) {
             objectOutputStream.writeObject(books);
         } catch (Exception e) {
-            System.out.println("Error saving products: " + e.getMessage());
+            System.out.println("Error saving books: " + e.getMessage());
             e.printStackTrace();
         }
     }

@@ -185,8 +185,7 @@ public class Main {
             System.out.println("6. Sort Members");
             System.out.println("7. Borrow Books");
             System.out.println("8. Return Books");
-            System.out.println("9. See Members Borrowed Books");
-            System.out.println("10. Back to Main Menu");
+            System.out.println("9. Back to Main Menu");
             System.out.print("Enter your choice: ");
             int option = scanner.nextInt();
             switch (option) {
@@ -215,8 +214,6 @@ public class Main {
                     returnBook();
                     break;
                 case 9:
-                    break;
-                case 10:
                     return;
                 default:
                     System.out.println("Invalid option. Please try again.");

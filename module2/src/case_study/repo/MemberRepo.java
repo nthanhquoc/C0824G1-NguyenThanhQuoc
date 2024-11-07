@@ -126,6 +126,14 @@ public class MemberRepo {
         BorrowReCord borrowRecord = new BorrowReCord(id, book);
         borrowReCords.add(borrowRecord);
         book.setStatus(false);
+        List<Book> books = BookRepo.getBooks();
+        for (Book b : books) {
+            if (b.getId() == book.getId()) {
+                b.setStatus(false);
+                break;
+            }
+        }
+        BookRepo.saveBooks(books);
         return true;
     }
 
@@ -138,11 +146,17 @@ public class MemberRepo {
             if (borrowRecord.getMemberId() == id && borrowRecord.getBook().getId() == book.getId()) {
                 borrowReCords.remove(borrowRecord);
                 book.setStatus(true);
+                List<Book> books = BookRepo.getBooks();
+                for (Book b : books) {
+                    if (b.getId() == book.getId()) {
+                        b.setStatus(true);
+                        break;
+                    }
+                }
+                BookRepo.saveBooks(books);
                 return true;
             }
         }
         return false;
     }
-
-
 }
