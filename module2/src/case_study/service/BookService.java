@@ -11,6 +11,15 @@ import java.util.List;
 public class BookService implements IBookService {
     private static BookRepo bookRepo = new BookRepo();
 
+    private static BookService instance;
+    private BookService() {}
+
+    public static synchronized BookService getInstance() {
+        if (instance == null) {
+            instance = new BookService();
+        }
+        return instance;
+    }
     @Override
     public List<Book> getBooks() {
         List<Book> products = bookRepo.getBooks();

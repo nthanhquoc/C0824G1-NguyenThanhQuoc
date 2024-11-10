@@ -7,7 +7,7 @@ import case_study.service.IBookService;
 import java.util.List;
 
 public class BookController {
-    private static IBookService bookService = new BookService();
+    private static IBookService bookService = BookService.getInstance();
 
     public List<Book> getBooks() {
         List<Book> products = bookService.getBooks();

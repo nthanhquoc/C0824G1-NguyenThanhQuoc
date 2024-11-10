@@ -9,7 +9,7 @@ import case_study.service.MemberService;
 import java.util.List;
 
 public class MemberController {
-    private static IMemberService memberService = new MemberService();
+    private static IMemberService memberService = MemberService.getInstance();
 
     public List<Member> getMembers() {
         List<Member> members = memberService.getMembers();
