@@ -429,25 +429,31 @@ public class Main {
     }
 
     private static void editMember() {
-        System.out.println("Input Member ID: ");
-        if (scanner.hasNextInt()) {
-            int id = scanner.nextInt();
-            scanner.nextLine();
-            System.out.println("Input Member Name: ");
-            String memberName = scanner.nextLine();
-            Member updatedMember = new Member(id, memberName);
-            if (memberController.editMember(updatedMember)) {
-                System.out.println("Member edited successfully.");
-                displayMembers();
+        try {
+            System.out.println("Input Member ID: ");
+            if (scanner.hasNextInt()) {
+                int id = scanner.nextInt();
+                scanner.nextLine();
+                System.out.println("Input Member Name: ");
+                String memberName = scanner.nextLine();
+                Member updatedMember = new Member(id, memberName);
+                if (memberController.editMember(updatedMember)) {
+                    System.out.println("Member edited successfully.");
+                    displayMembers();
+                } else {
+                    System.out.println("Member not found.");
+                }
             } else {
-                System.out.println("Member not found.");
+                System.out.println("Invalid input. Please enter a valid integer for Member ID.");
+                scanner.next();
             }
-        } else {
-            System.out.println("Invalid input. Please enter a valid integer for Member ID.");
-            scanner.next();
+        } catch (InputMismatchException e) {
+            System.out.println("Error: Invalid input type. Please enter correct values.");
+            scanner.nextLine();
+        } catch (Exception e) {
+            System.out.println("An unexpected error occurred: " + e.getMessage());
         }
     }
-
     private static void deleteMember() {
         int id;
         while (true) {
@@ -544,6 +550,7 @@ public class Main {
             }
         }
     }
+
     private static void returnBook() {
         int memberId = -1;
         int bookId = -1;
@@ -582,6 +589,7 @@ public class Main {
             }
         }
     }
+
     private static void displayBorrowedBooks() {
         List<BorrowReCord> borrowRecords = memberController.getBorrowRecords();
         if (borrowRecords.isEmpty()) {
