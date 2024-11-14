@@ -2,6 +2,7 @@ package finalModule2.bt1.view;
 
 import finalModule2.bt1.controller.BenhNhanController;
 import finalModule2.bt1.entity.BenhNhan;
+
 import java.util.List;
 import java.util.Scanner;
 
@@ -36,18 +37,23 @@ public class View {
             }
         }
     }
+
     private static void deleteBenhNhan() {
         System.out.println("Nhap Ma Benh Nhan Can Xoa: ");
         String maBenhAn = sc.nextLine();
         if (isBenhNhanExist(maBenhAn)) {
             System.out.println("Ban Xac Nhan Muon Xoa 1.Yes|2.No");
-            int subchoice=sc.nextInt();
+            int subchoice = sc.nextInt();
             switch (subchoice) {
                 case 1:
                     BenhNhanController.deleteBenhNhan(maBenhAn);
                     System.out.println("Xoa Benh Nhan Thanh Cong!");
                     break;
-                    case 2:break;
+                case 2:
+                    break;
+                default:
+                    System.out.println("Not Valid Choice");
+                    break;
             }
         } else {
             System.out.println("Ma Benh An Khong Ton Tai!");
