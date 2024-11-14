@@ -14,6 +14,6 @@ public class BenhAnThuong extends BenhAn {
 
     @Override
     public String toString() {
-        return "Benh An Thuong [Ma Benh An: " + getMaBenhAn() + ", Phi Nam Vien: " + phiNamVien + "]";
+        return "Benh An Thuong [Ma Benh Nhan: " + getMaBenhAn() + ", Phi Nam Vien: " + phiNamVien + "]";
     }
 }

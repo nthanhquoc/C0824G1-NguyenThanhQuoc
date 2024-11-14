@@ -33,15 +33,27 @@ public class BenhNhanRePo {
                 String ngayXuatVien = data[4];
                 String chuanDoan = data[5];
                 String benhAnType = data[6];
-                String additionalData1 = (data.length > 7) ? data[7] : "";
-                String additionalData2 = (data.length > 8) ? data[8] : "";
-
+                String additionalData1 = "";
+                String additionalData2 = "";
+                if (data.length > 7) {
+                    additionalData1 = data[7];
+                }
+                if (data.length > 8) {
+                    additionalData2 = data[8];
+                }
                 BenhAn benhAn;
                 if (benhAnType.equalsIgnoreCase("thuong")) {
-                    double amount = additionalData1.isEmpty() ? 0.0 : Double.parseDouble(additionalData1);
+                    double amount = 0.0;
+                    if (!additionalData1.isEmpty()) {
+                        amount = Double.parseDouble(additionalData1);
+                    }
                     benhAn = new BenhAnThuong(maBenhAn, amount);
                 } else if (benhAnType.equalsIgnoreCase("vip")) {
-                    benhAn = new BenAnVip(maBenhAn, additionalData1, additionalData2.isEmpty() ? 0 : Integer.parseInt(additionalData2));
+                    int vipDuration = 0;
+                    if (!additionalData2.isEmpty()) {
+                        vipDuration = Integer.parseInt(additionalData2);
+                    }
+                    benhAn = new BenAnVip(maBenhAn, additionalData1, vipDuration);
                 } else {
                     System.err.println("Invalid record type (neither 'thuong' nor 'vip'): " + line);
                     continue;
@@ -49,6 +61,7 @@ public class BenhNhanRePo {
                 BenhNhan benhNhan = new BenhNhan(maBenhNhan, tenBenhNhan, ngayNhapVien, ngayXuatVien, chuanDoan, benhAn);
                 benhNhans.add(benhNhan);
             }
+            bufferedReader.close();
         } catch (FileNotFoundException e) {
             throw new RuntimeException("File not found: " + e.getMessage());
         } catch (IOException e) {
@@ -63,16 +76,22 @@ public class BenhNhanRePo {
             BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
             List<String> lines = new ArrayList<>();
             String line;
+            boolean recordFound = false;
+
             while ((line = bufferedReader.readLine()) != null) {
                 if (!line.startsWith(maBenhAn)) {
                     lines.add(line);
+                } else {
+                    recordFound = true;
                 }
             }
             bufferedReader.close();
-            if (lines.isEmpty()) {
+
+            if (!recordFound) {
                 System.out.println("No records found with maBenhAn: " + maBenhAn);
                 return;
             }
+
             BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file));
             for (String record : lines) {
                 bufferedWriter.write(record);
@@ -85,6 +104,4 @@ public class BenhNhanRePo {
             throw new RuntimeException("Error while deleting record: " + e.getMessage());
         }
     }
-
-
 }

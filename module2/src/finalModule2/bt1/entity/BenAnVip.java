@@ -20,6 +20,6 @@ public class BenAnVip extends BenhAn {
 
     @Override
     public String toString() {
-        return "Benh An VIP [Ma Benh An: " + getMaBenhAn() + ", Loai VIP: " + loaiVip + ", Thoi Han VIP: " + thoiHanVip + " ngay]";
+        return "Benh An VIP [Ma Benh Nhan: " + getMaBenhAn() + ", Loai VIP: " + loaiVip + ", Thoi Han VIP: " + thoiHanVip + " ngay]";
     }
 }
