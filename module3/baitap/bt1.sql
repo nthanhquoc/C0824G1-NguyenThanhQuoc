@@ -1,12 +1,12 @@
 create database student_management;
 use student_management;
 create table class(
-id int unique,
+id int auto_increment,
 name_class varchar(255) not null,
 primary key(id)
 );
-create table teacher(
-id int unique,
+create table teachers(
+id int auto_increment,
 name_teacher varchar(255) not null,
 age int,
 country varchar(255),
