@@ -13,3 +13,4 @@ from students
 left join marks on students.student_id=marks.student_id
 left join subjects on marks.sub_id=subjects.sub_id
 order by marks.mark desc, students.student_name asc;
+
