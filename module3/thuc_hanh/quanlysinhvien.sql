@@ -70,4 +70,7 @@ select * from subjects where credit<10;
 select s.student_id, s.student_name,c.class_name
 from students s join class c on s.class_id=c.class_id;
 select s.student_id,s.student_name,c.class_name
-from studetn s join class c on s.class_
+from students s join class c on s.class_id=c.class_id
+where c.class_name='A1';
+select s.student_id ,s.student_name,sub.sub_name,m.mark
+from students s join marks m on s.student_id=m.student_id join subjects sub on sub.sub_id=m.sub_id;
