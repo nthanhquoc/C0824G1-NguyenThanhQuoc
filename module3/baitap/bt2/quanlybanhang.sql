@@ -11,7 +11,7 @@ primary key(c_id)
 create table orders(
 o_id int auto_increment,
 c_id int,
-o_date date,
+o_date datetime,
 o_total_price double,
 primary key(o_id),
 foreign key (c_id) references customers(c_id)
