@@ -114,7 +114,7 @@ foreign key (id_hop_dong) references hop_dong(id_hop_dong),
 foreign key(id_dich_vu_di_kem) references dich_vu_di_kem(id_dich_vu_di_kem)
 );
 
-select * from nhan_vien where (ho_ten Like 'H%' or ho_ten Like 'T%' or ho_ten like 'K%') And length(ho_ten)<=15
+select * from nhan_vien where (ho_ten Like 'H%' or ho_ten Like 'T%' or ho_ten like 'K%') And length(ho_ten)<=15;
 
 select * 
 from khach_hang where DATEDIFF(current_date(),ngay_sinh)/365 between 18 and 50 
@@ -126,7 +126,7 @@ join loai_khach on loai_khach.id_loai_khach=khach_hang.id_loai_khach
 join hop_dong on khach_hang.id_khach_hang=hop_dong.id_khach_hang
 where loai_khach.ten_loaikhach="Diamond"
 group by khach_hang.ho_ten,loai_khach.ten_loaikhach
-order by so_lan_dat_phong asc
+order by so_lan_dat_phong asc;
 
 select khach_hang.id_khach_hang,khach_hang.ho_ten,loai_khach.ten_loaikhach,hop_dong.id_hop_dong,dich_vu.ten_dich_vu,
 hop_dong.ngay_lam_hop_dong,hop_dong.ngay_ket_thuc,(dich_vu.chi_phi_thue+hop_dong_chi_tiet.soluong *dich_vu_di_kem.gia) as "tong tien"
