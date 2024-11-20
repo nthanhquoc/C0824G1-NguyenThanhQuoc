@@ -39,4 +39,35 @@ foreign key (student_id) references students(student_id),
 check (mark >=0 And mark <=100)
 );
 
+insert into class
+values(1,'A1','2008-12-20',1);
+insert into class
+values(2,'A2','2008-12-22',1);
+insert into class
+values(3,'B3',current_date,0);
 
+insert into students(student_name,address,phone,status,class_id)
+Values('Hung','Ha Noi','0912113113',1,1);
+insert into students(student_name,address,status,class_id)
+values('Hoa','Hai Phong',1,1);
+insert into students(student_name,address,phone,status,class_id)
+values('Manh','HCM','0123123123',0,2);
+
+insert into subjects
+values (1,'CF',5,1),
+(2,'C',6,1),
+(3,'HDJ',5,1),
+(4,'RDBMS',10,1);
+
+insert into marks (sub_id,student_id,mark,exam_times)
+values(1,1,8,1),
+(1,2,10,2),
+(2,1,12,1);
+
+select * from students;
+select * from students where status=true;
+select * from subjects where credit<10;
+select s.student_id, s.student_name,c.class_name
+from students s join class c on s.class_id=c.class_id;
+select s.student_id,s.student_name,c.class_name
+from studetn s join class c on s.class_
