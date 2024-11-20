@@ -147,4 +147,41 @@ where dich_vu.id_dich_vu not in (
     And month(hop_dong.ngay_lam_hop_dong) in (1,2,3)
 );
 
+select dich_vu.id_dich_vu,dich_vu.ten_dich_vu,dich_vu.dien_tich,dich_vu.so_nguoi_toi_da,dich_vu.chi_phi_thue,loai_dich_vu.ten_loai_dich_vu
+from dich_vu
+left join loai_dich_vu on loai_dich_vu.id_loai_dich_vu=dich_vu.id_loai_dich_vu
+where dich_vu.id_dich_vu in (
+select hop_dong.id_dich_vu
+from hop_dong
+where year(hop_dong.ngay_lam_hop_dong)=2018
+) and dich_vu.id_dich_vu not in (
+	select hop_dong.id_dich_vu
+from hop_dong
+where year(hop_dong.ngay_lam_hop_dong)=2019
+);
+
+select distinct khach_hang.ho_ten
+from khach_hang;
+
+select count(hop_dong.id_khach_hang) as "So Luong Khach hang"
+,month(hop_dong.ngay_lam_hop_dong)	as "Thang"
+from hop_dong
+where year(hop_dong.ngay_lam_hop_dong)=2019
+group by month(hop_dong.ngay_lam_hop_dong)
+order by month(hop_dong.ngay_lam_hop_dong) asc;
+
+select hop_dong.id_hop_dong,hop_dong.ngay_lam_hop_dong,hop_dong.ngay_ket_thuc,hop_dong.tien_dat_coc
+,count(hop_dong_chi_tiet.id_hop_dong_chi_tiet) as "so luong dich vu di kem"
+from hop_dong
+left join hop_dong_chi_tiet on hop_dong.id_hop_dong=hop_dong_chi_tiet.id_hop_dong
+group by hop_dong.id_hop_dong,hop_dong.ngay_lam_hop_dong,hop_dong.ngay_ket_thuc,hop_dong.tien_dat_coc
+order by hop_dong.id_hop_dong;
+
+select dich_vu_di_kem.ten_dich_vu_di_kem,dich_vu_di_kem.gia,khach_hang.ho_ten
+from dich_vu_di_kem
+left join hop_dong_chi_tiet on hop_dong_chi_tiet.id_dich_vu_di_kem=dich_vu_di_kem.id_dich_vu_di_kem
+left join hop_dong on hop_dong.id_hop_dong=hop_dong_chi_tiet.id_hop_dong
+left join khach_hang on hop_dong.id_khach_hang=khach_hang.id_khach_hang
+left join loai_khach on loai_khach.id_loai_khach=khach_hang.id_loai_khach
+where loai_khach.ten_loaikhach='Diamond' and (khach_hang.dia_chi='Vinh'Or khach_hang.dia_chi='Quảng Ngãi');
 
