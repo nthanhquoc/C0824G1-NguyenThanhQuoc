@@ -185,3 +185,86 @@ left join khach_hang on hop_dong.id_khach_hang=khach_hang.id_khach_hang
 left join loai_khach on loai_khach.id_loai_khach=khach_hang.id_loai_khach
 where loai_khach.ten_loaikhach='Diamond' and (khach_hang.dia_chi='Vinh'Or khach_hang.dia_chi='Quảng Ngãi');
 
+select hop_dong.id_hop_dong,nhan_vien.ho_ten,khach_hang.ho_ten,khach_hang.sdt,dich_vu.ten_dich_vu,
+sum(hop_dong_chi_tiet.soluong) as "so_luong_dich_vu_di_kem",
+hop_dong.tien_dat_coc
+from hop_dong
+left join nhan_vien on hop_dong.id_nhan_vien =nhan_vien.id_nhan_vien
+left join khach_hang on hop_dong.id_khach_hang=khach_hang.id_khach_hang
+left join dich_vu on hop_dong.id_dich_vu=dich_vu.id_dich_vu
+left join hop_dong_chi_tiet on hop_dong.id_hop_dong=hop_dong_chi_tiet.id_hop_dong
+where year(hop_dong.ngay_lam_hop_dong)=2019 
+and month(hop_dong.ngay_lam_hop_dong) in (10,11,12)
+and hop_dong.id_hop_dong not in ( select distinct hop_dong.id_hop_dong from hop_dong
+where year(hop_dong.ngay_lam_hop_dong)=2019
+and month(hop_dong.ngay_lam_hop_dong) between 1 and 6
+)
+group by
+hop_dong.id_hop_dong,
+nhan_vien.ho_ten,
+khach_hang.ho_ten,
+khach_hang.sdt,
+dich_vu.ten_dich_vu,
+hop_dong.tien_dat_coc;
+
+SELECT 
+    dich_vu_di_kem.ten_dich_vu_di_kem AS TenDichVuDiKem,
+    COUNT(hop_dong_chi_tiet.id_dich_vu_di_kem) AS SoLanSuDung
+FROM 
+    hop_dong_chi_tiet
+LEFT JOIN 
+    dich_vu_di_kem ON hop_dong_chi_tiet.id_dich_vu_di_kem = dich_vu_di_kem.id_dich_vu_di_kem
+LEFT JOIN 
+    hop_dong ON hop_dong_chi_tiet.id_hop_dong = hop_dong.id_hop_dong
+WHERE 
+    hop_dong.id_khach_hang IS NOT NULL -- Chỉ tính các hợp đồng có khách hàng
+GROUP BY 
+    dich_vu_di_kem.ten_dich_vu_di_kem
+HAVING 
+    COUNT(hop_dong_chi_tiet.id_dich_vu_di_kem) = (
+        SELECT 
+            MAX(so_lan_su_dung)
+        FROM (
+            SELECT 
+                COUNT(hop_dong_chi_tiet.id_dich_vu_di_kem) AS so_lan_su_dung
+            FROM 
+                hop_dong_chi_tiet
+            LEFT JOIN 
+                hop_dong ON hop_dong_chi_tiet.id_hop_dong = hop_dong.id_hop_dong
+            WHERE 
+                hop_dong.id_khach_hang IS NOT NULL
+            GROUP BY 
+                hop_dong_chi_tiet.id_dich_vu_di_kem
+        ) AS subquery
+);
+
+select hop_dong_chi_tiet.id_hop_dong,dich_vu_di_kem.ten_dich_vu_di_kem,
+count(hop_dong_chi_tiet.id_dich_vu_di_kem)
+from hop_dong_chi_tiet
+left join dich_vu_di_kem on hop_dong_chi_tiet.id_dich_vu_di_kem=dich_vu_di_kem.id_dich_vu_di_kem
+group by hop_dong_chi_tiet.id_hop_dong,dich_vu_di_kem.ten_dich_vu_di_kem
+having count(hop_dong_chi_tiet.id_dich_vu_di_kem) = 1;
+
+SELECT 
+    nhan_vien.id_nhan_vien ,
+    nhan_vien.ho_ten ,
+    trinh_do.trinh_do ,
+    bo_phan.ten_bo_phan,
+    nhan_vien.sdt ,
+    nhan_vien.dia_chi 
+FROM 
+    nhan_vien
+LEFT JOIN 
+    hop_dong ON nhan_vien.id_nhan_vien = hop_dong.id_nhan_vien
+LEFT JOIN 
+    trinh_do ON nhan_vien.id_trinh_do = trinh_do.id_trinh_do
+LEFT JOIN 
+    bo_phan ON nhan_vien.id_bo_phan = bo_phan.id_bo_phan
+WHERE 
+    (hop_dong.ngay_lam_hop_dong BETWEEN '2018-01-01' AND '2019-12-31' OR hop_dong.id_hop_dong IS NULL)
+GROUP BY 
+    nhan_vien.id_nhan_vien, nhan_vien.ho_ten, trinh_do.trinh_do, bo_phan.ten_bo_phan, nhan_vien.sdt, nhan_vien.dia_chi
+HAVING 
+    COUNT(hop_dong.id_hop_dong) <= 3;
+
+
