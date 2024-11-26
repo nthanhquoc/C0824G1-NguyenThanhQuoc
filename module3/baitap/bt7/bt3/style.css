@@ -1,0 +1,177 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+nav {
+    background: #333;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    align-items: center;
+}
+
+.left-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+    padding: 5px;
+}
+
+nav a:hover {
+    text-decoration: none;
+    background-color: #666666;
+}
+
+nav .logo {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.main-content {
+    flex: 1;
+    display: flex;
+    padding: 20px;
+    background: #f8f9fa;
+}
+
+.sidebar {
+    width: 15%;
+    padding: 10px;
+    background: #f2f2f2;
+    text-align: center;
+}
+
+.sidebar a {
+    display: block;
+    text-decoration: none;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.sidebar a:hover {
+    color: #007bff;
+}
+
+.content {
+    width: 70%;
+    padding: 20px;
+    background: #fff;
+    border: 1px solid #ddd;
+    margin: 0 10px;
+}
+
+.content h1, .content h2 {
+    margin-bottom: 20px;
+}
+
+.ads {
+    width: 15%;
+    padding: 10px;
+}
+
+.ads .ad-box {
+    background: #f2f2f2;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+}
+
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+}
+
+@media (max-width: 1024px) {
+    .main-content {
+        flex-direction: column;
+    }
+
+    .sidebar, .content, .ads {
+        width: 100%;
+        margin: 0;
+    }
+
+    .content {
+        margin-bottom: 20px;
+    }
+
+    .ads {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .ads .ad-box {
+        width: 45%;
+        margin-bottom: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .left-nav, .right-nav {
+        flex-direction: column;
+    }
+
+    nav a {
+        margin: 5px 0;
+    }
+
+    .sidebar {
+        text-align: left;
+        padding: 20px;
+    }
+
+    .ads .ad-box {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    nav {
+        padding: 10px;
+    }
+
+    .main-content {
+        padding: 10px;
+    }
+
+    .content {
+        padding: 10px;
+    }
+
+    .ads .ad-box {
+        padding: 10px;
+    }
+
+    footer {
+        font-size: 0.9em;
+    }
+}
