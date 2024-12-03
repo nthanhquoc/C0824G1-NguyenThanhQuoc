@@ -38,6 +38,12 @@ public class ProductController extends HttpServlet {
                 req.setAttribute("product", productToUpdate);
                 req.getRequestDispatcher("WEB-INF/view/product/edit.jsp").forward(req, resp);
                 break;
+            case "search":
+                String searchQuery = req.getParameter("query");
+                List<Product> searchResults = productService.searchProductsByName(searchQuery);
+                req.setAttribute("products", searchResults);
+                req.getRequestDispatcher("WEB-INF/view/product/list.jsp").forward(req, resp);
+                break;
             default:
                 List<Product> products = productService.getAllProducts();
                 req.setAttribute("products", products);

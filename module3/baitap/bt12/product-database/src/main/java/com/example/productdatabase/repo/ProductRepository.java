@@ -80,4 +80,24 @@ public class ProductRepository {
             throw new RuntimeException(e);
         }
     }
+    public List<Product> findProductsByName(String query) {
+        List<Product> products = new ArrayList<>();
+        try {
+            PreparedStatement statement = BaseRepository.getConnection()
+                    .prepareStatement("SELECT * FROM products WHERE name LIKE ?");
+            statement.setString(1, "%" + query + "%");
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                Integer idProduct = resultSet.getInt("id");
+                String productName = resultSet.getString("name");
+                Double price = resultSet.getDouble("price");
+                String description = resultSet.getString("description");
+                products.add(new Product(idProduct, productName, price, description));
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return products;
+    }
+
 }

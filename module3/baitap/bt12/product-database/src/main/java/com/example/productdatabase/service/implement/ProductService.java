@@ -24,4 +24,7 @@ public class ProductService implements IProductService {
     public Product getProductById(Integer id) {
         return productRepository.findProductById(id);
     }
+    public List<Product> searchProductsByName(String query) {
+        return productRepository.findProductsByName(query);
+    }
 }

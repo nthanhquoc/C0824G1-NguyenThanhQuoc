@@ -10,5 +10,8 @@ public interface IProductService {
     public void deleteProduct(Integer id);
     public void updateProduct(Product product);
     public Product getProductById(Integer id) ;
+    public List<Product> searchProductsByName(String query);
+
+
 
 }
