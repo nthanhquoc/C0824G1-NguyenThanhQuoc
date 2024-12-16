@@ -1,3 +1,5 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,7 +17,17 @@
                     <h1 class="h3">Conversion Result</h1>
                 </div>
                 <div class="card-body">
-                    <p class="text-success fs-5">The amount in VND is: <strong>${vnd}</strong></p>
+                    <c:if test="${not empty vn}">
+                        <p class="text-success fs-5">
+                            The amount in VND is: <strong>${vn}</strong>
+                        </p>
+                    </c:if>
+
+                    <c:if test="${not empty error}">
+                        <p class="text-danger fs-5">
+                            Error: <strong>${error}</strong>
+                        </p>
+                    </c:if>
                 </div>
                 <div class="card-footer text-center">
                     <a href="/" class="btn btn-primary">Back to Home</a>
