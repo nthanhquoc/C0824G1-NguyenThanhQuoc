@@ -25,5 +25,11 @@
 <c:if test="${not empty result}">
     <h2>Result: ${result}</h2>
 </c:if>
+
+<c:if test="${not empty error}">
+    <div class="error">
+        <h3>${error}</h3>
+    </div>
+</c:if>
 </body>
 </html>

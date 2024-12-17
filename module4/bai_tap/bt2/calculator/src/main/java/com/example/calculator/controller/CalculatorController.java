@@ -1,7 +1,6 @@
-package com.example.calculator.Controller;
+package com.example.calculator.controller;
 
-import com.example.calculator.Service.CalculatorService;
-import com.example.calculator.Service.ICalculatorService;
+import com.example.calculator.service.ICalculatorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
