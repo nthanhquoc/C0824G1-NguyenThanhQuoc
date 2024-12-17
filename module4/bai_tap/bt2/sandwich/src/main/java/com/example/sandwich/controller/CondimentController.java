@@ -1,6 +1,6 @@
-package com.example.sandwich.Controller;
+package com.example.sandwich.controller;
 
-import com.example.sandwich.Service.ICondimentService;
+import com.example.sandwich.service.ICondimentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

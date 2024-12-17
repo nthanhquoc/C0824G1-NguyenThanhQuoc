@@ -1,4 +1,4 @@
-package com.example.sandwich.Service;
+package com.example.sandwich.service;
 
 public interface ICondimentService {
     boolean validateCondiments(String[] condiments);

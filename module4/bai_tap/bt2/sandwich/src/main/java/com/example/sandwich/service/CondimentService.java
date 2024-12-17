@@ -1,4 +1,4 @@
-package com.example.sandwich.Service;
+package com.example.sandwich.service;
 
 import org.springframework.stereotype.Service;
 
