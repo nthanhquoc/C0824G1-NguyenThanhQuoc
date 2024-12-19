@@ -1,38 +1,37 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
+<head th:replace="fragments::header"></head>
 <body>
-<h3>Remove Customer</h3>
-<p>
-    <a th:href="@{/products}">
-        Back to Product list
-    </a>
-</p>
-<div id="form">
-    <form action="#" th:action="@{/products/delete}" th:object="${product}"
-          method="POST" novalidate="novalidate">
-        <input type="hidden" th:field="*{id}"/>
-        <div>
-            <label for="name">Name</label>
-            <input type="text" id="name" th:field="*{name}"/>
+<div class="container mt-4">
+    <h3 class="mb-4">Remove Product</h3>
+    <p>
+        <a th:href="@{/products}" class="btn btn-secondary">Back to Product List</a>
+    </p>
+    <div class="card">
+        <div class="card-body">
+            <form th:action="@{/products/delete}" th:object="${product}" method="POST" novalidate="novalidate">
+                <input type="hidden" th:field="*{id}"/>
+                <div class="mb-3">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" id="name" th:field="*{name}" class="form-control" placeholder="Product name" disabled/>
+                </div>
+                <div class="mb-3">
+                    <label for="number" class="form-label">Price</label>
+                    <input type="number" id="number" th:field="*{price}" class="form-control" placeholder="Product price" disabled/>
+                </div>
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <input type="text" id="description" th:field="*{description}" class="form-control" placeholder="Product description" disabled/>
+                </div>
+                <div class="mb-3">
+                    <label for="productActor" class="form-label">Product Actor</label>
+                    <input type="text" id="productActor" th:field="*{productActor}" class="form-control" placeholder="Product actor" disabled/>
+                </div>
+                <button type="submit" class="btn btn-danger">Remove</button>
+                <a th:href="@{/products}" class="btn btn-secondary">Cancel</a>
+            </form>
         </div>
-        <div>
-            <label for="number">Price</label>
-            <input type="number" id="number" th:field="*{price}"/>
-        </div>
-        <div>
-            <label for="description">Description</label>
-            <input type="text" id="description" th:field="*{description}"/>
-        </div>
-        <div>
-            <label for="productActor">productActor</label>
-            <input type="text" id="productActor" th:field="*{productActor}"/>
-        </div>
-        <input type="submit" value="Remove"/>
-    </form>
+    </div>
 </div>
 </body>
 </html>
