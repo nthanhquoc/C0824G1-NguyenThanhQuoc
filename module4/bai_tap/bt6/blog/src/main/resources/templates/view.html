@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container mt-4">
+    <h3 class="mb-4">View Product</h3>
+    <p>
+        <a th:href="@{/blogs}" class="btn btn-secondary">Back to Product List</a>
+    </p>
+    <div class="card">
+        <div class="card-body">
+            <div class="mb-3">
+                <strong>Title:</strong>
+                <span th:text="${blog.title}" class="ms-2"></span>
+            </div>
+            <div class="mb-3">
+                <strong>Content:</strong>
+                <span th:text="${blog.content}" class="ms-2"></span>
+            </div>
+            <div class="mb-3">
+                <strong>Author:</strong>
+                <span th:text="${blog.author}" class="ms-2"></span>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
