@@ -37,27 +37,45 @@ public class ProductController {
     }
 
     @GetMapping("/{id}/edit")
-    public String update(@PathVariable int id, Model model) {
-        model.addAttribute("product", productService.findById(id));
+    public String update(@PathVariable int id, Model model,RedirectAttributes redirectAttributes) {
+        Product product = productService.findById(id);
+        if (product == null) {
+            redirectAttributes.addFlashAttribute("errorMessage", "Product not found");
+            return "redirect:/products";
+        }
+        model.addAttribute("product", product);
         return "/update";
     }
     @PostMapping("/update")
     public String update(Product product, RedirectAttributes redirectAttributes) {
-        productService.update(product.getId(), product);
+        boolean isUpdated = productService.update(product.getId(), product);
+        if (!isUpdated) {
+            redirectAttributes.addFlashAttribute("errorMessage", "Product not found");
+            return "redirect:/products";
+        }
         redirectAttributes.addFlashAttribute("toastMessage", "Product updated successfully");
         return "redirect:/products";
     }
 
     @GetMapping("/{id}/delete")
-    public String delete(@PathVariable int id, Model model) {
-        model.addAttribute("product", productService.findById(id));
+    public String delete(@PathVariable int id, Model model, RedirectAttributes redirectAttributes) {
+        Product product = productService.findById(id);
+        if (product == null) {
+            redirectAttributes.addFlashAttribute("errorMessage", "Product not found");
+            return "redirect:/products";
+        }
+        model.addAttribute("product", product);
         return "/delete";
     }
 
     @PostMapping("/delete")
     public String delete(Product product, RedirectAttributes redirectAttributes) {
-        productService.remove(product.getId());
-        redirectAttributes.addFlashAttribute("message", "Product deleted successfully");
+        boolean isRemoved = productService.remove(product.getId());
+        if (!isRemoved) {
+            redirectAttributes.addFlashAttribute("errorMessage", "Product not found");
+            return "redirect:/products";
+        }
+        redirectAttributes.addFlashAttribute("toastMessage", "Product deleted successfully");
         return "redirect:/products";
     }
 

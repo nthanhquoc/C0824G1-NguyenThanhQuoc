@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container mt-4">
+    <h3 class="mb-4">Add Blog</h3>
+    <p>
+        <a th:href="@{/blogs}" class="btn btn-secondary">Back to Blog list</a>
+    </p>
+    <div class="card">
+        <div class="card-body">
+            <form th:action="@{/blogs/create}" th:object="${blog}" method="POST" novalidate="novalidate">
+                <input type="hidden" th:field="*{id}"/>
+                <div class="mb-3">
+                    <label for="name" class="form-label">title</label>
+                    <input type="text" id="name" th:field="*{title}" class="form-control" placeholder="Enter product name" required/>
+                </div>
+                <div class="mb-3">
+                    <label for="description" class="form-label">Content</label>
+                    <textarea id="description" th:field="*{content}">
+
+                    </textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="productActor" class="form-label"> Actor</label>
+                    <input type="text" id="productActor" th:field="*{author}" class="form-control" placeholder="Enter product actor"/>
+                </div>
+                <button type="submit" class="btn btn-success">Save</button>
+                <a th:href="@{/blogs}" class="btn btn-secondary">Cancel</a>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

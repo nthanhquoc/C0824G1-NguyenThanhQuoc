@@ -5,9 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityTransaction;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @Repository
 public class ProductRepo {
@@ -35,8 +33,7 @@ public class ProductRepo {
         return BaseRepository.entityManager.find(Product.class, id);
     }
 
-    public void update(int id, Product product) {
-//        products.add(id, customer);
+    public boolean update(int id, Product product) {
         EntityTransaction transaction = BaseRepository.entityManager.getTransaction();
         transaction.begin();
 
@@ -44,18 +41,26 @@ public class ProductRepo {
         if (existingProduct != null) {
             product.setId(id);
             BaseRepository.entityManager.merge(product);
+            transaction.commit();
+            return true;
+        } else {
+            transaction.rollback();
+            return false;
         }
-
-        transaction.commit();
     }
 
-    public void remove(int id) {
+    public boolean remove(int id) {
         EntityTransaction transaction = BaseRepository.entityManager.getTransaction();
         transaction.begin();
+
         Product product = BaseRepository.entityManager.find(Product.class, id);
         if (product != null) {
             BaseRepository.entityManager.remove(product);
+            transaction.commit();
+            return true;
+        } else {
+            transaction.rollback();
+            return false;
         }
-        transaction.commit();
     }
 }

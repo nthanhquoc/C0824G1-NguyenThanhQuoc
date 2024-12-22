@@ -4,7 +4,6 @@ package com.example.productmanagement.service;
 import com.example.productmanagement.model.Product;
 import com.example.productmanagement.repo.ProductRepo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.annotation.AliasFor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -23,11 +22,11 @@ public class ProductService implements IProductService {
     public Product findById(int id) {
         return productRepo.findById(id);
     }
-    public void update(int id, Product product) {
-        productRepo.update(id, product);
+    public boolean update(int id, Product product) {
+        return productRepo.update(id, product);
     }
-    public void remove(int id) {
-        productRepo.remove(id);
+    public boolean remove(int id) {
+        return productRepo.remove(id);
     }
 
 }
