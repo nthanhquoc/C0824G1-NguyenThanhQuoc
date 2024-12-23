@@ -26,6 +26,16 @@
                     <label for="productActor" class="form-label">Author</label>
                     <input type="text" id="productActor" th:field="*{author}" class="form-control" placeholder="Enter product actor"/>
                 </div>
+                <div class="mb-3">
+                    <label for="category" class="form-label">Category</label>
+                    <select class="form-select" id="category" th:field="*{category}" required>
+                        <option value="">--- Select Category ---</option>
+                        <th:block th:each="category : ${categories}">
+                            <option th:value="${category.idCategory}" th:text="${category.nameCategory}"
+                                    th:selected="${blog.category != null and blog.category.idCategory == category.idCategory}"></option>
+                        </th:block>
+                    </select>
+                </div>
                 <button type="submit" class="btn btn-primary">Edit</button>
                 <a th:href="@{/blog}" class="btn btn-secondary">Cancel</a>
             </form>

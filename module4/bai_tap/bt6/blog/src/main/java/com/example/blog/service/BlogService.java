@@ -3,6 +3,8 @@ package com.example.blog.service;
 import com.example.blog.model.Blog;
 import com.example.blog.repository.BlogRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -26,5 +28,8 @@ public class BlogService implements IBlogService {
     }
     public Blog findById(int id){
         return blogRepository.findById(id).orElse(null);
+    }
+    public Page<Blog> findByTitle(String title, Integer page) {
+        return blogRepository.findAllByTitleContainingIgnoreCase(title, PageRequest.of(page, 5));
     }
 }

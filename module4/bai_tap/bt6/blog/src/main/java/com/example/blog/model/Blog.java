@@ -18,5 +18,7 @@ public class Blog {
     private String content;
     @Column(name = "author",columnDefinition = "VARCHAR(50)")
     private String author;
-
+    @ManyToOne
+    @JoinColumn(name = "id_category",referencedColumnName = "id_category")
+    private Category category;
 }

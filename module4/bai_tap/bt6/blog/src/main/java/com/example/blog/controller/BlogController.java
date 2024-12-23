@@ -2,13 +2,11 @@ package com.example.blog.controller;
 
 import com.example.blog.model.Blog;
 import com.example.blog.service.IBlogService;
+import com.example.blog.service.ICategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -17,15 +15,21 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 public class BlogController {
     @Autowired
     private IBlogService blogService;
+    @Autowired
+    private ICategoryService categoryService;
 
     @GetMapping("")
-    public ModelAndView viewAllBlog() {
-        return new ModelAndView("list", "blogs", blogService.getAll());
+    public ModelAndView viewAllBlog(Model model,
+                                    @RequestParam(defaultValue = "") String title,
+                                    @RequestParam(defaultValue = "0") int page) {
+        model.addAttribute("title", title); // Truyền giá trị tìm kiếm
+        return new ModelAndView("list", "blogs", blogService.findByTitle(title, page));
     }
 
     @GetMapping("/create")
     public String viewAddBlog(Model model) {
         model.addAttribute("blog", new Blog());
+        model.addAttribute("categories", categoryService.findAll());
         return "create";
     }
 
@@ -39,6 +43,7 @@ public class BlogController {
     @GetMapping("/{id}/edit")
     public String viewUpdate(@PathVariable int id, Model model) {
         Blog blog = blogService.findById(id);
+        model.addAttribute("categories", categoryService.findAll());
         model.addAttribute("blog", blog);
         return "edit";
     }
@@ -58,6 +63,7 @@ public class BlogController {
     public String viewDelete(@PathVariable int id, Model model) {
         Blog blog = blogService.findById(id);
         model.addAttribute("blog", blog);
+        model.addAttribute("categories", categoryService.findAll());
         return "delete";
     }
 
@@ -72,9 +78,10 @@ public class BlogController {
         return "redirect:/blogs";
     }
 
-    @GetMapping("/{id}/view")
+    @GetMapping("/{id}")
     public String viewBlog(@PathVariable int id, Model model) {
         Blog blog = blogService.findById(id);
+        model.addAttribute("categories", categoryService.findAll());
         model.addAttribute("blog", blog);
         return "view";
     }
