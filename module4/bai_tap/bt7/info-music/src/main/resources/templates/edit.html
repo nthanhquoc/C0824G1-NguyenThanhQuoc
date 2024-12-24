@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Update InfoMusic</title>
+</head>
+<body>
+<h1>Update InfoMusic</h1>
+<form th:action="@{/infoMusics/edit}" th:object="${infoMusic}" method="post">
+    <!-- Hidden field for ID -->
+    <input type="hidden" th:field="*{id}" />
+    <label for="nameMusic">Name:</label>
+    <input type="text" id="nameMusic" th:field="*{nameMusic}" />
+    <span th:if="${#fields.hasErrors('nameMusic')}" th:errors="*{nameMusic}"></span><br/>
+
+    <label for="actor">Actor:</label>
+    <input type="text" id="actor" th:field="*{actor}" />
+    <span th:if="${#fields.hasErrors('actor')}" th:errors="*{actor}"></span><br/>
+
+    <label for="pathMusic">Path:</label>
+    <input type="text" id="pathMusic" th:field="*{pathMusic}" />
+    <span th:if="${#fields.hasErrors('pathMusic')}" th:errors="*{pathMusic}"></span><br/>
+
+    <button type="submit">Update</button>
+</form>
+
+<a th:href="@{/infoMusics}">Back to List</a>
+</body>
+</html>

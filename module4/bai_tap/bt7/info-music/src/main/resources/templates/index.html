@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<h1>InfoMusic List</h1>
+<a href="/infoMusics/add">Add New InfoMusic</a>
+<table border="1">
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Actor</th>
+    <th>Path</th>
+    <th>Actions</th>
+  </tr>
+  <th:block th:each="music : ${infoMusics}">
+    <tr>
+      <td th:text="${music.id}"></td>
+      <td th:text="${music.nameMusic}"></td>
+      <td th:text="${music.actor}"></td>
+      <td th:text="${music.pathMusic}"></td>
+      <td>
+        <a th:href="@{/infoMusics/{id}/edit(id=${music.id})}">Edit</a>
+      </td>
+    </tr>
+  </th:block>
+</table>
+</body>
+</html>

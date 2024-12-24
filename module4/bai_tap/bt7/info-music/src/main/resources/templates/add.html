@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Add InfoMusic</h1>
+<form th:action="@{/infoMusics/add}" th:object="${infoMusic}" method="post">
+  <label>Name:</label>
+  <input type="text" th:field="*{nameMusic}" />
+  <span th:if="${#fields.hasErrors('nameMusic')}" th:errors="*{nameMusic}"></span><br/>
+
+  <label>Actor:</label>
+  <input type="text" th:field="*{actor}" />
+  <span th:if="${#fields.hasErrors('actor')}" th:errors="*{actor}"></span><br/>
+
+  <label>Path:</label>
+  <input type="text" th:field="*{pathMusic}" />
+  <span th:if="${#fields.hasErrors('pathMusic')}" th:errors="*{pathMusic}"></span><br/>
+
+  <button type="submit">Save</button>
+</form>
+</body>
+</html>
