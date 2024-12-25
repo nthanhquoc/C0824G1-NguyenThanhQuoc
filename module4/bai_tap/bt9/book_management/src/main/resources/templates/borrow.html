@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Borrow Book</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="container">
+<h1 class="my-4">Borrow Book</h1>
+
+<div>
+    <h2>Book Details</h2>
+    <p><strong>Title:</strong> <span th:text="${book.title}"></span></p>
+    <p><strong>Description:</strong> <span th:text="${book.description}"></span></p>
+    <p><strong>Available Copies:</strong> <span th:text="${book.number}"></span></p>
+</div>
+
+<div th:if="${borrowCode}" class="alert alert-success mt-3">
+    <h3>Borrow Successful!</h3>
+    <p>Your Borrow Code: <strong th:text="${borrowCode}"></strong></p>
+    <p>Keep this code to return the book later.</p>
+</div>
+
+<div th:if="${borrowCode == null}">
+    <form th:action="@{/books/borrow/{id}(id=${book.id})}" method="post">
+        <button type="submit" class="btn btn-primary mt-3">Confirm Borrow</button>
+    </form>
+</div>
+
+<p th:if="${message}" th:text="${message}" class="alert alert-danger mt-3"></p>
+
+<p><a th:href="@{/books}" class="btn btn-secondary mt-3">Back to Book List</a></p>
+</body>
+</html>
