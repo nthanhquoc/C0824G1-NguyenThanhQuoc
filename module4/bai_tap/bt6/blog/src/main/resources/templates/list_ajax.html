@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog Management</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container mt-5">
+  <div class="d-flex">
+    <input class="form-control me-2" type="text" placeholder="Search by title" id="searchInput">
+    <button class="btn btn-outline-success" id="btn-search">Search</button>
+  </div>
+
+  <button class="btn btn-primary mt-2" type="button" onclick="window.location.href='/blogs/create'">Create</button>
+
+  <div id="messages" class="mt-2"></div>
+
+  <table class="table table-hover mt-3">
+    <thead class="thead-dark">
+    <tr>
+      <th>#</th>
+      <th>Title</th>
+      <th>Author</th>
+      <th>Category</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody id="blogTable">
+    </tbody>
+  </table>
+  <button id="loadMoreButton" class="btn btn-primary" style="display: none;">Load More</button>
+</div>
+
+<!-- Bootstrap JS and dependencies -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  let page = 0;
+  let hasNext = true;
+
+  function loadBlogs(pageNumber, searchTitle = "") {
+    $.ajax({
+      url: `http://localhost:8080/api/blogs/search`,
+      type: "GET",
+      data: {
+        page: pageNumber,
+        title: searchTitle
+      },
+      success: function (response) {
+        const blogs = response.content;
+        if (blogs.length > 0) {
+          blogs.forEach(blog => {
+            $("#blogTable").append(
+                    `<tr>
+                <td>${blog.id}</td>
+                <td>${blog.title}</td>
+                <td>${blog.author}</td>
+                <td>${blog.category ? blog.category.nameCategory : 'Uncategorized'}</td>
+                <td>
+                  <button class='btn btn-warning btn-sm' onclick="window.location.href='/blogs/${blog.id}/edit'">Edit</button>
+                  <button class='btn btn-danger btn-sm' onclick="window.location.href='/blogs/${blog.id}/delete'">Delete</button>
+                  <button class='btn btn-info btn-sm' onclick="window.location.href='/blogs/${blog.id}'">View</button>
+                </td>
+              </tr>`
+            );
+          });
+          hasNext = !response.last;
+          if (hasNext) {
+            $("#loadMoreButton").show();
+          } else {
+            $("#loadMoreButton").hide();
+          }
+        } else {
+          $("#blogTable").append("<tr><td colspan='5'>No blogs found.</td></tr>");
+          $("#loadMoreButton").hide();
+        }
+      },
+      error: function () {
+        $('#messages').html('<p style="color: red;">Failed to load blogs. Please try again.</p>');
+      }
+    });
+  }
+
+  $(document).ready(function () {
+    loadBlogs(page);
+    $('#btn-search').click(function () {
+      const searchTitle = $('#searchInput').val();
+      page = 0;
+      hasNext = true;
+      $('#blogTable').empty();
+      loadBlogs(page, searchTitle);
+    });
+
+    $('#loadMoreButton').click(function () {
+      if (hasNext) {
+        page++;
+        const searchTitle = $('#searchInput').val();
+        loadBlogs(page, searchTitle);
+      }
+    });
+  });
+</script>
+</body>
+</html>

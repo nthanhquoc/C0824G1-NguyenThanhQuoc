@@ -5,6 +5,7 @@ import com.example.blog.model.Category;
 import com.example.blog.service.IBlogService;
 import com.example.blog.service.ICategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,23 +13,30 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin("*")
 @RequestMapping("/api")
 public class BlogRestController {
     @Autowired
     private IBlogService blogService;
-    @Autowired
-    private ICategoryService categoryService;
 
-    @GetMapping("/categories")
-    public ResponseEntity<List<Category>> getAllCategories() {
-        List<Category> categories = categoryService.findAll();
-        return new ResponseEntity<>(categories, HttpStatus.OK);
+    @GetMapping("/blogs/search")
+    public ResponseEntity<Page<Blog>> searchBlogs(
+            @RequestParam(required = false, defaultValue = "") String title,
+            @RequestParam(defaultValue = "0") int page) {
+        Page<Blog> blogPage = blogService.findByTitle(title, page);
+        if (blogPage.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+        return new ResponseEntity<>(blogPage, HttpStatus.OK);
     }
 
     @GetMapping("/blogs")
-    public ResponseEntity<List<Blog>> getAllBlogs() {
-        List<Blog> blogs = blogService.getAll();
-        return new ResponseEntity<>(blogs, HttpStatus.OK);
+    public ResponseEntity<Page<Blog>> getBlogs(@RequestParam(defaultValue = "0") int page) {
+        Page<Blog> blogPage = blogService.findByTitle("", page);
+        if (blogPage.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+        return new ResponseEntity<>(blogPage, HttpStatus.OK);
     }
 
     @GetMapping("/categories/{id}/blogs")
@@ -52,3 +60,4 @@ public class BlogRestController {
         return new ResponseEntity<>(blog, HttpStatus.OK);
     }
 }
+
