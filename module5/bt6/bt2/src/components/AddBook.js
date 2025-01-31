@@ -2,11 +2,10 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { useNavigate } from "react-router-dom";
 import { addBook } from "../service/BookService";
+import {toast} from "react-toastify";
 
 const AddBook = () => {
     const navigate = useNavigate();
-
-    // Schema xác thực bằng Yup
     const validationSchema = Yup.object({
         title: Yup.string()
             .required("Title is required")
@@ -21,6 +20,7 @@ const AddBook = () => {
         const result = await addBook(values);
         setSubmitting(false);
         if (result) {
+            toast.success("Book added successfully");
             navigate("/");
         } else {
             alert("Failed to add book");

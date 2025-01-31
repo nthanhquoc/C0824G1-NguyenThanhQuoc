@@ -1,6 +1,7 @@
 import {useEffect, useState} from "react";
 import {deleteBook, getBook} from "../service/BookService";
 import {NavLink} from "react-router-dom";
+import {toast} from "react-toastify";
 
 const ListBook=()=>{
     const [book,setBook]=useState([])
@@ -17,8 +18,8 @@ const ListBook=()=>{
         if (confirmDelete) {
             const success = await deleteBook(id);
             if (success) {
-                // Cập nhật danh sách sách sau khi xóa
                 setBook(book.filter((b) => b.id !== id));
+                toast.success("Deleted book successfully")
             } else {
                 alert("Failed to delete the book");
             }

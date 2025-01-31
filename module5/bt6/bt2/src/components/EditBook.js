@@ -3,6 +3,7 @@ import {NavLink, useNavigate, useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
 import {getBook, updateBook} from "../service/BookService";
 import {ErrorMessage, Field, Formik} from "formik";
+import {toast} from "react-toastify";
 
 const EditBook = ()=>{
     const {id}=useParams();
@@ -21,7 +22,7 @@ const EditBook = ()=>{
                     quantity: foundBook.quantity,
                 });
             } else {
-                console.log("Book not found with ID:", id); // Log ID không tìm thấy
+                console.log("Book not found with ID:", id);
                 navigate("/");
             }
         };
@@ -42,12 +43,11 @@ const EditBook = ()=>{
             console.log("Submitting values:", values);
             const result = await updateBook(id, values);
             console.log("API Response in handleSubmit:", result);
-
             if (result) {
-                console.log("Update successful:", result);
+                toast.success("Update Success",result);
                 navigate("/");
             } else {
-                console.error("Failed to update book");
+                toast.error("Update Failed", result);
             }
         } catch (err) {
             console.error("Error during update:", err.message);
